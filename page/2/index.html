@@ -1,319 +1,333 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Daguo">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="Daguo&#39;s blog"/>
+  <meta property="og:description" content="Personal blog which build by hexo from shudery/daguo" />
+  <meta property="og:site_name" content="Daguo&#39;s blog"/>
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://shudery.cnundefined"/>
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Daguo&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Personal blog which build by hexo from shudery/daguo">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Daguo's blog">
-<meta property="og:url" content="http://shudery.cn/page/2/index.html">
-<meta property="og:site_name" content="Daguo's blog">
-<meta property="og:description" content="Personal blog which build by hexo from shudery/daguo">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Daguo's blog">
-<meta name="twitter:description" content="Personal blog which build by hexo from shudery/daguo">
-  
-    <link rel="alternative" href="/atom.xml" title="Daguo&#39;s blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Daguo&#39;s blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/favicon.ico">
+    <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Site Title -->
+  <title>Daguo's blog</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
   
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?6844cbdd19a2a4d45b344596fc85ab18";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
 
 </head>
 
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="/img/daguo.jpg" class="js-avatar">
-			
-		</a>
+  <body>
+    <!-- Page Header -->
 
-		<hgroup>
-		  <h1 class="header-author"><a href="/">Daguo</a></h1>
-		</hgroup>
 
-		
-		<p class="header-subtitle">Hi guys, welcome!</p>
-		
-
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>Menu</li>
-						<li>Tags</li>
-						
-						
-						<li>Über</li>
-						
-					</ul>
-				</div>
-			</div>
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives">文章</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="https://github.com/shudery" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="http://weibo.com/u/2250284282?refer_flag=1001030201_" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="#" title="rss">rss</a>
-					        
-								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/教程/" style="font-size: 15px;">教程</a> <a href="/tags/程序员/" style="font-size: 15px;">程序员</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
-					</div>
-				</section>
-				
-				
-				
-
-				
-				
-				<section class="switch-part switch-part3">
-				
-					<div id="js-aboutme">Web front-end worker and a fans of baskerball.</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
-</div>
-
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Daguo&#39;s blog</p>
+          <p class="subtitle">个人简介：前端工程师，毕业于电子科技大学，热衷互联网技术，爱体育爱游戏爱幻想</p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/shudery">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:shudery@foxmail.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://weibo.com/u/2250284282/home?wvr=5&lf=reg">
+                  
+                  Weibo
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">Daguo</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-			
-				<img lazy-src="/img/daguo.jpg" class="js-avatar">
-			
-			</div>
-			<hgroup>
-			  <h1 class="header-author">Daguo</h1>
-			</hgroup>
-			
-			<p class="header-subtitle">Hi guys, welcome!</p>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives">文章</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/shudery" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="http://weibo.com/u/2250284282?refer_flag=1001030201_" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss">rss</a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
-</nav>
-
-      <div class="body-wrap">
-  
-    <article id="post-最近npm模块风波" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/04/最近npm模块风波/" class="article-date">
-  	<time datetime="2016-04-04T09:53:38.000Z" itemprop="datePublished">2016-04-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/最近npm模块风波/">最近的npm模块风波</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近，前端圈子有件事闹得沸沸扬扬，有一个叫做<code>leftpad</code>的npm模块被作者撤下，<br>导致一系列引用该模板的项目出现问题。</p>
-<p>其实本来大家对这件事的重点应该是关于NPM管理者对于模块作者著作权的保护不周上的，<br>但是可能由于这个模块的特殊性和他造成的影响之间的对比太强烈，<br>让大家都把注意力放到了这个模块本身和引用这个模块的做法上来了。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/04/最近npm模块风波/#more">Read More >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
-  
-</article>
+</header>
 
 
+<!-- Home Page Post List -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-md-offset-1">
+      
+        <div class="post-item-wrapper">
+  <a href="/2016/06/23/程序员/无所不能的Javascript——跨平台桌面GUI开发/" class="post-title">
+      Javascript开发跨平台桌面app
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2016-06-23</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/程序员/">程序员</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo"><p>electron原本是atom shell的项目，由于集成node丰富的本地系统级API，<br>提供了与操作系统交互的功能，所以归结起来，现在javascrpit的技术栈之所以如此宽广，<br>要得益于NodeJS将其中浏览器的环境中分离出来</p>
+<p>不过需要特别说明的是，这里生成的桌面应用，<br>实际上是Electron生成的一个由Javascrpit控制管理的迷你浏览器Chromeinum，<br>它其实是一个Chrome浏览器的试验版本，当然用的也是V8的内核<br></div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        
+
+<a class="tag" href="/tags/JavaScript/">JavaScript</a>
 
 
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+      
+    </div>
+  </div>
 </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2016-10-19 Daguo
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/shudery" target="_blank">Yilia</a> by Daguo
-      	</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2016/06/14/学习记录/chrome扩展程序入门手记/" class="post-title">
+      chrome扩展程序入门手记
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2016-06-14</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/学习记录/">学习记录</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo"><p>chrome是我非常喜欢的浏览器，它除了速度飞快，对前端代码支持友好的优点外，<br>还有非常丰富的扩展程序资源，提供了大量方便强大的web页面应用插件<br>这两天由于朋友的业务需求，接触了一些chrome扩展程序(即俗称插件)的有关代码<br>基于对谷歌开发者文档的学习，随手记录了写chrome插件的基本方法~<br></div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        
+
+<a class="tag" href="/tags/JavaScript/">JavaScript</a>
+
+
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2016/06/10/学习记录/如何搭建属于自己的vps vpn服务器/" class="post-title">
+      搭建属于自己的vpn服务器
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2016-06-10</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/学习记录/">学习记录</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo"><p>之前实习的时候想着有需要翻墙的时候用着公司的vpn就足够了<br>但是随着马上要去工作，还有对一些国外资源的需求（资源你懂的）<br>然后也前后被一些网上的vpn服务商坑过（各种掉线，不稳定）<br>决定自己租用一台国外的服务器vps<br></div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        
+
+<a class="tag" href="/tags/教程/">教程</a>
+
+
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2016/05/05/学习记录/用hexo搭建一个博客/" class="post-title">
+      用hexo搭建一个博客
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2016-05-05</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/学习记录/">学习记录</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo"><p>hexo出自一位台湾大学生之手，是如今搭建，管理博客，发布文章的非常好用的工具，<br>之前一直想搭建一个不依赖后台，便于管理和发布的博客，在朋友推荐下用了hexo<br>确实是简单粗暴好用~<br>基于hexo的博客搭建，对于已经配备了Node环境和git的前端开发人士，<br>搭建出一个博客那就是分分钟的事情，即使还没有弄好这些也不难搭建，<br>下面就从头大致说一说搭建的流程。<br></div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        
+
+<a class="tag" href="/tags/教程/">教程</a>
+
+
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2016/04/14/学习记录/javascript的原型链及其继承/" class="post-title">
+      javascript的对象构造和原型链继承
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2016-04-14</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/学习记录/">学习记录</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo"><p>这两天仔细地学习了JS的创建对象以及继承的方法，结合红宝石书整理了下笔记。<br>（红宝石这里讲了非常多的模式，看第一遍觉得还蛮乱的）<br>Javascript作为一种动态的面向对象语言，本身却没有类的概念和方法，<br>在创建对象和继承方面有很多有趣的实现和方法<br></div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        
+
+<a class="tag" href="/tags/JavaScript/">JavaScript</a>
+
+
+      
+    </div>
+  </div>
+</div>
+
+      
+    </div>
+  </div>
+</div>
+
+<!-- Pagination -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-md-offset-1">
+      <ul class="pagination">
+          
+              <li class="previous">
+                <a href="/">
+                  <span class="symbol-left">&lt;</span>
+                  <span>上一页</span>
+                </a>
+              </li>
+          
+          
+            <li class="next">
+              <a href="/page/3/">
+                <span>下一页</span>
+                <span class="symbol-right">&gt;</span>
+              </a>
+            </li>
+          
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
     </div>
   </div>
 </footer>
-    </div>
-    
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
 <script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: true,
-		isPost: false,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
-</script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
-
-
-
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
 </script>
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-  </div>
-</body>
+  </body>
 </html>
+
