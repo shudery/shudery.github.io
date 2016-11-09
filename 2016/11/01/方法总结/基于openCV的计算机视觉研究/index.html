@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Daguo">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="基于openCV的计算机视觉研究"/>
+  <meta property="og:description" content="Personal blog which build by hexo from shudery/daguo" />
+  <meta property="og:site_name" content="Daguo&#39;s blog"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://shudery.cnundefined"/>
+  
+    <link rel="alternate" href="/atom.xml" title="Daguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>基于openCV的计算机视觉研究 — Daguo&#39;s blog</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+  <div id='wx_pic' style='margin:0 auto;display:none;'>
+  <img src='/img/pic300.jpg' />
+  </div>
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/images/6.jpeg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">基于openCV的计算机视觉研究</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Articles
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/shudery">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/2016/03/01/%E9%9A%8F%E7%AC%94/%E5%85%B3%E4%BA%8E%E6%88%91/">
+                  
+                  About
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Daguo</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2016-11-01</span>
+            <!-- <span class="time">17:34:18</span> -->
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/学习方法/">学习方法</a>
+</span>
+          
+        </div>
+
+        <!-- Tags 
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/程序员/">#程序员</a>
+
+
+          </div>
+        
+        -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>##计算机视觉</p>
+<p>计算机视觉随着AR，VR，自动驾驶，人工智能等技术的崛起，已经成为一个迅速发展并且富有前景的领域。openCV(Open Source Computer Vision Library)与前端工程师经常打交道的openGL(Open Graphics Library)算是兄弟函数库，GL作为专业的图形编程接口，为程序员提供了功能强大，调用方便的底层图形库。openCV则致力于提供实现图像处理和计算机视觉的通用算法，降低了学习计算机设觉领域的门槛，让开发者可以更快的收获机器视觉带来的乐趣。</p>
+<p>说了这么多然而我是一个前端工程师啊，我更关心人类的视觉体验，无缘无故怎么会闲的蛋疼跑来弄计算机视觉呢；好吧这其实是我的毕业设计题目，之前没有事先找老师拿题目，在选择毕业设计的那个早晨，我睡过了。。许多我擅长的软件题目都被选了，所以我还感兴趣的就剩下了比较难啃的计算机视觉还有深度学习相关的课题，老师说如果我下学期要去实习，推荐我选相对简单的计算机视觉。选好题目和实验室学长打过招呼拿了一些学习资料后，由于各种事情搁置了一段时间，最近闲起来，决定开始学习这个火热的领域。</p>
+<p>回到正题，openCV是用C++编写的，但是依然有大量的C语言接口。该库也有大量的Python,Java and MATLAB/OCTAVE的接口，由于我最近刚好在复习C语言，平时写算法如果不能用ES6也都是用C，所以我觉得用C语言来完成后续的编程工作。</p>
+<p>学习过程中，感受到了很多资料的缺失和落后，国外要好一点，而且社区也远远没有前端技术社区的氛围，有一些小坑解决起来还挺浪费时间的，今天我已经把openCV在macOS的开发环境，包括xCode的一些设置，作为前端ST信仰粉，一直秉持不到万不得已不用IDE的态度，然而这次为了调试还是用xCode吧，基于sublime text的latex论文书写环境也配置好了，接下来就是一边理论学习，一边实践操作的过程了，希望年前能有一个比较好的完成度，同时对这个领域能有一些比较深入的见解。</p>
+<hr>
+<p>下面记录一下搭建环境的过程：</p>
+<h2 id="macOS搭建基于Xcode的openCV开发环境"><a href="#macOS搭建基于Xcode的openCV开发环境" class="headerlink" title="macOS搭建基于Xcode的openCV开发环境"></a>macOS搭建基于Xcode的openCV开发环境</h2><h4 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h4><p>mac下运用openCV的函数需要自行编译源代码，官方的解释是由于包括linux和macOS的各类Unix系统各自带的编译器不同，所以需要多几个步骤，可以从官网上选择相应版本的zip下载。openCV是使用非常宽松的BSD协议的开源项目，BSD比起MIT而言在修改代码，重新封装之后不要求一定要公开源码，现在计算机视觉开发尚未普及，这么做也是保护使用openCV公司的商业机密，让开发者可以毫无顾虑的使用openCV这个视觉库，所以也可以直接从github上下载openCV，</p>
+<h4 id="编译源码"><a href="#编译源码" class="headerlink" title="编译源码"></a>编译源码</h4><p>下载mac编译源码的工具cmake，直接一行homebrew代码搞定：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install cmake</div></pre></td></tr></table></figure></p>
+<p>然后解压下载的zip源代码，进入解压后的文件目录，创建一个存放openCV函数的目录release，在该目录下执行命令开始编译。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir release</div><div class="line">cd release</div><div class="line">cmake -G &quot;Unix Makefiles&quot;</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<p>部分命令可能需要sudo权限。</p>
+<h4 id="Xcode开发环境"><a href="#Xcode开发环境" class="headerlink" title="Xcode开发环境"></a>Xcode开发环境</h4><p>新建命令行command line tool工程，选择C或者C++语言，<br>可以复制下面这段<code>hello world</code>式的开始程序来调试，用通常的打印信息的函数可以检验大多数编程环境，但是由于这里涉及到代码库是否成功引入等问题，所以运用一些openCV的通用函数来看能否成功运行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#include &lt;highgui.h&gt;</div><div class="line">int main(int argc, char **argv)</div><div class="line">&#123;</div><div class="line">    IplImage *img = cvLoadImage( argv[1],-1);</div><div class="line">    cvNamedWindow( &quot;Example1&quot;, CV_WINDOW_AUTOSIZE);</div><div class="line">    cvShowImage( &quot;Example1&quot;, img);</div><div class="line">    cvWaitKey(0);</div><div class="line">    cvReleaseImage( &amp;img);</div><div class="line">    cvDestroyWindow( &quot;Example1&quot;);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这段代码功能很简单，可以读取本地的一张图片并展示出来，这里参数argv[1]需要替换为要显展示图片的地址，第二个参数有三个取值：-1为默认读取图像的原通道数；0为强制转化读取图像为灰度图；1为读取彩色图，每个函数的用途非常简单好用：<code>IplImage</code> 是一个存储图片的结构体，<code>cvLoadImage</code> 为存储图片的方式，<code>cvNamedWindow</code> 创建一个名字为<code>Example1</code>的窗口，第二个参数<code>CV_WINDOW_AUTOSIZE</code>表示窗口大小根据加载的图片自动变化，<code>cvWaitKey(0)</code>含义是读取到键盘操作继续进行程序，<code>cvReleaseImage</code>和<code>cvDestroyWindow</code>是释放结构体和窗口的空间，可以省略，加上更严谨。</p>
+<p>然后开始运行左上角的三角按钮，或者cmd+B构建，会提示找不到highgui.h的文件，所以我们还需要给这个项目配置头文件路径。</p>
+<h4 id="配置头文件路径"><a href="#配置头文件路径" class="headerlink" title="配置头文件路径"></a>配置头文件路径</h4><p>点一下左侧文件的项目根，中间代码区域找到Bulid Setting，在搜索栏中输入search<br>找到Header search Paths这一项添加openCV三个默认的编译存储地址：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/usr/local/include</div><div class="line">/usr/local/include/opencv</div><div class="line">/usr/local/include/opencv2</div></pre></td></tr></table></figure></p>
+<p>Library search Paths这一项添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/lib</div></pre></td></tr></table></figure></p>
+<p><img src="/pic/1-2.png" alt=""></p>
+<p>完成之后编译运行程序，正常来说，应该还有报错和40多个warning警告，警告大部分是未使用的函数报警，这个无关紧要，分析错误查了一波资料哦后发现还缺少在项目中引入一些openCV的<code>.dylib</code>文件。</p>
+<h4 id="引入-dylib文件"><a href="#引入-dylib文件" class="headerlink" title="引入.dylib文件"></a>引入.dylib文件</h4><p><code>.dylib</code>位于编译目录release的lib目录中，在项目根右击创建一个新组lib，添加所有的<code>.dylib</code>文件进去即可成功实现第一个<code>helloworld</code>程序。<br><img src="/pic/1-1.png" alt=""></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
