@@ -104,7 +104,7 @@
           <!-- Date -->
           <span class="date-time info">On
             <span class="date">2016-11-08</span>
-            <!-- <span class="time">17:37:26</span> -->
+            <!-- <span class="time">17:39:20</span> -->
           </span>
           
           <!--  Categories  -->
@@ -129,8 +129,10 @@
         
         <!-- Post Main Content -->
         <div class="post-content">
-          <p>今天我很高兴地给大家介绍一种简单强大的方法，可以用于追踪npm仓库变更，构建自己的开发环境的工具：钩子。</p>
-<h2 id="What"><a href="#What" class="headerlink" title="What?"></a>What?</h2><p>钩子是你订阅的npm仓库事件的通知者，运用钩子，你能构建可以响应npm仓库中软件包更改的处理各种任务的集成环境。<br><a id="more"></a><br>每一次软件包变化，钩子会发送一个HTTP的POST请求给一个你在钩子中配置的URI地址，你可以添加钩子来监听特别的软件包，监听包发布者的动态，或者监听一个组织里的所有软件包和用户。</p>
+          <p><strong>本文由我翻译在众成翻译平台，<a href="http://www.zcfy.cc/article/introducing-hooks-get-notifications-of-npm-registry-and-package-changes-as-they-happen-1610.html">文章地址</a></strong></p>
+<p>今天我很高兴地给大家介绍一种简单强大的方法，可以用于追踪npm仓库变更，构建自己的开发环境的工具：钩子。<br><a id="more"></a></p>
+<h2 id="What"><a href="#What" class="headerlink" title="What?"></a>What?</h2><p>钩子是你订阅的npm仓库事件的通知者，运用钩子，你能构建可以响应npm仓库中软件包更改的处理各种任务的集成环境。</p>
+<p>每一次软件包变化，钩子会发送一个HTTP的POST请求给一个你在钩子中配置的URI地址，你可以添加钩子来监听特别的软件包，监听包发布者的动态，或者监听一个组织里的所有软件包和用户。</p>
 <p>举个栗子，你可以通过给<strong>@npm</strong>设置一个钩子，监视npm所有上传的软件包，如果你只想监视lodash这个包，同样可以给<strong>@lodash</strong>设置钩子。</p>
 <h2 id="When"><a href="#When" class="headerlink" title="When?"></a>When?</h2><p>如果你有一个paid，<a href="http://t.umblr.com/redirect?z=https%3A%2F%2Fwww.npmjs.com%2Fnpm%2Fprivate-packages&amp;t=MGY4N2Q4OWRmYTljZDg2YzViMzQzZGY5YmE4ZWJiOGI3MDg2M2QwOSxycTRWMHI1eA%3D%3D">个人或者组织的npm账号</a>，那么你可以马上运用钩子。</p>
 <p>每一个用户可以配置总共100个钩子，至于要如何使用它们，这就取决你了：你可以将它们都用于监听同一个软件包，或者监听100个不同的包。如果你用一个钩子监听某一个范围，那么算作一个单一的钩子，不论这个范围内有多少个软件包。你可以监视npm代码库中任何开源的软件包，以及任何你可以控制的私人包，你只能收到有权限访问的软件包的钩子通知。</p>
