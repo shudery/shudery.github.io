@@ -103,8 +103,8 @@
           
           <!-- Date -->
           <span class="date-time info">On
-            <span class="date">2016-11-08</span>
-            <!-- <span class="time">17:39:20</span> -->
+            <span class="date">2016-11-07</span>
+            <!-- <span class="time">17:42:33</span> -->
           </span>
           
           <!--  Categories  -->
@@ -130,7 +130,8 @@
         <!-- Post Main Content -->
         <div class="post-content">
           <p><strong>本文由我翻译在众成翻译平台，<a href="http://www.zcfy.cc/article/introducing-hooks-get-notifications-of-npm-registry-and-package-changes-as-they-happen-1610.html">文章地址</a></strong></p>
-<p>今天我很高兴地给大家介绍一种简单强大的方法，可以用于追踪npm仓库变更，构建自己的开发环境的工具：钩子。<br><a id="more"></a></p>
+<p>今天我很高兴地给大家介绍一种简单强大的方法，可以用于追踪npm仓库变更，构建自己的开发环境的工具：钩子。</p>
+<a id="more"></a>
 <h2 id="What"><a href="#What" class="headerlink" title="What?"></a>What?</h2><p>钩子是你订阅的npm仓库事件的通知者，运用钩子，你能构建可以响应npm仓库中软件包更改的处理各种任务的集成环境。</p>
 <p>每一次软件包变化，钩子会发送一个HTTP的POST请求给一个你在钩子中配置的URI地址，你可以添加钩子来监听特别的软件包，监听包发布者的动态，或者监听一个组织里的所有软件包和用户。</p>
 <p>举个栗子，你可以通过给<strong>@npm</strong>设置一个钩子，监视npm所有上传的软件包，如果你只想监视lodash这个包，同样可以给<strong>@lodash</strong>设置钩子。</p>

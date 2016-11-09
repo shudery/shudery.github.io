@@ -103,8 +103,8 @@
           
           <!-- Date -->
           <span class="date-time info">On
-            <span class="date">2016-11-01</span>
-            <!-- <span class="time">17:39:20</span> -->
+            <span class="date">2016-11-08</span>
+            <!-- <span class="time">17:42:33</span> -->
           </span>
           
           <!--  Categories  -->
@@ -129,12 +129,12 @@
         
         <!-- Post Main Content -->
         <div class="post-content">
-          <h2 id="计算机视觉"><a href="#计算机视觉" class="headerlink" title="计算机视觉"></a>计算机视觉</h2><p>计算机视觉随着AR，VR，自动驾驶，人工智能等技术的崛起，已经成为一个迅速发展并且富有前景的领域。openCV(Open Source Computer Vision Library)与前端工程师经常打交道的openGL(Open Graphics Library)算是兄弟函数库，GL作为专业的图形编程接口，为程序员提供了功能强大，调用方便的底层图形库。openCV则致力于提供实现图像处理和计算机视觉的通用算法，降低了学习计算机设觉领域的门槛，让开发者可以更快的收获机器视觉带来的乐趣。<br><a id="more"></a><br>说了这么多然而我是一个前端工程师啊，我更关心人类的视觉体验，无缘无故怎么会闲的蛋疼跑来弄计算机视觉呢；好吧这其实是我的毕业设计题目，之前没有事先找老师拿题目，在选择毕业设计的那个早晨，我睡过了。。许多我擅长的软件题目都被选了，所以我还感兴趣的就剩下了比较难啃的计算机视觉还有深度学习相关的课题，老师说如果我下学期要去实习，推荐我选相对简单的计算机视觉。选好题目和实验室学长打过招呼拿了一些学习资料后，由于各种事情搁置了一段时间，最近闲起来，决定开始学习这个火热的领域。</p>
+          <p>计算机视觉随着AR，VR，自动驾驶，人工智能等技术的崛起，已经成为一个迅速发展并且富有前景的领域。openCV(Open Source Computer Vision Library)与前端工程师经常打交道的openGL(Open Graphics Library)算是兄弟函数库。<br>GL作为专业的图形编程接口，为程序员提供了功能强大，调用方便的底层图形库。openCV则致力于提供实现图像处理和计算机视觉的通用算法，降低了学习计算机设觉领域的门槛，让开发者可以更快的收获机器视觉带来的乐趣。<br><a id="more"></a><br>说了这么多然而我是一个前端工程师啊，我更关心人类的视觉体验，无缘无故怎么会闲的蛋疼跑来弄计算机视觉呢；好吧这其实是我的毕业设计题目，之前没有事先找老师拿题目，在选择毕业设计的那个早晨，我睡过了。。许多我擅长的软件题目都被选了，所以我还感兴趣的就剩下了比较难啃的计算机视觉还有深度学习相关的课题，老师说如果我下学期要去实习，推荐我选相对简单的计算机视觉。选好题目和实验室学长打过招呼拿了一些学习资料后，由于各种事情搁置了一段时间，最近闲起来，决定开始学习这个火热的领域。</p>
 <p>回到正题，openCV是用C++编写的，但是依然有大量的C语言接口。该库也有大量的Python,Java,MATLAB的接口，由于我最近刚好在复习C语言，平时写算法如果不能用ES6也都是用C，所以我觉得用C语言来完成后续的编程工作。</p>
 <p>学习过程中，感受到了很多资料的缺失和落后，国外要好一点，而且社区也远远没有前端技术社区的氛围，有一些小坑解决起来还挺浪费时间的，今天我已经把openCV在macOS的开发环境，包括xCode的一些设置，作为前端ST信仰粉，一直秉持不到万不得已不用IDE的态度，然而这次为了调试还是用xCode吧，基于sublime text的latex论文书写环境也配置好了，接下来就是一边理论学习，一边实践操作的过程了，希望年前能有一个比较好的完成度，同时对这个领域能有一些比较深入的见解。</p>
 <hr>
 <p>下面记录一下搭建环境的过程：</p>
-<h2 id="macOS搭建基于Xcode的openCV开发环境"><a href="#macOS搭建基于Xcode的openCV开发环境" class="headerlink" title="macOS搭建基于Xcode的openCV开发环境"></a>macOS搭建基于Xcode的openCV开发环境</h2><h4 id="下载源码："><a href="#下载源码：" class="headerlink" title="下载源码："></a>下载源码：</h4><p>mac下运用openCV的函数需要自行编译源代码，官方的解释是由于包括linux和macOS的各类Unix系统各自带的编译器不同，所以需要多几个步骤，可以从官网上选择相应版本的zip下载。openCV是使用非常宽松的BSD协议的开源项目，BSD比起MIT而言在修改代码，重新封装之后不要求一定要公开源码，现在计算机视觉开发尚未普及，这么做也是保护使用openCV公司的商业机密，让开发者可以毫无顾虑的使用openCV这个视觉库，所以也可以直接从github上下载openCV，</p>
+<h3 id="macOS搭建基于Xcode的openCV开发环境"><a href="#macOS搭建基于Xcode的openCV开发环境" class="headerlink" title="macOS搭建基于Xcode的openCV开发环境"></a>macOS搭建基于Xcode的openCV开发环境</h3><h4 id="下载源码："><a href="#下载源码：" class="headerlink" title="下载源码："></a>下载源码：</h4><p>mac下运用openCV的函数需要自行编译源代码，官方的解释是由于包括linux和macOS的各类Unix系统各自带的编译器不同，所以需要多几个步骤，可以从官网上选择相应版本的zip下载。openCV是使用非常宽松的BSD协议的开源项目，BSD比起MIT而言在修改代码，重新封装之后不要求一定要公开源码，现在计算机视觉开发尚未普及，这么做也是保护使用openCV公司的商业机密，让开发者可以毫无顾虑的使用openCV这个视觉库，所以也可以直接从github上下载openCV，</p>
 <h4 id="编译源码："><a href="#编译源码：" class="headerlink" title="编译源码："></a>编译源码：</h4><p>下载mac编译源码的工具cmake，直接一行homebrew代码搞定：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install cmake</div></pre></td></tr></table></figure></p>
 <p>然后解压下载的zip源代码，进入解压后的文件目录，创建一个存放openCV函数的目录release，在该目录下执行命令开始编译。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir release</div><div class="line">cd release</div><div class="line">cmake -G &quot;Unix Makefiles&quot;</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
