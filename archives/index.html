@@ -42,7 +42,7 @@
 <!-- Page Header -->
 
 
-<header class="site-header header-background" style="background-image: url(/img/5.jpeg)">
+<header class="site-header header-background" style="">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -90,6 +90,9 @@
       </div>
     </div>
   </div>
+  <script>
+  document.getElementsByClassName('header-background')[0].style = 'background-image: url(' + '/img/'+Math.ceil(Math.random()*5)+'.jpeg' + ')';
+  </script>
 </header>
 
 
@@ -191,7 +194,7 @@
           
             <li class="next">
               <a href="/archives/page/2/">
-                <span>下一页</span>
+                <span>NEXT</span>
                 <span class="symbol-right">&gt;</span>
               </a>
             </li>
