@@ -107,7 +107,7 @@
           <!-- Date -->
           <span class="date-time info">On
             <span class="date">2016-05-05</span>
-            <!-- <span class="time">19:56:54</span> -->
+            <!-- <span class="time">20:34:43</span> -->
           </span>
           
           <!--  Categories  -->
@@ -144,6 +144,7 @@
 <p>然后再hexo deploy即可完成部署，注意用ssh地址可以免去输入密码的繁琐，<br>当然前提是要先生成ssh密钥，并且在你的github上面添加这个ssh密钥~<br>hexo博客就已经搭建完成，可以在shudery.github.io上面看到博客页面和文章效果</p>
 <h3 id="添加文章，更换主题，修改配置"><a href="#添加文章，更换主题，修改配置" class="headerlink" title="添加文章，更换主题，修改配置"></a>添加文章，更换主题，修改配置</h3><p>基本的东西就是这样，接下来我们可以在_posts里面以markdown的写作形式写文章，<br>然后通过同样的方式生成，部署，可以直接在_posts里新建md文件，<br>也可以用运行<br><code>hexo new [fileStyle] [fileName]</code></p>
 <p>的方式来生成文件，后者会以scaffolds中对应的fileStyle的形式，<br>给你生成一个fileName的md文件，里面会包括一些开头的默认字段，<br>会方便记录一些文章的信息，我们还可以在<a href="https://hexo.io/themes/">官网主题</a>里找一个更加符合心意的主题，<br>然后直接git clone/ctrl+c 到我们hexo/themes下面，<br>然后在hexo/_config.yml中的 theme:landscape 改为你下载好的主题名，<br>然后你会发现主题文件夹里还有一个_config.yml 用来修改主题的一些相关配置，<br>你可以参考你下载主题的github,或者官网的介绍来设置这些配置~</p>
+<p><strong>由于无法忍受github服务器的延迟，目前已经将git远程仓库改为coding.net了，这是一个国内的git仓库托管服务商，主要面向私密项目，和github一样同样有pages的博客搭建服务，只要在配置文件修改一下deploy地址即可</strong></p>
 <h3 id="完善博客"><a href="#完善博客" class="headerlink" title="完善博客"></a>完善博客</h3><p>最后你可以根据自己的喜好和需求为博客添加一些你喜欢的挂件和工具，<br>我自己加了多说评论，百度统计，还有就是换了一个逼格高一点的域名，<br>通过添加CNAME域名解析，重定向到github.io的博客地址上面。</p>
 <p>搭建过程中一些tips~</p>
 <ul>
