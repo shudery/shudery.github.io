@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="how to build vpn or vps by youself">
+  <meta name="author" content="Daguo">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="实现通用的网站服务构建系统"/>
+  <meta property="og:description" content="how to build vpn or vps by youself" />
+  <meta property="og:site_name" content="Daguo&#39;s blog"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://shudery.cnundefined"/>
+  
+    <link rel="alternate" href="/atom.xml" title="Daguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <!-- Site Title -->
+  <title>实现通用的网站服务构建系统 — Daguo&#39;s blog</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+  <div id='wx_pic' style='margin:0 auto;display:none;'>
+  <img src="/img/pic300.jpg" />
+  </div>
+  <!-- baidu analytics -->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?043bb3ce93c8a91e76a6623da10e9778";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">实现通用的网站服务构建系统</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Articles
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/shudery">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/2016/03/01/%E9%9A%8F%E7%AC%94/%E5%85%B3%E4%BA%8E%E6%88%91/">
+                  
+                  About
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementsByClassName('header-background')[0].style = 'background-image: url(/img/'+Math.ceil(Math.random()*10)+'.jpeg)';
+    
+  </script>
+</header>
+
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Daguo</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2015-11-22</span>
+            <!-- <span class="time">09:29:34</span> -->
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/程序员/">程序员</a>
+</span>
+          
+        </div>
+
+        <!-- Tags 
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/教程，JavaScript/">#教程，JavaScript</a>
+
+
+          </div>
+        
+        -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>这篇文章主要记录如何快速创建一个简洁，健壮的web server，目标是实现网站服务的常用模块，尝试全栈思维开发，提供一套快速构建网站服务的全能脚手架，力求突破快速，低廉，优质只能兼得其二的工程瓶颈。<br>运用的技术栈：node+express+mongDB+handlebars<br><a id="more"></a></p>
+<h4 id="创建服务和基础路由"><a href="#创建服务和基础路由" class="headerlink" title="创建服务和基础路由"></a>创建服务和基础路由</h4><p>如同客户端的事件响应，当客户端输入一个url之后，server要如何响应这个事件，在express中可以通过中间件搭建各种路由，在客户端请求地址触发相应路由，返回对应的文件，入口文件app.js如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">app = require(&apos;express&apos;)();</div><div class="line">const port = process.env.port || 3000;</div><div class="line">app.listen(port, (err) =&gt; &#123;</div><div class="line">    err &amp;&amp; log(&apos;error form app.listen()&apos;)</div><div class="line">    log(`application start listen at $&#123;port&#125;`)</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/&apos;, (req, res) =&gt; &#123;</div><div class="line">    res.type(&apos;text/plain&apos;)</div><div class="line">    res.send(&apos;welcome home!&apos;);</div><div class="line">&#125;)</div><div class="line">//404路由</div><div class="line">app.use((req, res) =&gt; &#123;</div><div class="line">    res.status(404);</div><div class="line">    res.send(&apos;404 not found&apos;);</div><div class="line">&#125;);</div><div class="line">//500路由,根据传入参数来区分404路由</div><div class="line">app.use((err, req, res, next) =&gt; &#123;</div><div class="line">    res.status(500);</div><div class="line">    res.send(&apos;500 server error&apos;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>最基本的三个路由对应了三种网页请求状态，’/‘匹配响应了所有正常请求。</p>
+<h4 id="配置模板引擎"><a href="#配置模板引擎" class="headerlink" title="配置模板引擎"></a>配置模板引擎</h4><p>创建默认模板目录views，再创建布局模板目录layouts，都是默认参数，目录名照用就行。<br>添加main.hbs到 <code>/views/layouts</code>中，hbs是handlebars的简写，记得给你使用的文本编辑器下载相应模板的插件，不然没有语法提示和补全很难过的，我用的sublime text，直接下载handlebars这个插件即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;home&lt;/title&gt;</div><div class="line">	&lt;script src=&apos;/js/test.js&apos;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&#123;&#123;&#123;body&#125;&#125;&#125;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>其中body会结合路由配置自动读取views下的相应模板来代替这一块内容。<br>在views下添加主页模板<code>home.hbs</code>，404页面模板<code>404.hbs</code>，服务器错误页面<code>500.hbs</code>，结合<code>main.hbs</code>形成一个对应页面的html文件。</p>
+<p>在app.js中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const exphbs = require(&apos;express-handlebars&apos;);</div><div class="line">const handlebars = exphbs(&#123; defaultLayout: &apos;main&apos; &#125;);</div><div class="line">app.engine(&apos;.hbs&apos;, exphbs(&#123; extname: &apos;.bhs&apos; &#125;));</div><div class="line">app.set(&apos;view engine&apos;, &apos;.hbs&apos;);</div></pre></td></tr></table></figure>
+<p>其中defaultLayout设置了模板的进入地址，默认为main，即上面创建的main.hbs，然后设置文件扩展名缩写为.hbs，然后就可以结合模板来为路由配置返回的文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">app.get(&apos;/&apos;, (req, res) =&gt; &#123;</div><div class="line">    res.render(&apos;home&apos;, &#123; nowTime: new Date() &#125;);</div><div class="line">&#125;)</div><div class="line">app.use((req, res) =&gt; &#123;</div><div class="line">    res.status(404);</div><div class="line">    res.render(&apos;404&apos;);</div><div class="line">&#125;);</div><div class="line">app.use((err, req, res, next) =&gt; &#123;</div><div class="line">    res.status(500);</div><div class="line">    res.render(&apos;500&apos;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>使用了render方法来调用模板，传入第一个参数即对应创建的模板文件名，第二个参数为传递对模板的配置对象，模板中通过可以获取到这个变量，视图引擎默认返回的文件就是<code>text/plain</code>，不用res.type设置，除了200状态码之外，其他状态码依然需要设置。</p>
+<h4 id="设置静态文件路径"><a href="#设置静态文件路径" class="headerlink" title="设置静态文件路径"></a>设置静态文件路径</h4><p>项目目录下创建一个文件夹存放静态文件，这里用public，添加如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app.use(express.static(__dirname + &apos;/public&apos;));</div></pre></td></tr></table></figure></p>
+<p>添加这段代码之后，在模板中引用的静态文件就是以/public为根目录了，比如<code>&lt;img src=&quot;/img/icon.jpg&quot;&gt;</code>对应查找的路径就是<code>/public/img/icon.jpg</code></p>
+<p><strong>TIPS:</strong></p>
+<ul>
+<li>使用nodemon自动重启server服务，结合webpack，gulp等构建工具可以热加载刷新浏览器页面，进一步实现自动化</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
