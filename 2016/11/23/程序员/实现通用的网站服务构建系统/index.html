@@ -119,7 +119,7 @@
           <!-- Date -->
           <span class="date-time info">On
             <span class="date">2016-11-23</span>
-            <!-- <span class="time">13:44:23</span> -->
+            <!-- <span class="time">13:49:02</span> -->
           </span>
           
           <!--  Categories  -->
@@ -144,7 +144,7 @@
         
         <!-- Post Main Content -->
         <div class="post-content">
-          <p>这篇文章主要记录如何快速创建一个简洁，健壮的web server，目标是实现网站服务的常用模块，尝试全栈思维开发，提供一套快速构建网站服务的全能脚手架，力求突破快速，低廉，优质只能兼得其二的工程瓶颈。<br>运用的技术栈：node+express+handlebars+mongDB+mocha<br><a id="more"></a></p>
+          <p>这篇文章主要记录如何快速创建一个简洁，健壮的web server，目标是实现网站服务的常用模块，尝试全栈思维开发，提供一套快速构建网站服务的全能脚手架，力求突破快速，低廉，优质只能兼得其二的工程瓶颈。<br>运用的技术栈：node + express + handlebars + mongDB + mocha<br><a id="more"></a></p>
 <h3 id="创建服务和基础路由"><a href="#创建服务和基础路由" class="headerlink" title="创建服务和基础路由"></a>创建服务和基础路由</h3><p>如同客户端的事件响应，当客户端输入一个url之后，server要如何响应这个事件，在express中可以通过中间件搭建各种路由，在客户端请求地址触发相应路由，返回对应的文件，入口文件app.js如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">const app = require(&apos;express&apos;)();</div><div class="line">const port = process.env.port || 3000;</div><div class="line">app.listen(port, (err) =&gt; &#123;</div><div class="line">    err &amp;&amp; log(&apos;error form app.listen()&apos;)</div><div class="line">    log(`application start listen at $&#123;port&#125;`)</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/&apos;, (req, res) =&gt; &#123;</div><div class="line">    res.type(&apos;text/plain&apos;)</div><div class="line">    res.send(&apos;welcome home!&apos;);</div><div class="line">&#125;)</div><div class="line">//404路由</div><div class="line">app.use((req, res) =&gt; &#123;</div><div class="line">    res.status(404);</div><div class="line">    res.send(&apos;404 not found&apos;);</div><div class="line">&#125;);</div><div class="line">//500路由,根据传入参数来区分404路由</div><div class="line">app.use((err, req, res, next) =&gt; &#123;</div><div class="line">    res.status(500);</div><div class="line">    res.send(&apos;500 server error&apos;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>最基本的三个路由对应了三种网页请求状态，’/‘匹配响应了所有正常请求。</p>
