@@ -173,7 +173,7 @@ mark {
 
 /* 代码片断 */
 pre, code, pre tt {
-  font-family: "Input Mono","PT Mono",Consolas,Monaco,Menlo,monospace;
+  font-family: Consolas, Monaco, Courier New, Lucida Console;
 }
 
 pre {
