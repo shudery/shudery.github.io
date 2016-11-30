@@ -119,7 +119,7 @@
           <!-- Date -->
           <span class="date-time info">On
             <span class="date">2016-11-23</span>
-            <!-- <span class="time">09:02:40</span> -->
+            <!-- <span class="time">12:55:49</span> -->
           </span>
           
           <!--  Categories  -->
@@ -177,9 +177,30 @@
 <h3 id="邮件系统"><a href="#邮件系统" class="headerlink" title="邮件系统"></a>邮件系统</h3><p>使用nodemailer模块构建web应用的邮件server非常方便，在lib下新建mailer.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">const nodemailer = require(&apos;nodemailer&apos;);</div><div class="line">module.exports = function(credentials) &#123;</div><div class="line">    let mailTransport = nodemailer.createTransport(&apos;smtps://&apos; + credentials.gmail.user + &apos;%40gmail.com:&apos; + credentials.gmail.password + &apos;@smtp.gmail.com&apos;);</div><div class="line">    let from = &apos;node-web-server-mailer&lt;shudery@gamil.com&gt;&apos;;</div><div class="line">    let masterEmail = &apos;125153450@qq.com&apos;</div><div class="line">    return &#123;</div><div class="line">        send(subject, html, to) &#123;</div><div class="line">            mailTransport.sendMail(&#123;</div><div class="line">                to: to ? to : masterEmail,</div><div class="line">                from,</div><div class="line">                subject,</div><div class="line">                html,</div><div class="line">            &#125;, (err, info) =&gt; &#123;</div><div class="line">                if (err) &#123;</div><div class="line">                    return console.log(&apos;send email error:&apos; + err);</div><div class="line">                &#125;;</div><div class="line">                console.log(&apos;send email info:&apos; + info.response);</div><div class="line">            &#125;);</div><div class="line">        &#125;,</div><div class="line">        errorSend(message, filename, exception) &#123;</div><div class="line">            let html = `&lt;h1&gt;site error:&lt;/h1&gt;message:$&#123;message&#125;&lt;br&gt;`;</div><div class="line">            if (filename) &#123;</div><div class="line">                html += `filename:$&#123;filename&#125;&lt;br&gt;`;</div><div class="line">            &#125;</div><div class="line">            if (exception) &#123;</div><div class="line">                html += `exception;$&#123;exception&#125;`;</div><div class="line">            &#125;</div><div class="line">            mailTransport.sendMail(&#123;</div><div class="line">                from,</div><div class="line">                to: masterEmail,</div><div class="line">                subject: &apos;site error&apos;,</div><div class="line">                html,</div><div class="line">            &#125;)</div><div class="line">        &#125;,</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="未完待续……"><a href="#未完待续……" class="headerlink" title="未完待续……"></a>未完待续……</h2>
         </div>
+          
+            <div class="ds-thread" data-thread-key="程序员/实现通用的网站服务构建系统" data-title="实现通用的网站服务构建系统" data-url="http://shudery.cn/2016/11/23/程序员/实现通用的网站服务构建系统/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"shudery"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    // ds.src = 'http://localhost:4000/js/duoshuo.js';
+    var st = document.createElement('style');
+  	// st.rel = "stylesheet";
+  	// st.href = "http://localhost:4000/css/duoshuo.css";	
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds).appendChild(st);
+  })();
+  	</script>
+        
+  
       </div>
     </div>
   </div>
+
+
 </article>
 
 
