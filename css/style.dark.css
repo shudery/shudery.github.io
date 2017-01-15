@@ -244,7 +244,8 @@ strong, b {
   margin-bottom: 1.2em
 }
 p{
-  font-family: PingFangSC-Thin, sans-serif;
+  /*font-family: PingFangSC-Thin, sans-serif;*/
+  font-family: PingFang SC, sans-serif;
   
 }
 h1, h2, h3, h4, h5, h6 {
