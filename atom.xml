@@ -777,10 +777,10 @@ ms-dns 8.8.4.4</code></p>
   
   <entry>
     <title>javaScript的对象构造和原型链继承</title>
-    <link href="http://shudery.cn/2016/04/14/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/javaScript%E7%9A%84%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%8F%8A%E5%85%B6%E7%BB%A7%E6%89%BF/"/>
-    <id>http://shudery.cn/2016/04/14/学习感悟/javaScript的原型链及其继承/</id>
-    <published>2016-04-14T09:55:58.000Z</published>
-    <updated>2016-12-06T04:13:15.000Z</updated>
+    <link href="http://shudery.cn/2016/04/15/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/javaScript%E7%9A%84%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%8F%8A%E5%85%B6%E7%BB%A7%E6%89%BF/"/>
+    <id>http://shudery.cn/2016/04/15/学习感悟/javaScript的原型链及其继承/</id>
+    <published>2016-04-15T09:55:58.000Z</published>
+    <updated>2017-01-21T11:48:17.000Z</updated>
     
     <content type="html"><![CDATA[<p>这两天仔细地学习了JS的创建对象以及继承的方法，结合红宝石书整理了下笔记。<br>（红宝石这里讲了非常多的模式，看第一遍觉得还蛮乱的）<br>Javascript作为一种动态的面向对象语言，本身却没有类的概念和方法，<br>在创建对象和继承方面有很多有趣的实现和方法<br><a id="more"></a></p>
 <h2 id="1-原始绑定和字面量表示："><a href="#1-原始绑定和字面量表示：" class="headerlink" title="1.原始绑定和字面量表示："></a>1.原始绑定和字面量表示：</h2><p><strong>优点</strong>：简洁方便<br><strong>问题</strong>：使用对象字面量的方法创建的对象，若重复创建会产生大量的重复代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var o = new Object();</div><div class="line">o.name = &apos;shudery&apos;;</div><div class="line">o.skill = function()&#123;console.log(&apos;sayHello&apos;)&#125;;</div><div class="line">//这是比较老的方法，一般用下面这种简单粗暴的，直接字面量创建</div><div class="line">var obj = &#123;</div><div class="line">    sex = &apos;man&apos;,</div><div class="line">    skill = function()&#123;console.log(&apos;tucao&apos;)&#125; </div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
