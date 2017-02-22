@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  <meta name="description" content="一个豆瓣电影到对应资源的传送门插件">
   <meta name="author" content="Daguo">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="简易的RSS格式输出工具"/>
-  <meta property="og:description" content="Personal blog which build by hexo from shudery/daguo" />
+  <meta property="og:title" content="豆瓣电影到对应资源的传送门插件"/>
+  <meta property="og:description" content="一个豆瓣电影到对应资源的传送门插件" />
   <meta property="og:site_name" content="Daguo&#39;s blog"/>
   <meta property="og:type" content="article" />
   <meta property="og:image" content="http://shudery.cnundefined"/>
@@ -21,7 +21,7 @@
   
 
   <!-- Site Title -->
-  <title>简易的RSS格式输出工具 — Daguo&#39;s blog</title>
+  <title>豆瓣电影到对应资源的传送门插件 — Daguo&#39;s blog</title>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -56,7 +56,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">简易的RSS格式输出工具</p>
+          <p class="title">豆瓣电影到对应资源的传送门插件</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -121,8 +121,8 @@
           
           <!-- Date -->
           <span class="date-time info">On
-            <span class="date">2016-11-20</span>
-            <!-- <span class="time">16:24:05</span> -->
+            <span class="date">2017-02-22</span>
+            <!-- <span class="time">16:24:06</span> -->
           </span>
           
           <!--  Categories  -->
@@ -138,7 +138,7 @@
           <div class="post-tags text-muted">
             Tags: 
 
-<a class="tag" href="/tags/JavaScript/">#JavaScript</a> <a class="tag" href="/tags/web前端/">#web前端</a>
+<a class="tag" href="/tags/记录/">#记录</a> <a class="tag" href="/tags/工具/">#工具</a>
 
 
           </div>
@@ -147,35 +147,26 @@
         
         <!-- Post Main Content -->
         <div class="post-content">
-          <p>RSS即简易信息聚合，当一个网站发布一个RSS文件后，这个RSS-Feed中包含的信息就能直接被其他站点调用，而且由于这些数据都是标准的XML格式，所以也能在其他的终端和服务中使用，是一种描述和同步网站内容的格式。<br><a id="more"></a></p>
-<p>由于我习惯用mac触摸手势的操作，以及不喜欢在浏览器里点击位于不同收藏夹里的标签，用RSS阅读器这种内容聚合方式，极大提升了我阅读文章，获取资源的效率，但是现在许多我喜欢的站点不开放RSS格式的输出源，或者已经停止维护老旧的RSS地址了，因此我将这些站点先进行爬取，提取相应内容，然后结合标准的RSSXML模板将其输出，使其能够被RSS阅读器正常的订阅。</p>
-<p>下面我就介绍一下这个工具：<a href="https://github.com/shudery/RSS-feed-spider">github地址</a></p>
-<h2 id="RSS-feed-spider"><a href="#RSS-feed-spider" class="headerlink" title="RSS-feed-spider"></a>RSS-feed-spider</h2><h4 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h4><p>可以自己制作各大网站，内容频道的文章RSS格式输出源，通过爬虫工具抓取内容，输出RSS阅读器能够识别的XML格式，部署在PASS平台可以供阅读器订阅。目前由于很多站点二次爬取模板还没开发，故详情内容要跳转到原站，这对手势操作以及原本就想看原站的人没有大多影响，当然了，这意味着没法离线阅读内容，或者说事先缓存文章（只有标题）</p>
-<h4 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h4><p>利用site目录下存好的各站点基本信息，根据页面结构修改选择器，利用爬虫爬取页面，抓取相关信息填入RSS-XML模板中，将结果的XML文件返回到客户端，服务端使用Node.js和web应用快速搭建框架express，爬虫用superagent，pass平台使用heroku(国外不太稳定)</p>
-<h4 id="查询参数"><a href="#查询参数" class="headerlink" title="查询参数"></a>查询参数</h4><p>每个RSS订阅源的格式为：<a href="https://daguo-rss.herokuapp.com/?site={}">https://daguo-rss.herokuapp.com/?site={}</a><br>可以在订阅url后面添加查询参数，如?site=jianshu&amp;num=20&amp;desc=true</p>
-<ul>
-<li>site：站点名字  </li>
-<li>num：抓取文章数量，默认10，没有翻页逻辑，最多主页全部文章  </li>
-<li>desc：是否抓取描述，需要二次爬取，不稳定，默认不开</li>
+          <p>这是一个需要自行解压的运行在chrome浏览器上的插件。前几天看了<a href="http://zhangwenli.com/blog/2014/09/01/readfree-chrome-extension/">@羡澈</a>大神写的豆瓣读书跳转到Readme上下载电子书的地址，所以闲着没事就写了一个电影的跳转。</p>
+<a id="more"></a>
+<h3 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h3><p><a href="https://github.com/shudery/douban-movies-plugin/">https://github.com/shudery/douban-movies-plugin/</a></p>
+<h3 id="实现功能"><a href="#实现功能" class="headerlink" title="实现功能"></a>实现功能</h3><p>在豆瓣电影介绍页面自动添加一个下载按钮，点击可以直接传送到该电影的可下载资源的地址，当然了，前提是要找得到资源才行。我写了一个爬虫事先爬取了电影下载网站中有资源，离线为一个哈希表供插件搜索。</p>
+<p><img src="/pic/douban.jpeg" alt=""></p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ul>
+<li>下载Chrome插件：<a href="https://github.com/shudery/douban-movies-plugin/raw/master/plugin.crx">douban-movies-plugin</a>不需要科学上网，由于我开发者账号没交5刀，所以暂时还没上架到Chrome的官方商店。</li>
+<li>打开Chrome浏览器，点击菜单-&gt;工具-&gt;扩展程序</li>
+<li>将已下载的crx文件拖入Chrome窗口</li>
+<li>打开一个豆瓣电影页面（如：<a href="https://movie.douban.com/subject/25934014/">https://movie.douban.com/subject/25934014/</a>），如果电影标题右侧没有出现下载按钮，则表示该资源暂时没找到。</li>
 </ul>
-<h4 id="扩展方法"><a href="#扩展方法" class="headerlink" title="扩展方法"></a>扩展方法</h4><p>直接在项目site目录下生成相应的站点爬取脚本，脚本名字即对应的查询参数里site={}需要填写的字符串。单次爬取的模板都一样，只需要配置相应的RSS基本信息，修改getItems函数中相应字段的选择器，这里用cheerio获取DOM节点。</p>
-<h4 id="完成站点"><a href="#完成站点" class="headerlink" title="完成站点"></a>完成站点</h4><ul>
-<li><a href="https://daguo-rss.herokuapp.com/?site=jianshu">简书热门频道</a></li>
-<li><a href="https://daguo-rss.herokuapp.com/?site=guoke">果壳</a></li>
-<li><a href="https://daguo-rss.herokuapp.com/?site=juejin">掘金前端</a></li>
-<li><a href="https://daguo-rss.herokuapp.com/?site=ted">TED</a></li>
-<li><a href="https://daguo-rss.herokuapp.com/?site=zaoduke">前端早读课</a></li>
-<li><a href="https://daguo-rss.herokuapp.com/?site=hacker">Hacker News</a></li>
-<li><del>电子科技大学UESTC新闻</del></li>
-<li><del>下厨房流行菜谱</del></li>
-<li><del>卢松松好文分享</del></li>
-<li><del>微信自媒体</del></li>
-<li><del>开发者头条</del></li>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<li>使用这个插件目前只支持chrome浏览器。</li>
+<li>目前只有豆瓣电影的详情页有添加按钮。</li>
+<li>暂时只爬取了80s电影网的所有视频资源，也就是说如果80s上没有资源，那么按钮就不会出现了，不过这个网站已经相当给力，基本想看啥有啥，新上映的电影一般一个月内会补上。</li>
 </ul>
 
         </div>
           
-            <div class="ds-thread" data-thread-key="方法总结/简易的RSS格式输出工具" data-title="简易的RSS格式输出工具" data-url="http://shudery.cn/2016/11/20/方法总结/简易的RSS格式输出工具/"></div>
+            <div class="ds-thread" data-thread-key="方法总结/豆瓣电影到对应资源的传送门插件" data-title="豆瓣电影到对应资源的传送门插件" data-url="http://shudery.cn/2017/02/22/方法总结/豆瓣电影到对应资源的传送门插件/"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"shudery"};
   (function() {
