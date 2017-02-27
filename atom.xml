@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shudery.cn/"/>
-  <updated>2017-02-23T00:54:20.000Z</updated>
+  <updated>2017-02-27T03:35:32.000Z</updated>
   <id>http://shudery.cn/</id>
   
   <author>
@@ -20,12 +20,12 @@
     <link href="http://shudery.cn/2017/02/22/%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E5%88%B0%E5%AF%B9%E5%BA%94%E8%B5%84%E6%BA%90%E7%9A%84%E4%BC%A0%E9%80%81%E9%97%A8%E6%8F%92%E4%BB%B6/"/>
     <id>http://shudery.cn/2017/02/22/方法总结/豆瓣电影到对应资源的传送门插件/</id>
     <published>2017-02-22T04:00:33.000Z</published>
-    <updated>2017-02-23T00:54:20.000Z</updated>
+    <updated>2017-02-27T03:35:32.000Z</updated>
     
     <content type="html"><![CDATA[<p>这是一个运行在chrome浏览器上的插件。前几天看了<a href="http://zhangwenli.com/blog/2014/09/01/readfree-chrome-extension/">@羡澈</a>大神写的豆瓣读书跳转到Readme上下载电子书的地址，所以闲着没事就写了一个电影的跳转。</p>
 <a id="more"></a>
 <h3 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h3><p><a href="https://github.com/shudery/douban-movies-plugin/">https://github.com/shudery/douban-movies-plugin/</a></p>
-<h3 id="实现功能"><a href="#实现功能" class="headerlink" title="实现功能"></a>实现功能</h3><p>在豆瓣电影介绍页面自动添加一个下载按钮，点击可以直接传送到该电影的可下载资源的地址，当然了，前提是要找得到资源才行。我写了一个爬虫事先爬取了电影下载网站中有资源，离线为一个哈希表供插件搜索。</p>
+<h3 id="实现功能"><a href="#实现功能" class="headerlink" title="实现功能"></a>实现功能</h3><p>在豆瓣电影介绍页面自动添加一个下载按钮，点击可以直接传送到该电影的可下载资源的地址，当然了，前提是要找得到资源才行。我写了一个爬虫事先爬取了电影下载网站中的现有资源，离线为一个哈希表供插件搜索。</p>
 <p><img src="/pic/douban.jpeg" alt=""></p>
 <h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ul>
 <li>能够科学上网的同学到chrome应用商店下载即可：<a href="https://chrome.google.com/webstore/detail/douban-movies-plugin/ecgaddjpeacadegjcopipeoncpaphnpl?hl=zh-CN">douban-movies-plugin</a></li>
