@@ -178,9 +178,9 @@
       <category term="程序员" scheme="http://shudery.cn/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
     
     
-      <category term="web前端" scheme="http://shudery.cn/tags/web%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="记录" scheme="http://shudery.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="web前端" scheme="http://shudery.cn/tags/web%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
@@ -189,7 +189,7 @@
     <link href="http://shudery.cn/2016/11/20/%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/%E7%AE%80%E6%98%93%E7%9A%84RSS%E6%A0%BC%E5%BC%8F%E8%BE%93%E5%87%BA%E5%B7%A5%E5%85%B7/"/>
     <id>http://shudery.cn/2016/11/20/方法总结/简易的RSS格式输出工具/</id>
     <published>2016-11-19T16:00:00.000Z</published>
-    <updated>2016-11-30T07:41:49.000Z</updated>
+    <updated>2017-03-14T09:04:02.000Z</updated>
     
     <content type="html"><![CDATA[<p>RSS即简易信息聚合，当一个网站发布一个RSS文件后，这个RSS-Feed中包含的信息就能直接被其他站点调用，而且由于这些数据都是标准的XML格式，所以也能在其他的终端和服务中使用，是一种描述和同步网站内容的格式。<br><a id="more"></a></p>
 <p>由于我习惯用mac触摸手势的操作，以及不喜欢在浏览器里点击位于不同收藏夹里的标签，用RSS阅读器这种内容聚合方式，极大提升了我阅读文章，获取资源的效率，但是现在许多我喜欢的站点不开放RSS格式的输出源，或者已经停止维护老旧的RSS地址了，因此我将这些站点先进行爬取，提取相应内容，然后结合标准的RSSXML模板将其输出，使其能够被RSS阅读器正常的订阅。</p>
@@ -227,9 +227,9 @@
       <category term="方法总结" scheme="http://shudery.cn/categories/%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="JavaScript" scheme="http://shudery.cn/tags/JavaScript/"/>
-    
       <category term="web前端" scheme="http://shudery.cn/tags/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Javascript" scheme="http://shudery.cn/tags/Javascript/"/>
     
   </entry>
   
@@ -338,9 +338,9 @@
       <category term="方法总结" scheme="http://shudery.cn/categories/%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="翻译" scheme="http://shudery.cn/tags/%E7%BF%BB%E8%AF%91/"/>
-    
       <category term="工具" scheme="http://shudery.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="翻译" scheme="http://shudery.cn/tags/%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
@@ -495,9 +495,9 @@
       <category term="学习感悟" scheme="http://shudery.cn/categories/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/"/>
     
     
-      <category term="JavaScript" scheme="http://shudery.cn/tags/JavaScript/"/>
-    
       <category term="翻译" scheme="http://shudery.cn/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+      <category term="JavaScript" scheme="http://shudery.cn/tags/JavaScript/"/>
     
   </entry>
   
@@ -708,9 +708,9 @@
       <category term="方法总结" scheme="http://shudery.cn/categories/%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="web前端" scheme="http://shudery.cn/tags/web%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="记录" scheme="http://shudery.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="web前端" scheme="http://shudery.cn/tags/web%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
