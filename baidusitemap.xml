@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://shudery.cn/2016/06/23/%E7%A8%8B%E5%BA%8F%E5%91%98/Javascript%E5%BC%80%E5%8F%91%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%A1%8C%E9%9D%A2app/</loc>
+    <lastmod>2017-03-14T09:09:26.000Z</lastmod>
+    <data>
+        <display>
+        <title>Javascript开发跨平台桌面app</title>
+        <pubTime>2016-06-23T15:32:17.000Z</pubTime>
+        
+        <tag>JavaScript编程</tag>
+         
+         
+           
+             
+              <breadCrumb title="程序员" url="http://shudery.cn/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shudery.cn/2016/11/20/%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/%E7%AE%80%E6%98%93%E7%9A%84RSS%E6%A0%BC%E5%BC%8F%E8%BE%93%E5%87%BA%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2017-03-14T09:07:20.000Z</lastmod>
+    <lastmod>2017-03-14T09:09:12.000Z</lastmod>
     <data>
         <display>
         <title>简易的RSS格式输出工具</title>
@@ -13,7 +33,7 @@
         
         <tag>web前端</tag>
          
-        <tag>JavaScript</tag>
+        <tag>JavaScript编程</tag>
          
          
            
@@ -26,8 +46,50 @@
 
     
   <url>
+    <loc>http://shudery.cn/2016/04/15/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/javaScript%E7%9A%84%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%8F%8A%E5%85%B6%E7%BB%A7%E6%89%BF/</loc>
+    <lastmod>2017-03-14T09:09:03.000Z</lastmod>
+    <data>
+        <display>
+        <title>javaScript的对象构造和原型链继承</title>
+        <pubTime>2016-04-15T09:55:58.000Z</pubTime>
+        
+        <tag>JavaScript编程</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习感悟" url="http://shudery.cn/categories/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shudery.cn/2016/09/29/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/JavaScript%E5%A6%82%E4%BD%95%E7%9C%9F%E6%AD%A3%E5%AE%9E%E7%8E%B0%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF/</loc>
+    <lastmod>2017-03-14T09:09:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript如何真正实现原型链继承</title>
+        <pubTime>2016-09-29T13:32:17.000Z</pubTime>
+        
+        <tag>翻译</tag>
+         
+        <tag>JavaScript编程</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习感悟" url="http://shudery.cn/categories/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shudery.cn/2016/07/23/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/ES5%E5%92%8CES6%E4%B8%AD%E5%AF%B9%E4%BA%8E%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/</loc>
-    <lastmod>2017-03-14T09:07:16.000Z</lastmod>
+    <lastmod>2017-03-14T09:08:47.000Z</lastmod>
     <data>
         <display>
         <title>ES5和ES6中对于继承的实现方法</title>
@@ -35,7 +97,7 @@
         
         <tag>记录</tag>
          
-        <tag>JavaScript</tag>
+        <tag>JavaScript编程</tag>
          
          
            
@@ -63,26 +125,6 @@
            
              
               <breadCrumb title="方法总结" url="http://shudery.cn/categories/%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shudery.cn/2016/04/15/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/javaScript%E7%9A%84%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%8F%8A%E5%85%B6%E7%BB%A7%E6%89%BF/</loc>
-    <lastmod>2017-01-21T11:48:17.000Z</lastmod>
-    <data>
-        <display>
-        <title>javaScript的对象构造和原型链继承</title>
-        <pubTime>2016-04-15T09:55:58.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习感悟" url="http://shudery.cn/categories/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/"/>
           
         </display>
     </data>
@@ -165,28 +207,6 @@
            
              
               <breadCrumb title="随笔" url="http://shudery.cn/categories/%E9%9A%8F%E7%AC%94/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shudery.cn/2016/09/29/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/JavaScript%E5%A6%82%E4%BD%95%E7%9C%9F%E6%AD%A3%E5%AE%9E%E7%8E%B0%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF/</loc>
-    <lastmod>2016-12-06T04:12:56.000Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript如何真正实现原型链继承</title>
-        <pubTime>2016-09-29T13:32:17.000Z</pubTime>
-        
-        <tag>翻译</tag>
-         
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习感悟" url="http://shudery.cn/categories/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/"/>
           
         </display>
     </data>
@@ -322,26 +342,6 @@
 
     
     
-    
-  <url>
-    <loc>http://shudery.cn/2016/06/23/%E7%A8%8B%E5%BA%8F%E5%91%98/Javascript%E5%BC%80%E5%8F%91%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%A1%8C%E9%9D%A2app/</loc>
-    <lastmod>2016-11-23T15:56:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Javascript开发跨平台桌面app</title>
-        <pubTime>2016-06-23T15:32:17.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="程序员" url="http://shudery.cn/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://shudery.cn/2016/11/08/%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/%E5%9F%BA%E4%BA%8EopenCV%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E7%A0%94%E7%A9%B6/</loc>

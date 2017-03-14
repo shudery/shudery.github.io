@@ -189,7 +189,7 @@
     <link href="http://shudery.cn/2016/11/20/%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/%E7%AE%80%E6%98%93%E7%9A%84RSS%E6%A0%BC%E5%BC%8F%E8%BE%93%E5%87%BA%E5%B7%A5%E5%85%B7/"/>
     <id>http://shudery.cn/2016/11/20/方法总结/简易的RSS格式输出工具/</id>
     <published>2016-11-19T16:00:00.000Z</published>
-    <updated>2017-03-14T09:07:20.000Z</updated>
+    <updated>2017-03-14T09:09:12.000Z</updated>
     
     <content type="html"><![CDATA[<p>RSS即简易信息聚合，当一个网站发布一个RSS文件后，这个RSS-Feed中包含的信息就能直接被其他站点调用，而且由于这些数据都是标准的XML格式，所以也能在其他的终端和服务中使用，是一种描述和同步网站内容的格式。<br><a id="more"></a></p>
 <p>由于我习惯用mac触摸手势的操作，以及不喜欢在浏览器里点击位于不同收藏夹里的标签，用RSS阅读器这种内容聚合方式，极大提升了我阅读文章，获取资源的效率，但是现在许多我喜欢的站点不开放RSS格式的输出源，或者已经停止维护老旧的RSS地址了，因此我将这些站点先进行爬取，提取相应内容，然后结合标准的RSSXML模板将其输出，使其能够被RSS阅读器正常的订阅。</p>
@@ -229,7 +229,7 @@
     
       <category term="web前端" scheme="http://shudery.cn/tags/web%E5%89%8D%E7%AB%AF/"/>
     
-      <category term="JavaScript" scheme="http://shudery.cn/tags/JavaScript/"/>
+      <category term="JavaScript编程" scheme="http://shudery.cn/tags/JavaScript%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -430,7 +430,7 @@
     <link href="http://shudery.cn/2016/09/29/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/JavaScript%E5%A6%82%E4%BD%95%E7%9C%9F%E6%AD%A3%E5%AE%9E%E7%8E%B0%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF/"/>
     <id>http://shudery.cn/2016/09/29/学习感悟/JavaScript如何真正实现原型链继承/</id>
     <published>2016-09-29T13:32:17.000Z</published>
-    <updated>2016-12-06T04:12:56.000Z</updated>
+    <updated>2017-03-14T09:09:00.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong>本文由我翻译在<a href="http://www.zcfy.cc/claim">众成</a>翻译平台，<a href="http://www.zcfy.cc/article/javascript-how-prototypal-inheritance-really-works-1337.html">文章地址</a></strong></p>
 <p>在网上的很多地方我们可以得知javascript是基于原型链继承的，其实Javascript只提供一种特殊的方法来实现原型链继承，就是通过new操作。但是很多解读都令人难以理解，这篇文章旨在说明到底什么是原型链继承以及如何在Javascript中真正地运用它。<br><a id="more"></a></p>
@@ -497,7 +497,7 @@
     
       <category term="翻译" scheme="http://shudery.cn/tags/%E7%BF%BB%E8%AF%91/"/>
     
-      <category term="JavaScript" scheme="http://shudery.cn/tags/JavaScript/"/>
+      <category term="JavaScript编程" scheme="http://shudery.cn/tags/JavaScript%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -553,7 +553,7 @@
     <link href="http://shudery.cn/2016/07/23/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/ES5%E5%92%8CES6%E4%B8%AD%E5%AF%B9%E4%BA%8E%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/"/>
     <id>http://shudery.cn/2016/07/23/学习感悟/ES5和ES6中对于继承的实现方法/</id>
     <published>2016-07-23T15:32:17.000Z</published>
-    <updated>2017-03-14T09:07:16.000Z</updated>
+    <updated>2017-03-14T09:08:47.000Z</updated>
     
     <content type="html"><![CDATA[<p>在ES5继承的实现非常有趣的，由于没有传统面向对象类的概念，Javascript利用原型链的特性来实现继承，这其中有很多的属性指向和需要注意的地方。<br>原型链的特点和实现已经在之前的一篇整理说过了，就是通过将子类构造函数的原型作为父类构造函数的实例，这样就连通了子类-子类原型-父类，原型链的特点就是逐层查找，从子类开始一直往上直到所有对象的原型Object.prototype，找到属性方法之后就会停止查找，所以下层的属性方法会覆盖上层。<br><a id="more"></a><br>一个基本的基于原型链的继承过程大概是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//先来个父类，带些属性</div><div class="line">function Super()&#123;</div><div class="line">    this.flag = true;</div><div class="line">&#125;</div><div class="line">//为了提高复用性，方法绑定在父类原型属性上</div><div class="line">Super.prototype.getFlag = function()&#123;</div><div class="line">    return this.flag;</div><div class="line">&#125;</div><div class="line">//来个子类</div><div class="line">function Sub()&#123;</div><div class="line">    this.subFlag = false;</div><div class="line">&#125;</div><div class="line">//实现继承</div><div class="line">Sub.prototype = new Super;</div><div class="line">//给子类添加子类特有的方法，注意顺序要在继承之后</div><div class="line">Sub.prototype.getSubFlag = function()&#123;</div><div class="line">    return this.subFlag;</div><div class="line">&#125;</div><div class="line">//构造实例</div><div class="line">var es5 = new Sub;</div></pre></td></tr></table></figure></p>
 <p>原型链实现的继承主要有几个问题：<br>1、本来我们为了构造函数属性的封装私有性，方法的复用性，提倡将属性声明在构造函数内，而将方法绑定在原型对象上，但是现在子类的原型是父类的一个实例，自然父类的属性就变成子类原型的属性了；<br>这就会带来一个问题，我们知道构造函数的原型属性在所有构造的实例中是共享的，所以原型中属性的改变会反应到所有的实例上，这就违背了我们想要属性私有化的初衷；<br>2、创建子类的实例时，不能向父类的构造函数传递参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function Super()&#123;</div><div class="line">    this.flag = true;</div><div class="line">&#125;</div><div class="line">function Sub()&#123;</div><div class="line">   this.subFlag = false;</div><div class="line">&#125;</div><div class="line">Sub.prototype = new Super;</div><div class="line">var obj = new Sub();</div><div class="line">obj.flag = flase;  /* 修改之后，由于是原型上的属性，之后创建的所有实例都会受到影响 */</div><div class="line">var obj_2 = new Sub();</div><div class="line">console.log(obj.flag)  //false；</div></pre></td></tr></table></figure></p>
@@ -580,7 +580,7 @@
     
       <category term="记录" scheme="http://shudery.cn/tags/%E8%AE%B0%E5%BD%95/"/>
     
-      <category term="JavaScript" scheme="http://shudery.cn/tags/JavaScript/"/>
+      <category term="JavaScript编程" scheme="http://shudery.cn/tags/JavaScript%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -623,7 +623,7 @@
     <link href="http://shudery.cn/2016/06/23/%E7%A8%8B%E5%BA%8F%E5%91%98/Javascript%E5%BC%80%E5%8F%91%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%A1%8C%E9%9D%A2app/"/>
     <id>http://shudery.cn/2016/06/23/程序员/Javascript开发跨平台桌面app/</id>
     <published>2016-06-23T15:32:17.000Z</published>
-    <updated>2016-11-23T15:56:54.000Z</updated>
+    <updated>2017-03-14T09:09:26.000Z</updated>
     
     <content type="html"><![CDATA[<p>electron原本是atom shell的项目，由于集成node丰富的本地系统级API，<br>提供了与操作系统交互的功能，所以归结起来，现在javascrpit的技术栈之所以如此宽广，<br>要得益于NodeJS将其中浏览器的环境中分离出来</p>
 <p>不过需要特别说明的是，这里生成的桌面应用，<br>实际上是Electron生成的一个由Javascrpit控制管理的迷你浏览器Chromeinum，<br>它其实是一个Chrome浏览器的试验版本，当然用的也是V8的内核<br><a id="more"></a><br>不管怎么说，这对于喜欢前端，熟悉javascript的同学来说，<br>能够用前端和一点后台的知识去接触，尝试各种不同的领域，实在是不要太爽</p>
@@ -658,7 +658,7 @@
       <category term="程序员" scheme="http://shudery.cn/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
     
     
-      <category term="JavaScript" scheme="http://shudery.cn/tags/JavaScript/"/>
+      <category term="JavaScript编程" scheme="http://shudery.cn/tags/JavaScript%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -823,7 +823,7 @@ ms-dns 8.8.4.4</code></p>
     <link href="http://shudery.cn/2016/04/15/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/javaScript%E7%9A%84%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%8F%8A%E5%85%B6%E7%BB%A7%E6%89%BF/"/>
     <id>http://shudery.cn/2016/04/15/学习感悟/javaScript的原型链及其继承/</id>
     <published>2016-04-15T09:55:58.000Z</published>
-    <updated>2017-01-21T11:48:17.000Z</updated>
+    <updated>2017-03-14T09:09:03.000Z</updated>
     
     <content type="html"><![CDATA[<p>这两天仔细地学习了JS的创建对象以及继承的方法，结合红宝石书整理了下笔记。<br>（红宝石这里讲了非常多的模式，看第一遍觉得还蛮乱的）<br>Javascript作为一种动态的面向对象语言，本身却没有类的概念和方法，<br>在创建对象和继承方面有很多有趣的实现和方法<br><a id="more"></a></p>
 <h2 id="1-原始绑定和字面量表示："><a href="#1-原始绑定和字面量表示：" class="headerlink" title="1.原始绑定和字面量表示："></a>1.原始绑定和字面量表示：</h2><p><strong>优点</strong>：简洁方便<br><strong>问题</strong>：使用对象字面量的方法创建的对象，若重复创建会产生大量的重复代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var o = new Object();</div><div class="line">o.name = &apos;shudery&apos;;</div><div class="line">o.skill = function()&#123;console.log(&apos;sayHello&apos;)&#125;;</div><div class="line">//这是比较老的方法，一般用下面这种简单粗暴的，直接字面量创建</div><div class="line">var obj = &#123;</div><div class="line">    sex = &apos;man&apos;,</div><div class="line">    skill = function()&#123;console.log(&apos;tucao&apos;)&#125; </div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -851,7 +851,7 @@ ms-dns 8.8.4.4</code></p>
       <category term="学习感悟" scheme="http://shudery.cn/categories/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/"/>
     
     
-      <category term="JavaScript" scheme="http://shudery.cn/tags/JavaScript/"/>
+      <category term="JavaScript编程" scheme="http://shudery.cn/tags/JavaScript%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
