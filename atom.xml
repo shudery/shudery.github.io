@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shudery.cn/"/>
-  <updated>2017-09-09T10:52:51.000Z</updated>
+  <updated>2017-09-09T10:54:25.000Z</updated>
   <id>http://shudery.cn/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>服务架构基础(概念篇)</title>
-    <link href="http://shudery.cn/2017/09/08/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/"/>
-    <id>http://shudery.cn/2017/09/08/学习感悟/服务架构的基础知识整理/</id>
+    <link href="http://shudery.cn/2017/09/08/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9F%BA%E7%A1%80(%E6%A6%82%E5%BF%B5%E7%AF%87)/"/>
+    <id>http://shudery.cn/2017/09/08/学习感悟/服务架构基础(概念篇)/</id>
     <published>2017-09-08T15:32:17.000Z</published>
-    <updated>2017-09-09T10:52:51.000Z</updated>
+    <updated>2017-09-09T10:54:25.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近和友人聊天的时候，说到现在在做的一些业务项目，在跟上级做汇报的时候，不管怎么说最后一定要在技术架构方面扯上云化，服务化，数字化之类的名词（摊手，往高端点说是必须要匹配公司的总体战略目标。也不管你的项目是否适合这些模式的架构方案，都要在胶片上放上这几个High-Level的词汇，不然这就是一份不能让领导满意的汇报材料，要打回去重写（滑稽。</p>
 <a id="more"></a>
@@ -57,10 +57,10 @@
   
   <entry>
     <title>MacOS使用半年感受(码农向</title>
-    <link href="http://shudery.cn/2017/04/04/%E9%9A%8F%E7%AC%94/MacOS%E4%BD%BF%E7%94%A8%E5%8D%8A%E5%B9%B4%E6%84%9F%E5%8F%97(%E7%A0%81%E5%86%9C%E5%90%91/"/>
-    <id>http://shudery.cn/2017/04/04/随笔/MacOS使用半年感受(码农向/</id>
+    <link href="http://shudery.cn/2017/04/04/%E9%9A%8F%E7%AC%94/MacOS%E4%BD%BF%E7%94%A8%E5%8D%8A%E5%B9%B4%E6%84%9F%E5%8F%97(%E7%A0%81%E5%86%9C%E5%90%91)/"/>
+    <id>http://shudery.cn/2017/04/04/随笔/MacOS使用半年感受(码农向)/</id>
     <published>2017-04-04T09:53:38.000Z</published>
-    <updated>2017-04-17T00:42:20.000Z</updated>
+    <updated>2017-09-09T10:54:49.000Z</updated>
     
     <content type="html"><![CDATA[<p>2016年8月底的时候入手了macbook pro2015版，其实早在3月入阿里实习的时候就被安利了mac于办公和编码的各种优势，正好当时被老旧的ThinkPad卡得生活不能自理，不过由于可以使用公司配的电脑以及想等2016新版的pro，所以一直忍住没买，直到8月我要回校时，新版一直拖延发布，而且听说用了蝶式键盘，我用过macbook12寸的蝶式键盘，简直忍不了，所以就直接买了，到现在使用了大概快半年了，每天都是重度使用，觉得可以写点感受和安利一些好用的软件。</p>
 <a id="more"></a>
