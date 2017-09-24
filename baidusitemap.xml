@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://shudery.cn/2016/08/20/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/JavaScript%E5%A6%82%E4%BD%95%E7%9C%9F%E6%AD%A3%E5%AE%9E%E7%8E%B0%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF/</loc>
+    <lastmod>2017-09-24T09:42:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript如何真正实现原型链继承</title>
+        <pubTime>2016-08-19T16:00:00.000Z</pubTime>
+        
+        <tag>JavaScript编程</tag>
+         
+        <tag>翻译</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习感悟" url="http://shudery.cn/categories/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shudery.cn/2017/04/04/%E9%9A%8F%E7%AC%94/MacOS%E4%BD%BF%E7%94%A8%E5%8D%8A%E5%B9%B4%E6%84%9F%E5%8F%97(%E7%A0%81%E5%86%9C%E5%90%91)/</loc>
     <lastmod>2017-09-09T10:54:49.000Z</lastmod>
     <data>
@@ -134,28 +156,6 @@
         <pubTime>2016-04-15T09:55:58.000Z</pubTime>
         
         <tag>JavaScript编程</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习感悟" url="http://shudery.cn/categories/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shudery.cn/2016/09/29/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/JavaScript%E5%A6%82%E4%BD%95%E7%9C%9F%E6%AD%A3%E5%AE%9E%E7%8E%B0%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF/</loc>
-    <lastmod>2017-03-14T09:09:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript如何真正实现原型链继承</title>
-        <pubTime>2016-09-29T13:32:17.000Z</pubTime>
-        
-        <tag>JavaScript编程</tag>
-         
-        <tag>翻译</tag>
          
          
            
