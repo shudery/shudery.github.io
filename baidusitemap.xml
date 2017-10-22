@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://shudery.cn/2017/10/08/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/%E7%89%A9%E8%81%94%E7%BD%91%E7%9A%84%E6%95%B2%E9%97%A8%E7%A0%96%EF%BC%9A%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84IoT%E5%BA%94%E7%94%A8/</loc>
+    <lastmod>2017-10-22T07:10:22.000Z</lastmod>
+    <data>
+        <display>
+        <title>物联网的敲门砖：实现一个简单的IoT应用</title>
+        <pubTime>2017-10-08T15:32:17.000Z</pubTime>
+        
+        <tag>记录</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习感悟" url="http://shudery.cn/categories/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://shudery.cn/2016/08/12/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/HTTP%E7%BC%93%E5%AD%98%E4%B8%8Eweb%E5%82%A8%E5%AD%98%E6%A6%82%E5%BF%B5%E6%95%B4%E7%90%86/</loc>
+    <lastmod>2017-10-22T05:53:17.000Z</lastmod>
+    <data>
+        <display>
+        <title>HTTP缓存与web储存概念整理</title>
+        <pubTime>2016-08-11T17:46:57.000Z</pubTime>
+        
+        <tag>web前端</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习感悟" url="http://shudery.cn/categories/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shudery.cn/2016/08/20/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/JavaScript%E5%A6%82%E4%BD%95%E7%9C%9F%E6%AD%A3%E5%AE%9E%E7%8E%B0%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF/</loc>
     <lastmod>2017-09-24T09:42:50.000Z</lastmod>
     <data>
@@ -267,26 +307,6 @@
            
              
               <breadCrumb title="随笔" url="http://shudery.cn/categories/%E9%9A%8F%E7%AC%94/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://shudery.cn/2016/08/12/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/HTTP%E7%BC%93%E5%AD%98%E5%8F%8A%E4%BC%97%E5%A4%9A%E7%9A%84web%E5%82%A8%E5%AD%98%E6%A6%82%E5%BF%B5%E4%B9%8B%E5%B0%8F%E6%95%B4%E7%90%86/</loc>
-    <lastmod>2016-11-30T07:42:17.000Z</lastmod>
-    <data>
-        <display>
-        <title>HTTP缓存及众多的web储存概念之小整理</title>
-        <pubTime>2016-08-11T17:46:57.000Z</pubTime>
-        
-        <tag>web前端</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习感悟" url="http://shudery.cn/categories/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/"/>
           
         </display>
     </data>
