@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://shudery.cn/2018/01/17/%E5%91%A8%E6%8A%A5/%E5%BC%80%E5%A7%8B%E6%95%B4%E7%90%86%E8%BE%93%E5%87%BA%E6%AF%8F%E5%91%A8%E6%B8%85%E5%8D%95/</loc>
+    <lastmod>2018-01-17T16:01:57.000Z</lastmod>
+    <data>
+        <display>
+        <title>开始整理输出每周清单</title>
+        <pubTime>2018-01-17T15:32:17.000Z</pubTime>
+        
+        <tag>记录</tag>
+         
+        <tag>技术</tag>
+         
+         
+           
+             
+              <breadCrumb title="周报" url="http://shudery.cn/categories/%E5%91%A8%E6%8A%A5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shudery.cn/2017/10/08/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/%E7%89%A9%E8%81%94%E7%BD%91%E7%9A%84%E6%95%B2%E9%97%A8%E7%A0%96%EF%BC%9A%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84IoT%E5%BA%94%E7%94%A8/</loc>
     <lastmod>2017-10-22T07:34:47.000Z</lastmod>
     <data>
@@ -173,9 +195,9 @@
         <title>简易的RSS格式输出工具</title>
         <pubTime>2016-11-19T16:00:00.000Z</pubTime>
         
-        <tag>web前端</tag>
-         
         <tag>JavaScript编程</tag>
+         
+        <tag>web前端</tag>
          
          
            
@@ -215,9 +237,9 @@
         <title>ES5和ES6中对于继承的实现方法</title>
         <pubTime>2016-07-23T15:32:17.000Z</pubTime>
         
-        <tag>记录</tag>
-         
         <tag>JavaScript编程</tag>
+         
+        <tag>记录</tag>
          
          
            
@@ -259,9 +281,9 @@
         <title>实现通用的网站服务构建系统</title>
         <pubTime>2016-11-23T13:59:48.000Z</pubTime>
         
-        <tag>web前端</tag>
-         
         <tag>记录</tag>
+         
+        <tag>web前端</tag>
          
          
            
@@ -387,9 +409,9 @@
         <title>chrome扩展程序入门手记</title>
         <pubTime>2016-06-14T15:08:15.000Z</pubTime>
         
-        <tag>web前端</tag>
-         
         <tag>记录</tag>
+         
+        <tag>web前端</tag>
          
          
            
