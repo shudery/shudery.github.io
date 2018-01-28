@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shudery.cn/"/>
-  <updated>2018-01-28T13:00:32.000Z</updated>
+  <updated>2018-01-28T13:38:36.000Z</updated>
   <id>http://shudery.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://shudery.cn/2018/01/28/%E5%91%A8%E6%8A%A5/Daguo%E7%9A%84%E6%AF%8F%E5%91%A8%E6%B8%85%E5%8D%952/"/>
     <id>http://shudery.cn/2018/01/28/周报/Daguo的每周清单2/</id>
     <published>2018-01-28T05:32:17.000Z</published>
-    <updated>2018-01-28T13:00:32.000Z</updated>
+    <updated>2018-01-28T13:38:36.000Z</updated>
     
     <content type="html"><![CDATA[<p>这周朋友圈刷起了下雪的照片和视频，想起在成都四年还是没能一睹雪花纷飞的场景，很是遗憾啊。还以为广东会保持18度的秋天风格到过年，下午就收到了明天骤降10度的寒潮预警，怕冷的人瑟瑟发抖！<br><a id="more"></a></p>
 <h2 id="前端基础"><a href="#前端基础" class="headerlink" title="前端基础"></a>前端基础</h2><ul>
@@ -50,12 +50,6 @@
 <li><p><a href="https://mp.weixin.qq.com/s?__biz=MzIwNjQwMzUwMQ==&amp;mid=2247485752&amp;idx=1&amp;sn=c59b754ad87382c9bb0f67466036a830&amp;chksm=97236bfaa054e2ecf4f2c9b904c99f914b4124cd96bbef00638b2ebf083b0dacf85b9abcee4f&amp;mpshare=1&amp;scene=1&amp;srcid=0128yJYuM72IEU8mokTjIfoo#rd">Bootstrap 4 发布了，可是已经过气了呀</a></p>
 <blockquote>
 <p>Bootstrap的第四号版本三年磨一剑，从15年开始Bootstrap4的第一个alpha到现在，说起来那会我还没入行呢，前端技术圈已经发生了翻天覆地的变化。想起自己当年也是从Bootstrap开始撸起页面的，如今由于更新迭代缓慢，同质化和紧耦合，缺少语义而被人诟病，曾经的王者陨落，时代的眼泪啊。</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="流行风口"><a href="#流行风口" class="headerlink" title="流行风口"></a>流行风口</h2><ul>
-<li><a href="https://mp.weixin.qq.com/debug/wxagame/dev/index.html?t=2018115">微信推出小游戏，跳一跳开启第一波微信小游戏红利？</a><blockquote>
-<p>小游戏的运行环境是小程序环境的扩展，基本思路也是封装必要的 WEB 接口提供给用户，尽可能追求和 WEB 同样的开发体验。小游戏在小程序环境的基础上提供了 WebGL 接口的封装，使得渲染能力和性能有了大幅度提升。不过由于这些接口都是微信团队通过自研的原生实现封装的，所以并不可以等同为浏览器环境。目前，流行的HTML5游戏引擎Cocos、Egret、Laya 已经完成了自身引擎及其工具对小游戏的适配和支持，对应的官方文档已经对接入小游戏开发做了介绍。</p>
 </blockquote>
 </li>
 </ul>
