@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>http://shudery.cn/2018/01/28/%E5%91%A8%E6%8A%A5/Daguo%E7%9A%84%E6%AF%8F%E5%91%A8%E6%B8%85%E5%8D%952/</loc>
+    <lastmod>2018-01-28T13:00:32.000Z</lastmod>
+    <data>
+        <display>
+        <title>Daguo的每周清单：第二期</title>
+        <pubTime>2018-01-28T05:32:17.000Z</pubTime>
+        
+        <tag>记录</tag>
+         
+        <tag>技术</tag>
+         
+         
+           
+             
+              <breadCrumb title="周报" url="http://shudery.cn/categories/%E5%91%A8%E6%8A%A5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://shudery.cn/2018/01/17/%E5%91%A8%E6%8A%A5/Daguo%E7%9A%84%E6%AF%8F%E5%91%A8%E6%B8%85%E5%8D%951/</loc>
-    <lastmod>2018-01-20T09:25:31.000Z</lastmod>
+    <lastmod>2018-01-28T11:34:38.000Z</lastmod>
     <data>
         <display>
         <title>Daguo的每周清单：第一期</title>
@@ -237,9 +259,9 @@
         <title>ES5和ES6中对于继承的实现方法</title>
         <pubTime>2016-07-23T15:32:17.000Z</pubTime>
         
-        <tag>JavaScript编程</tag>
-         
         <tag>记录</tag>
+         
+        <tag>JavaScript编程</tag>
          
          
            
@@ -343,9 +365,9 @@
         <title>运用钩子：监听npm仓库和包更新</title>
         <pubTime>2016-11-06T16:00:00.000Z</pubTime>
         
-        <tag>翻译</tag>
-         
         <tag>工具</tag>
+         
+        <tag>翻译</tag>
          
          
            
