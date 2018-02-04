@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shudery.cn/"/>
-  <updated>2018-01-28T13:38:36.000Z</updated>
+  <updated>2018-02-04T09:41:51.000Z</updated>
   <id>http://shudery.cn/</id>
   
   <author>
@@ -14,6 +14,82 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Daguo的每周清单：第三期</title>
+    <link href="http://shudery.cn/2018/02/03/%E5%91%A8%E6%8A%A5/Daguo%E7%9A%84%E6%AF%8F%E5%91%A8%E6%B8%85%E5%8D%953/"/>
+    <id>http://shudery.cn/2018/02/03/周报/Daguo的每周清单3/</id>
+    <published>2018-02-03T15:32:17.000Z</published>
+    <updated>2018-02-04T09:41:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>周二晚上被临时通知去趟北京出差，参加个研讨会，去了三天，原本的工作计划和学习计划都被打乱。虽然还没去过北京，有点小兴奋，但是因为太突然，什么装备都没有准备，在北京停留几天冻得够呛。还有，北京的糖葫芦是真的咯牙。出差回来后去参加小部门年会，破天荒地抽到一个千元红包，真是本命年行大运啊~</p>
+<a id="more"></a>
+<h2 id="前端基础"><a href="#前端基础" class="headerlink" title="前端基础"></a>前端基础</h2><ul>
+<li><p><a href="https://www.liayal.com/article/5a6b07137de5e93eee4137ca?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io">扒一扒小程序的坑</a></p>
+<blockquote>
+<p>每次逛社区，基本上所有带有坑字的我都会看，很奇妙，做一个东西踩过的坑，很可能是作者多个下午踩出来的，读起来有吸取别人精华的感觉。如果有些坑你也踩过的话，很容易引发共鸣，然后再重新思考问题的原因。小程序其实还是有不少坑的，而且很多是小程序特有，不深入源码也不清楚为什么会出现那样的情况，这种坑往往特别浪费时间。</p>
+</blockquote>
+</li>
+<li><p><a href="https://segmentfault.com/a/1190000013008420">VUE使用中踩过的坑</a></p>
+<blockquote>
+<p>踩坑总结再来一发，偏基础，很多都知道了，但还是可以复习一遍。</p>
+</blockquote>
+</li>
+<li><p><a href="https://juejin.im/post/5a6f1c0f518825733f6e4436?utm_medium=fe&amp;utm_source=weixinqun&amp;from=timeline">一百行js，实现极简头脑王者辅助</a></p>
+<blockquote>
+<p>之前愚人节做过一次拦截微信web端的人物头像地址，改成一张提示今天是愚人节不要受骗的图，那个时候没有直接在微信做，应该手机端做抓包的配置没搞好。这个实践结合抓包和爬虫，快速搜索答题选项在百度搜索问题后出现的次数，来指示正确的选项，挺好玩的。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="JavaScript生态"><a href="#JavaScript生态" class="headerlink" title="JavaScript生态"></a>JavaScript生态</h2><ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzAwNTAzMjcxNg==&amp;mid=2651425182&amp;idx=1&amp;sn=f34e85da64ec0319831f3d6b08ff16b0&amp;chksm=80dff7fdb7a87eeb5b8dd766ada29b3c74102759f6f0ebf2370a199fb15110b27b2be4704e86&amp;mpshare=1&amp;scene=1&amp;srcid=02029M5pSRPbnn5D2dm5Dkx1#rd">前端AI之路: KerasJS初探</a><blockquote>
+<p>JS如今攻陷多个领域，很多前沿技术都有涉水，但是在人工智能只一块，python同样带有脚本的优势，而且在第三方库的支持上是Node远远不能及的。这个项目通过Python训练出来的神经网络模型，提供给nodejs识别圣诞老人头像，算是将Nodejs强行AI了一下，还是挺有意思的。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="技术视野"><a href="#技术视野" class="headerlink" title="技术视野"></a>技术视野</h2><ul>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MjM5NTEwMTAwNg==&amp;mid=2650213960&amp;idx=2&amp;sn=add902d089f977fc2fd3562d643971e9&amp;chksm=befe0e698989877f2e2c5a34e1d39bb5c96aa731421c1c29f4144265798656cd1b8fac3e6b25&amp;mpshare=1&amp;scene=1&amp;srcid=01303xeAjnTQKkxOpUZaGI0C#rd">多研究些架构，少谈些框架</a></p>
+<blockquote>
+<p>在外包团队开发项目中，前端微服务可以节约成本，但是一个真正玩转起微服务的开发项目，会是一个怎样的工程水准呢？</p>
+</blockquote>
+</li>
+<li><p><a href="https://www.w3ctrain.com/2018/02/01/javascript-event-loop/">How JavaScript Works？—— Event Loop</a></p>
+<blockquote>
+<p>被这个Hexo theme吸引了，然后看了一下写得很好，关于Javascript 的Event loop深入了解后可以解决很多单线程问题。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="工程实践"><a href="#工程实践" class="headerlink" title="工程实践"></a>工程实践</h2><ul>
+<li><p><a href="https://github.com/skyFi/weapp-starter">微信小程序开发最佳实践</a></p>
+<blockquote>
+<p>重点关注小程序生态下，代码结构和项目开发和语法组织与其他项目的区别。</p>
+</blockquote>
+</li>
+<li><p><a href="https://segmentfault.com/a/1190000012345156">从放弃迅雷和IDM到自己开发下载工具</a></p>
+<blockquote>
+<p>动手开发下载工具，下片从此不再限流。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="总结-amp-吐槽"><a href="#总结-amp-吐槽" class="headerlink" title="总结&amp;吐槽"></a>总结&amp;吐槽</h2><p>  有许多写了多年代码的互联网民工都已经非常厌倦写代码了，我常常思考，我以后会不会也这样子。现在因为还有很多除了做技术实现以外的事情要做，要管理外包团队，要给上级写材料，要给各个团队做支撑，确实很少有时间写代码了。</p>
+<p>  我现在反而非常渴望有写代码的时间，那就是我的全部或者大部分的工作内容，每个技术实现背后的技术我都想好好的研究透，然后灵活运用在各个技术领域，做到融汇贯通，我想要实现这样都是一辈子的事情吧。</p>
+<p>  做各种技术尝试和实现，不要做一些重复的燃料加工，想着如何漂亮地coding，怎么做个engineer而不是coder，想着怎样更好地实现那些重复的代码行和它内在的原理，这才是有意思的事情啊。这是我给自己的忠告，有时厌倦不是它不好，或者你不爱了，而是你不曾真正感受它的魅力。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      develop cross-platform GUI app with electron
+    
+    </summary>
+    
+      <category term="周报" scheme="http://shudery.cn/categories/%E5%91%A8%E6%8A%A5/"/>
+    
+    
+      <category term="记录" scheme="http://shudery.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="技术" scheme="http://shudery.cn/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>Daguo的每周清单：第二期</title>
@@ -1025,63 +1101,6 @@
       <category term="记录" scheme="http://shudery.cn/tags/%E8%AE%B0%E5%BD%95/"/>
     
       <category term="web前端" scheme="http://shudery.cn/tags/web%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>搭建属于自己的vpn服务器</title>
-    <link href="http://shudery.cn/2016/06/10/%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84vps%20vpn%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    <id>http://shudery.cn/2016/06/10/方法总结/如何搭建属于自己的vps vpn服务器/</id>
-    <published>2016-06-10T13:59:48.000Z</published>
-    <updated>2016-11-30T07:41:41.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>之前实习的时候想着有需要翻墙的时候用着公司的vpn就足够了<br>但是随着马上要去工作，还有对一些国外资源的需求（资源你懂的）<br>然后也前后被一些网上的vpn服务商坑过（各种掉线，不稳定）<br>决定自己租用一台国外的服务器vps<br><a id="more"></a><br>了解一番后知道了国外<a href="http://bandwagonhost.com/">搬瓦工</a>和<a href="www.digitalocean.com/?refcode=3491087221da">digital ocean</a>都有不错的口碑，最终选择DO,<br>最便宜的512MB内存，20GB固态硬盘，1TB流量，</p>
-<p>这个好像只是防止恶意使用的，实际上流量是用不完的，<br>在服务器控制版面也没有流量使用情况提示<br>首先注册账号，输入邮箱密码，在邮箱收到确认邮件，<br>来到Payment Methods </p>
-<p><img src="https://raw.githubusercontent.com/shudery/public/master/Pictures/article/vpn_1.png" alt=""></p>
-<p>这一项我选择的是方便快捷的PayPal，Credit不好设置<br>需要预充5刀PayPal，5刀也是最便宜的服务器的月租价格，<br>如果没有PayPal的话就先注册一次，比这个Credit方便多了<br>注意一些老旧的银联卡号可能提示设置错误，我换了一张卡就好了</p>
-<p>然后开始选择服务器，包括价格，地点，系统，<br>我选了最便宜已经够用了的5刀/月，ping后较快的美国西部服务器，<br>以及比较容易操作的ubuntu系统，然后添加主机的SSH密钥，以后方便，</p>
-<p>不过也可以先跳过以后再说，买后会收到邮件，<br>得到一个服务器主机Ip，root账户名，以及一个初始密码。<br>vps算是有了，接下来我们在这台服务器上搭建vpn</p>
-<p>然后不得吐槽的是网页的console控制台实在有点卡卡，<br>所以我用简单的putty来建立与vps的链接，也可以使用xshell等工具，<br>下载putty后直接输入ip地址，保留默认端口，点击open就进入控制台了</p>
-<p>然后输入你的用户名root，然后出现password输入密码，<br>这里注意啦~输入密码的时候，光标是不会动的！<br>所以，慢慢输入，不要输错了，登录成功后显示一些信息</p>
-<p><img src="https://raw.githubusercontent.com/shudery/public/master/Pictures/article/vpn_2.png" alt=""></p>
-<p>第一次登陆要求重置密码，分别填一次旧密码和两次新密码，注意光标还是不会移动！<br>然后开始一列Linux操作，作为小白的我们就只管输入代码即可，<br>不过我们也是有(yao)追(zhuan)求(bi)的小白，所以也要大概知道这些代码是个什么作用</p>
-<h3 id="1、安装vpn服务"><a href="#1、安装vpn服务" class="headerlink" title="1、安装vpn服务"></a>1、安装vpn服务</h3><p>首先我们必须在vps服务器上安装一种vpn服务，这里选择点对点隧道协议pptp,输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get install pptpd</div></pre></td></tr></table></figure>
-<h3 id="2、配置文件修改"><a href="#2、配置文件修改" class="headerlink" title="2、配置文件修改"></a>2、配置文件修改</h3><p>用vi编辑器打开配置文件，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/pptpd.conf</div></pre></td></tr></table></figure>
-<p>没用过vi的注意啦，要编辑文件必须先输入i，进入INSERT模式，<br>将光标移动到最下面更改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">localip 10.0.0.1</div><div class="line">remoteip 10.0.0.100-200</div></pre></td></tr></table></figure>
-<p>有两段，localip更改为你vps服务器的ip地址，remoteip是以后分配给<br>其他连到你vpn的服务器的ip，可以照着例子分配，写完后保存，<br>vi的文件保存方法是先按Esc然后输入冒号:wq即可，w是写入保存，q是退出vi</p>
-<h3 id="3、添加vpn账号"><a href="#3、添加vpn账号" class="headerlink" title="3、添加vpn账号"></a>3、添加vpn账号</h3><p>用vi打开密钥文件，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/ppp/chap-secrets</div></pre></td></tr></table></figure>
-<p>依次输入 username pptpd password ###<br>将username, password更换为你的vpn账号和密码，中间是服务名，<br>最后一个是ip通配符，如果要建立多个vpn账号给妹子基友一起用，<br>还一行依次输入即可，输完同样保存</p>
-<h3 id="4、设置公共DNS服务，输入"><a href="#4、设置公共DNS服务，输入" class="headerlink" title="4、设置公共DNS服务，输入"></a>4、设置公共DNS服务，输入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/ppp/pptpd-options</div></pre></td></tr></table></figure>
-<p>打开服务选项文件设置找到ms-dns并设置为<br><code>ms-dns 8.8.8.8
-ms-dns 8.8.4.4</code></p>
-<h3 id="5、重启pptp服务，"><a href="#5、重启pptp服务，" class="headerlink" title="5、重启pptp服务，"></a>5、重启pptp服务，</h3><p>重启服务，刷新配置，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service pptpd restart</div></pre></td></tr></table></figure>
-<h3 id="6、ip转发配置"><a href="#6、ip转发配置" class="headerlink" title="6、ip转发配置"></a>6、ip转发配置</h3><p>打开转发配置文件，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/sysctl.conf</div></pre></td></tr></table></figure>
-<p>发现整个文件都带有注释符#,去掉<code># net.ipv4.ip_forward = 1</code><br>前面的注释符#保存,为了使配置生效还需运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sysctl -p</div></pre></td></tr></table></figure>
-<h3 id="7、设置iptables"><a href="#7、设置iptables" class="headerlink" title="7、设置iptables"></a>7、设置iptables</h3><p>设置并保存，运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE &amp;&amp; iptables-save</div></pre></td></tr></table></figure>
-<p>至此搭建好属于你自己的vpn，拿着账号在手机和电脑的vpn设置登录即可<br>注意如果出现vpn隧道协议构建失败，检查一下网络适配器里vpn的安全属性<br>勾选为以下选项</p>
-<p><img src="https://raw.githubusercontent.com/shudery/public/master/Pictures/article/vpn_3.jpg" alt=""></p>
-]]></content>
-    
-    <summary type="html">
-    
-      how to build vpn or vps by youself
-    
-    </summary>
-    
-      <category term="方法总结" scheme="http://shudery.cn/categories/%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="记录" scheme="http://shudery.cn/tags/%E8%AE%B0%E5%BD%95/"/>
-    
-      <category term="工具" scheme="http://shudery.cn/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
