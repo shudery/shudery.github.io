@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shudery.cn/"/>
-  <updated>2018-02-11T14:37:44.000Z</updated>
+  <updated>2018-02-25T16:25:53.000Z</updated>
   <id>http://shudery.cn/</id>
   
   <author>
@@ -14,6 +14,74 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Daguo的每周清单：第五期</title>
+    <link href="http://shudery.cn/2018/02/25/%E5%91%A8%E6%8A%A5/Daguo%E7%9A%84%E6%AF%8F%E5%91%A8%E6%B8%85%E5%8D%955/"/>
+    <id>http://shudery.cn/2018/02/25/周报/Daguo的每周清单5/</id>
+    <published>2018-02-25T05:32:17.000Z</published>
+    <updated>2018-02-25T16:25:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>新年开工第一周，没有收到开工红包，不过收到了之前去北京出差的补贴也是蛮开心的。这周很多同事都请假了，好多个工位都还是空荡荡的，任务比较少，不过下周开始应该又会变得忙碌了。</p>
+<a id="more"></a>
+<h2 id="前端基础"><a href="#前端基础" class="headerlink" title="前端基础"></a>前端基础</h2><ul>
+<li><p><a href="https://zhuanlan.zhihu.com/p/33819883?utm_source=wechat_session&amp;utm_medium=social">ajax跨域完全讲解</a></p>
+<blockquote>
+<p>由公司同事讲解的ajax跨域问题，录制成视频发布在慕课网，非常清晰，作为前端在完全理清跨域问题的同时，可以了解一下后端的编程过程以及解决跨域的方法。</p>
+</blockquote>
+</li>
+<li><p><a href="https://segmentfault.com/a/1190000013331105?utm_source=index-hottest">面试的信心来源于过硬的基础</a></p>
+<blockquote>
+<p>总结了前端一些常见的问题技巧，有一些问题虽然没有遇到也没有试验过，不过给我在遇到问题的时候提供了很多相关的思路。</p>
+</blockquote>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/25589193?utm_source=wechat_session&amp;utm_medium=social">Vue.js 的实用技巧</a></p>
+<blockquote>
+<p>来自饿了么前端的vue，前端使用技巧，饿了么的前端团队是国内vue玩得比较溜的，element-ui也越来越受开发者的欢迎，通过饿了么前端技术博客了解到了许多vue开发过程中的问题和开发技巧。</p>
+</blockquote>
+</li>
+<li><p><a href="https: //segmentfault.com/a/1190000013041329?utm_source=index-hottest">javascript 总结常用工具类的封装</a></p>
+<blockquote>
+<p>最近刚好在看司徒正美老师的《JavaScript框架设计》，里面第一章就从类型判断这些基础函数讲起，各大框架/类库是如何封装函数的，这篇文章简单地总结了各种常用的工具函数，简洁好用，更关注实现的优雅，抛弃低版本IE的兼容性问题虽是大势所趋，但是曾经面对浏览器兼容的各种hack方法还是可以做一次了解，毕竟那曾经也是前端们的核心竞争力。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="技术视野"><a href="#技术视野" class="headerlink" title="技术视野"></a>技术视野</h2><ul>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=2651001305&amp;idx=1&amp;sn=1593b0a727a2f62de331165096274ff7&amp;chksm=bdbee98a8ac9609c932ccce1f760514bfc7903a0f6538c2e9834a7ea2f67d92f36409ebfe204&amp;mpshare=1&amp;scene=1&amp;srcid=0222RzGyi3QC71hswU6vmSMd#rd">春节假期技术圈都发生了哪些大新闻？</a></p>
+<blockquote>
+<p>春节回家除了胖三斤之外，还堕落了好多天，赶紧补一下春节期间技术圈的新闻。</p>
+</blockquote>
+</li>
+<li><p><a href="https://github.com/sundy-li/wechat_brain">知乎答题王(头脑王者)辅助工具</a></p>
+<blockquote>
+<p>前端时间答题闯关可以说是火了一把，不过个人觉得了解那么多离日常生活太远的题目是一件很枯燥的事。这个项目爬了大量题目和答案，通过抓包更改手机端界面，自动地给答题者展示答案。之前还看到一个不是通过事先存储大量题目答案的，而是通过直接百度搜索，然后根据选项答案在搜索结果中出现的次数来判断哪一个是正常答案。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="工程实践"><a href="#工程实践" class="headerlink" title="工程实践"></a>工程实践</h2><ul>
+<li><a href="https://github.com/lenve/vhr">vhr:前后端分离的人力资源管理系统</a><blockquote>
+<p>一个管理系统，包括element-ui做的前端和spring boot做的后端，提供了许多管理系统应该具备的功能。之前简单学过一段时间java，所以我也用idea把服务端代码跑了起来，再通过datagrip链接mysql数据库跑脚本生成数据。整个过程跑通非常简单，前端虽然没有提供足够的定制接口，但不失为一个可以拿来加工的管理系统，作为github摘抄员我默默地star了下来</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="总结-amp-吐槽"><a href="#总结-amp-吐槽" class="headerlink" title="总结&amp;吐槽"></a>总结&amp;吐槽</h2><p>今天戊戌年正月初十，党中央建议废除国家主席不得连任两届的规定，朋友圈刷屏，一个决定往往要由之后的历史来判断好坏，说的大概就是这种情况吧[捂脸]。</p>
+<p>一个产品成功的关键是什么呢，互联网产品经历了这么多年的打磨，创业热潮一轮一轮下来，随着现在互联网红利骤降开始冷却，这里面产品的运作模式是什么，现在和以前一样吗，这是我最近想了解的问题啊。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      develop cross-platform GUI app with electron
+    
+    </summary>
+    
+      <category term="周报" scheme="http://shudery.cn/categories/%E5%91%A8%E6%8A%A5/"/>
+    
+    
+      <category term="记录" scheme="http://shudery.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="技术" scheme="http://shudery.cn/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>Daguo的每周清单：第四期</title>
@@ -1080,50 +1148,6 @@
     </summary>
     
       <category term="学习感悟" scheme="http://shudery.cn/categories/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/"/>
-    
-    
-      <category term="JavaScript编程" scheme="http://shudery.cn/tags/JavaScript%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Javascript开发跨平台桌面app</title>
-    <link href="http://shudery.cn/2016/06/23/%E7%A8%8B%E5%BA%8F%E5%91%98/Javascript%E5%BC%80%E5%8F%91%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%A1%8C%E9%9D%A2app/"/>
-    <id>http://shudery.cn/2016/06/23/程序员/Javascript开发跨平台桌面app/</id>
-    <published>2016-06-23T15:32:17.000Z</published>
-    <updated>2017-03-14T09:09:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>electron原本是atom shell的项目，由于集成node丰富的本地系统级API，<br>提供了与操作系统交互的功能，所以归结起来，现在javascrpit的技术栈之所以如此宽广，<br>要得益于NodeJS将其中浏览器的环境中分离出来</p>
-<p>不过需要特别说明的是，这里生成的桌面应用，<br>实际上是Electron生成的一个由Javascrpit控制管理的迷你浏览器Chromeinum，<br>它其实是一个Chrome浏览器的试验版本，当然用的也是V8的内核<br><a id="more"></a><br>不管怎么说，这对于喜欢前端，熟悉javascript的同学来说，<br>能够用前端和一点后台的知识去接触，尝试各种不同的领域，实在是不要太爽</p>
-<p>Electron的入门也符合前端知识领域的特点，几乎没有门槛，<br>只要你有一点JS和Node的基础就行了，开发目录的文件层次结构也很简单，<br>后面会有打包工具帮助我们一键打包生成层次比较复杂的项目文件，<br>作为桌面GUI应用，当然也包括.exe的启动文件，</p>
-<p>让我们看看如何开发一个桌面应用，或者说一个能和操作本地系统的web页面的基本方法~<br>你可以跟着步骤完成一些基本的文件，也可以直接下载<a href="https://github.com/shudery/electron/archive/master.zip">快速开始的demo</a><br>基本的文件层次很简单，用app存放一个具体的桌面应用，具体结构是这样的</p>
-<p><img src="https://raw.githubusercontent.com/shudery/public/master/Pictures/article/GUI_1.png" alt=""></p>
-<p>OutApp用来存放打包输出的exe文件<br>至于为什么有两个<code>package.json</code>文件，后面打包操作时你就知道了</p>
-<h3 id="1、首先安装electron"><a href="#1、首先安装electron" class="headerlink" title="1、首先安装electron"></a>1、首先安装electron</h3><p>命令行进入根目录，先用npm安装electron，如果还没有就先<a href="https://nodejs.org/en/">安装node</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g electron-prebuilt</div></pre></td></tr></table></figure></p>
-<h3 id="2、生成package-json配置文件"><a href="#2、生成package-json配置文件" class="headerlink" title="2、生成package.json配置文件"></a>2、生成<code>package.json</code>配置文件</h3><p>运行<code>npm init</code> 生成一个<code>package.json</code>文件来存放应用的相关配置，这个是第一个<code>package.json</code>文件，位于外层根目录下的，运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev electron-prebuilt</div></pre></td></tr></table></figure></p>
-<p>会在devDependencies中生成依赖信息，方便后面打包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;name&quot;: &quot;firstGUI&quot;,</div><div class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</div><div class="line">  &quot;main&quot;: &quot;app/main.js&quot;,//js入口文件</div><div class="line">  &quot;scripts&quot;: &#123;</div><div class="line">    &quot;build&quot;: &quot;electron-packager ./app firstApp --platform=win32 --arch=x64 --out ./OutApp --version 0.37.3 --overwrite --icon=./app/img/daguo. jpg&quot;,</div><div class="line">    //打包命令，后面打包可以简化代码</div><div class="line">  &#125;,</div><div class="line">  &quot;devDependencies&quot;: &#123;</div><div class="line">    &quot;electron-prebuilt&quot;: &quot;^1.2.0&quot;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="3、新建main-js"><a href="#3、新建main-js" class="headerlink" title="3、新建main.js"></a>3、新建main.js</h3><p>生成一个入口的js文件来作为控制GUI窗口的主进程程序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">const electron = require(&apos;electron&apos;);</div><div class="line">const &#123;app&#125; = electron;</div><div class="line">// 创建本地浏览器窗口的模块</div><div class="line">const &#123;BrowserWindow&#125; = electron;</div><div class="line">let win;</div><div class="line">function createWindow() &#123;</div><div class="line">  win = new BrowserWindow(&#123; width: 360, height: 572 &#125;);</div><div class="line">  win.loadURL(&apos;file://&apos;+__dirname+&apos;/html/index.html&apos;);</div><div class="line">  win.on(&apos;closed&apos;, () =&gt; &#123;</div><div class="line">  // 存放窗口对象，在窗口关闭的时候应当删除相应的元素。</div><div class="line">  win = null;</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line">app.on(&apos;ready&apos;, createWindow);</div><div class="line">// 当所有的窗口被关闭后退出应用</div><div class="line">app.on(&apos;window-all-closed&apos;, () =&gt; &#123;</div><div class="line">  if (process.platform !== &apos;darwin&apos;) &#123;</div><div class="line">    app.quit();</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line">app.on(&apos;activate&apos;, () =&gt; &#123;</div><div class="line">  if (win === null) &#123;</div><div class="line">    createWindow();</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>在这个文件后面你可以直接包含你应用特定的由主进程运行的代码，也可以把这些代码放在另一个文件中然后在这里导入。</p>
-<h3 id="4、index-html"><a href="#4、index-html" class="headerlink" title="4、index.html"></a>4、index.html</h3><p>GUI窗口（web页面）渲染的Html文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;firstGUI&lt;/title&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;h1 style=&gt;Hello World!&lt;/h1&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="5、运行桌面app"><a href="#5、运行桌面app" class="headerlink" title="5、运行桌面app"></a>5、运行桌面app</h3><p>大公告成，没错就是如此之快，运行<code>electron .</code>（跟一个空格和小点），或者<code>electron app/main</code><br>打开制作好的GUI界面，so cool~</p>
-<p><img src="https://raw.githubusercontent.com/shudery/public/master/Pictures/article/GUI_2.png" alt=""></p>
-<h3 id="6、进行打包"><a href="#6、进行打包" class="headerlink" title="6、进行打包"></a>6、进行打包</h3><p>既然是桌面应用，那肯定是要一键运行的，不需要安装什么依赖模块，<br>也不需要运行命令行程序的，所以为了提升逼格，让更多的人可以方便实用你的桌面app，<br>需要对app文件夹进行打包，安装打包程序 <code>electron-packager</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev electron-packager</div></pre></td></tr></table></figure></p>
-<p>打包的基本命令是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">electron-packager &lt;location of project&gt; &lt;name of project&gt; &lt;platform&gt; &lt;architecture&gt; &lt;electron version&gt;&lt;optional options&gt;</div></pre></td></tr></table></figure></p>
-<p>上面已经在<code>package.json</code>的script里配置了简化的命令，可以根据自身情况对名称，操作系统，应用图标进行修改，<br>注意啦开始打包前，一定要复制一份<code>package.json</code>到app文件，<br>前面说了桌面应用不用下载依赖，其实是因为打包的时候就将依赖一同打包到文件包里了，<br>所以我们要打包app文件夹下的文件，需要一个<code>package.json</code>  来说明依赖项，注意修改里面的路径，要往下一级，然后运行<code>npm packager</code></p>
-<p><img src="https://raw.githubusercontent.com/shudery/public/master/Pictures/article/GUI_3.png" alt=""></p>
-<p>完成打包后可以看到OutApp里头已经有了相应的文件，<br>运行里面的exe文件会生成和本地测试时一样的GUI窗口~</p>
-<p>一个简单的基于前端技术栈的桌面app算是完成了，后续的asar文件加密，<br>用nsis制作一个安装引导等等~有兴趣的可以继续完善~</p>
-<p>一个桌面级app当然不是用来显示<code>hello world</code>的，那样和web页面有什么区别，<br>这里只是我入门的一个学习记录，一个基于electron的桌面应用<br>还有着非常丰富的与系统交互功能可以设计和开发~<br>更加详细的用法和配置有兴趣的同学不妨看看官方的<a href="http://electron.atom.io/">api演示文档</a>，<br>它也是一个基于electron做的桌面app</p>
-]]></content>
-    
-    <summary type="html">
-    
-      develop cross-platform GUI app with electron
-    
-    </summary>
-    
-      <category term="程序员" scheme="http://shudery.cn/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
     
     
       <category term="JavaScript编程" scheme="http://shudery.cn/tags/JavaScript%E7%BC%96%E7%A8%8B/"/>
