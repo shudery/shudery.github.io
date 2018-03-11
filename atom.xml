@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shudery.cn/"/>
-  <updated>2018-02-25T16:25:53.000Z</updated>
+  <updated>2018-03-11T13:02:03.000Z</updated>
   <id>http://shudery.cn/</id>
   
   <author>
@@ -14,6 +14,89 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Daguo的每周清单：第六期</title>
+    <link href="http://shudery.cn/2018/03/11/%E5%91%A8%E6%8A%A5/Daguo%E7%9A%84%E6%AF%8F%E5%91%A8%E6%B8%85%E5%8D%956/"/>
+    <id>http://shudery.cn/2018/03/11/周报/Daguo的每周清单6/</id>
+    <published>2018-03-11T05:32:17.000Z</published>
+    <updated>2018-03-11T13:02:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>回广东工作后，再次感受到了3月初就可以穿短袖的气候，不过才热了几天就又冷了回去，马上就是要迎接回南天的到来了吧？还记得前年去广州实习的时候连续3个多月的梅雨天气，广东的雨季，也是久违了。</p>
+<a id="more"></a>
+<h2 id="前端基础"><a href="#前端基础" class="headerlink" title="前端基础"></a>前端基础</h2><ul>
+<li><p><a href="https://zhuanlan.zhihu.com/p/33999571?utm_source=tuicool&amp;utm_medium=referral">谈谈 Vue 业务组件</a></p>
+<blockquote>
+<p>来自饿了么前端团队对于组件和业务组件封装的理解，通常在写业务代码的时候，我们需要对一些基础的组件库进行封装，最简单的添加个样式，修改一下颜色，或者添加个图标，很多基础组件没有提供出来接口，有时候还需要写一些比较有入侵性的代码，比如根据组件内部的结构样式，写一些样式来改变展示效果，添加一些自定义方法等。</p>
+</blockquote>
+</li>
+<li><p><a href="https://juejin.im/post/58e3a5a0a0bb9f0069fc16bb">一劳永逸的搞定 flex 布局</a></p>
+<blockquote>
+<p>现在写页面布局我都倾向于用flex来搞定，真的非常好用，在旧版浏览器已经被普罗大众抛弃的今天，它兼容性不足的问题似乎微不足道了。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="技术视野"><a href="#技术视野" class="headerlink" title="技术视野"></a>技术视野</h2><ul>
+<li><p><a href="https://qianduan.group/posts/5a8e62160cf6b624d2239ca7">前端神器：一行命令，React 组件转 Vue 组件!</a></p>
+<blockquote>
+<p>很久之前就在想像element-ui和ant design这些前端组件库，基于某种框架实现后，为了迎合市场需求，必然会提供出多种框架实现，比如element原本是基于vue的，后来也退出了基于react和angular的版本，组件开发团队是如何重构的呢？基于一种框架实现，了解另一种框架语法后自己一个个去重构吧？后来我看到vue和react都支持render函数去渲染逐渐，这是一些语法差异，完全可能通过映射关系编译成不同的参数写法。然后我就看到了这个转换的工具，虽然不能完全无缝地编译转换React组件，但是可以节约很多重构组件的时间，如果在转换地过程能输出React哪些东西无法映射转换为Vue，并给出提示和方案就好了。</p>
+</blockquote>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&amp;mid=2651747630&amp;idx=1&amp;sn=dfb85acb20fbfcb4a8908917357be662&amp;chksm=bd12ac638a652575eb5e542e8159b903b8061ceeb32434ae50e2631a039eddc01e01b2837b95&amp;mpshare=1&amp;scene=1&amp;srcid=0308fhf1zmTBxZHHtSCHpRoN#rd">美团开源小程序开发框架mpvue</a></p>
+<blockquote>
+<p>这也是一个代码的转换工具，将vue工程代码转为小程序。感觉现在前端轮子越来越多之后，基于webpack的一些转换编译工具突然就火了起来，其实这是很正常的现象，原先我们开发小程序需要了解小程序的语法不说，小程序开发工程对组件化的不支持，让很多习惯了前端工程化的jser感觉很别扭。mpvue除了支持将vue语法直接转成小程序之外，使用前端统一的样式规范和标签集，让代码可以多端服用，不过现在还不支持vue-router这个比较重要的功能。原先的wepy其实也是解决相同的痛点，不过wepy只是基于vue的语法，但它并不是原生vue语法，还是有学习成本在。</p>
+</blockquote>
+</li>
+<li><p><a href="https://zoumiaojiang.com/article/what-is-real-webpack-plugin/">看清楚真正的 Webpack 插件</a></p>
+<blockquote>
+<p>webpack如今已经成为前端工程化事实上的基础，构建，打包，各种配置功能，如今已经很少看到曾经gulp和grunt的身影了，通过loader和plugin的不断丰富webpack的能力，像共同代码提取，markdown文档解析，服务代理等等，让前端开发越来越规范化。</p>
+</blockquote>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzIwMzg1ODcwMw==&amp;mid=2247487547&amp;idx=1&amp;sn=ca3e0055978c4ad7d2deacc9503bdeaf&amp;chksm=96c9a65ba1be2f4d5854e3d9041fac2b87541ec30f6c3cb9bd4c70701788994c94234ba88308&amp;mpshare=1&amp;scene=1&amp;srcid=0309C6Wu3ECbEqDntnNYWe8o#rd">我模拟了一个用浏览器挖矿的代码，没多复杂但别走歪路</a></p>
+<blockquote>
+<p>区块链技术给予的启示，但我总觉得就是分布式计算的思想。</p>
+</blockquote>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MjM5MTA1MjAxMQ==&amp;mid=2651227961&amp;idx=1&amp;sn=d4eb72b910281a18fc35581e0e39096f&amp;chksm=bd495ebd8a3ed7ab2dcc8d6bbfdd6f336f5b80a301cd3e7f92f56bdd3c95c749d9d6fd77282f&amp;mpshare=1&amp;scene=1&amp;srcid=0310Ep0q8srjqfcy2KsmGrlY#rd">危险的 target=”_blank” 与 “opener”</a></p>
+<blockquote>
+<p>前端的黑客技术总是给人惊喜，在非常简单的角落，用几个简单的API就能制造web攻击，之前完全没想到点外链跳转还有这种攻击操作，涨姿势了。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="良心推荐"><a href="#良心推荐" class="headerlink" title="良心推荐"></a>良心推荐</h2><ul>
+<li><p><a href="https://eolinker.com/">eolinker:国产的API管理工具</a></p>
+<blockquote>
+<p>在线API文档，支持代码注释直接抽取为API文档并在线部署，可以导入swagger文件，支持mock，自动化测试，减少前后端沟通成本。</p>
+</blockquote>
+</li>
+<li><p><a href="https://medium.com/the-mission/the-105-best-tools-to-start-your-business-in-2018-1675a457b4de">The 105 Best Tools to Start Your Business in 2018</a></p>
+<blockquote>
+<p>创业团队必须知道的105款工具，几乎都来自美帝，不得不佩服这工具链实在是强大，亲测了几款都很好用。</p>
+</blockquote>
+</li>
+<li><p><a href="https://github.com/alibaba/ice">飞冰 - 海量可复用物料，通过 GUI 工具极速构建中后台应用</a></p>
+<blockquote>
+<p>阿里开源的网页生成器，采用阿里淘宝内部最佳实践，统一工程目录和代码结构，解决淘宝的业务交接成本，目前支持的可复用物料，即组件是基于React的，阿里目前内部正在统一用React作为标准，但也像业界提供Vue相关的物料组件，后续支持。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="总结-amp-吐槽"><a href="#总结-amp-吐槽" class="headerlink" title="总结&amp;吐槽"></a>总结&amp;吐槽</h2><p>感觉现在在技术上遇到一些瓶颈，想要突破 还是需要静下心来细读一些文章，实践一些代码呀。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      develop cross-platform GUI app with electron
+    
+    </summary>
+    
+      <category term="周报" scheme="http://shudery.cn/categories/%E5%91%A8%E6%8A%A5/"/>
+    
+    
+      <category term="记录" scheme="http://shudery.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="技术" scheme="http://shudery.cn/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>Daguo的每周清单：第五期</title>
@@ -1115,40 +1198,6 @@
     
     
       <category term="记录" scheme="http://shudery.cn/tags/%E8%AE%B0%E5%BD%95/"/>
-    
-      <category term="JavaScript编程" scheme="http://shudery.cn/tags/JavaScript%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript关键概念理解之闭包</title>
-    <link href="http://shudery.cn/2016/07/10/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/JavaScript%E5%85%B3%E9%94%AE%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3%E4%B9%8B%E9%97%AD%E5%8C%85/"/>
-    <id>http://shudery.cn/2016/07/10/学习感悟/JavaScript关键概念理解之闭包/</id>
-    <published>2016-07-10T13:59:48.000Z</published>
-    <updated>2017-03-14T09:12:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>JavaScript作为一种多范式编程语言，和许多函数式编程语言一样拥有闭包的概念。<br>闭包是一个老生常谈的问题，前端面试必问，要理解闭包的原理，必须知道什么是词法作用域，理解词法作用域，又需要对Javascript另外两个关键概念的掌握和理解~</p>
-<a id="more"></a>
-<h4 id="执行环境和作用域链"><a href="#执行环境和作用域链" class="headerlink" title="执行环境和作用域链"></a>执行环境和作用域链</h4><p>执行环境：红宝书将执行环境称为Javascript这么编程语言最为重要的一个概念，一开始我是不服的，屌屌的闭包和原型链呢？后来一番整理，才发现原来闭包和原型链的实现都是依赖于执行环境。<br>执行环境定义了变量或者函数有权访问的数据，决定了它们各自的行为，每个执行环境拥有一个变量对象来保存环境中定义的所有变量和函数。<br>每个函数都有自己的执行环境，每次执行语句进入函数后，就会将相应函数的执行函数压入环境栈中，执行完函数之后就会弹出，将控制权交给原来的执行环境。</p>
-<p>作用域链：作用域链用来保证执行环境中，对所有环境有权访问的变量或者函数的有序访问。每一个执行环境会为自身的变量对象创建一个作用域链，作用域的前端始终是当前执行环境的变量对象，会一直向外延伸到全局作用环境，执行环境查询变量和函数的顺序遵循从局部到全局，一旦找到就会停止查找。</p>
-<p>执行环境和作用域是很多概念和一些实现方法的基础，在Javascript里，执行环境决定了访问的权限，作用域链决定了访问的顺序。</p>
-<h4 id="闭包和词法作用域"><a href="#闭包和词法作用域" class="headerlink" title="闭包和词法作用域"></a>闭包和词法作用域</h4><p>闭包：闭包就是一个作用域内定义的一个函数，由于Javascript没有块级作用域，局部作用域的形成依赖于函数来实现，所以也可以说闭包是一个函数里定义的一个函数。由于闭包的一个作用就是用来访问其他函数作用域中的变量，所以它又有一种定义：闭包指有权访问另一个函数作用域中变量的一个函数。<br>先看一段代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">name = &apos;hi&apos;;</div><div class="line">function close()&#123;</div><div class="line">    name = &apos;hello&apos;;</div><div class="line">    return function sayName()&#123;</div><div class="line">        console.log(name)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var sayName = close();</div><div class="line">sayName();</div></pre></td></tr></table></figure></p>
-<p>词法作用域：在这段代码中console出来的是hello，也就是说sayName执行过程中的name值取得是close函数内部的Name，而不是外部全局环境的name；根据上面对执行环境的理解，当进入sayName这个函数之后，执行环境就由全局进入局部环境，注意到每次定义函数的同时就会生成该函数的执行环境，所以sayName是在哪里声明的，它的外部执行环境就是谁，在这里就是close这个函数的执行环境，再根据上面对作用域链的理解，sayName对于name变量的查询将到此为止，不会到全局去，所以name的值就是hello，而不是hi，简单的说，sayName这个函数所属的作用域是声明它的时候所在的作用域，而不是运行它的时候，高端地说，这就是Javascript的词法作用域。</p>
-<p>依照作用域链的原理，本来全局执行环境是没有办法访问到局部执行环境的，但是由于词法作用域的原因，使得sayName这个闭包（全局环境）拥有了访问close内部name变量（局部环境）的能力。</p>
-<h4 id="闭包和this关键字"><a href="#闭包和this关键字" class="headerlink" title="闭包和this关键字"></a>闭包和this关键字</h4><p>闭包经常会和this关键字配合使用，每个函数在被调用的时候都会自动获得两个特殊变量，一个是arguments，另一个就是this，所以在一些多层嵌套return的闭包中，无法同过this来正确获得外层的this，因为作用域链在最里层的函数找到this后就停止了，所以一般都需要用一个中间变量来存储或者用bind方法绑定外层的this指向<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var name = &apos;hi&apos;;</div><div class="line">var obj = &#123;</div><div class="line">    name:&apos;hello&apos;;</div><div class="line">    getName:function()&#123;</div><div class="line">        //var that = this;</div><div class="line">        return function()&#123;</div><div class="line">            return this.name;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>关于this的指向问题，只需要认准this当前所在函数的调用方式即可，当函数作为一个对象的方法调用时，this指向为这个对象，当作为一个函数调用时，this在非严格模式下指向全局，严格模式下返回undefined</p>
-<p>闭包的作用：<br>特权方法：通过上面的闭包的概念理解，已经可以知道闭包的一个作用就是作为一个公有方法用来访问私有变量的，有权访问私有变量和函数的公有方法也叫做特权方法；Javascript中虽然没有传统面向对象中的类，也没有私有成员的概念，不过对于一个函数而言，其函数参数，内部声明的变量或者函数就是私有的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Person()&#123;</div><div class="line">    var name = &apos;daguo&apos;;</div><div class="line">    var getAge  = function()&#123;</div><div class="line">        return console.log(&apos;22&apos;);</div><div class="line">    &#125;</div><div class="line">    this.publicMethod = function()&#123;</div><div class="line">        console.log(name)</div><div class="line">        return getAge()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>保留变量：通常函数的作用域和其所有变量会在函数执行结束之后就销毁，但是当这个函数返回一个闭包时，只要闭包还存在，那么声明闭包的这个作用域内的变量就不会被销毁，原因就是闭包依然保有对这些变量的引用，使它们不会被JS垃圾回收标记清除。这是一个可以利用的地方，也可能是一个造成内存泄漏的原因。所以不能过多创建闭包</p>
-]]></content>
-    
-    <summary type="html">
-    
-      none
-    
-    </summary>
-    
-      <category term="学习感悟" scheme="http://shudery.cn/categories/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/"/>
-    
     
       <category term="JavaScript编程" scheme="http://shudery.cn/tags/JavaScript%E7%BC%96%E7%A8%8B/"/>
     
