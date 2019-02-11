@@ -1,156 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <!-- Html Head Tag-->
   <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="work">
-  <meta name="author" content="Daguo">
-  <!-- Open Graph Data -->
-  <meta property="og:title" content="JavaScript如何真正实现原型链继承"/>
-  <meta property="og:description" content="work" />
-  <meta property="og:site_name" content="Daguo&#39;s blog"/>
-  <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://shudery.cnundefined"/>
-  <!-- for baidu web-auto-transform -->
-  <meta http-equiv="Cache-Control" content="no-transform" />
-
-  
-    <link rel="alternate" href="/atom.xml" title="Daguo&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-
-  <!-- Site Title -->
-  <title>JavaScript如何真正实现原型链继承 — Daguo&#39;s blog</title>
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  
-  <link rel="stylesheet" href="/css/style.light.css">
-
-  <!-- Google Analytics -->
-  
-
-  <div id='wx_pic' style='margin:0 auto;display:none;'>
-  <img src="/img/pic300.jpg" />
-  </div>
-  <!-- baidu analytics -->
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?043bb3ce93c8a91e76a6623da10e9778";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-</head>
-
+    <meta charset="utf-8" />
+    
+    <title>
+       JavaScript如何真正实现原型链继承 -  Daguo&#39;s blog
+    </title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="icon" href="/images/logo.jpg" />
+    
+  </head>
   <body>
-    <!-- Page Header -->
-
-
-<header class="site-header header-background" style="">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="page-title with-background-image">
-          <p class="title">JavaScript如何真正实现原型链继承</p>
-          <p class="subtitle"></p>
-        </div>
-        <div class="site-menu with-background-image">
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.jpg" alt=""/></a>
+          </div>
           <ul>
             
-              <li>
-                <a href="/">
-                  
-                  HOME
-                  
-                </a>
-              </li>
+            <li><a href="/"> Home </a></li>
             
-              <li>
-                <a href="/archives">
-                  
-                  ARCHIVES
-                  
-                </a>
-              </li>
+            <li><a href="/archives"> Archive </a></li>
             
-              <li>
-                <a href="https://github.com/shudery">
-                  
-                  GITHUB
-                  
-                </a>
-              </li>
+            <li><a href="/about"> About </a></li>
             
-              <li>
-                <a href="/2016/03/01/%E9%9A%8F%E7%AC%94/%E5%85%B3%E4%BA%8E%E6%88%91/">
-                  
-                  ABOUT
-                  
-                </a>
-              </li>
+            <li><a href="/atom.xml"> RSS </a></li>
             
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search" />
+            </li>
           </ul>
+           <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原型链继承的定义"><span class="post-toc-number">1.</span> <span class="post-toc-text">原型链继承的定义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Javascript原型链继承的奇特之处"><span class="post-toc-number">2.</span> <span class="post-toc-text">Javascript原型链继承的奇特之处</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#new是如何运作的"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">new是如何运作的</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Javascript真正的原型链继承"><span class="post-toc-number">3.</span> <span class="post-toc-text">Javascript真正的原型链继承</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结论"><span class="post-toc-number">4.</span> <span class="post-toc-text">结论</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#参考阅读："><span class="post-toc-number">4.1.</span> <span class="post-toc-text">参考阅读：</span></a></li></ol></li></ol> 
         </div>
       </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            JavaScript如何真正实现原型链继承
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2016-08-19T16:00:00.000Z" itemprop="datePublished">
+            2016-08-20
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/学习感悟/">学习感悟</a><span class="post-category-list-count">7</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/JavaScript编程/">JavaScript编程</a><span class="post-tag-list-count">6</span></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/翻译/">翻译</a><span class="post-tag-list-count">2</span></li></ul>
+        
     </div>
-  </div>
-  
-      <script>
-    document.getElementsByClassName('header-background')[0].style = 'background-image: url(/img/'+Math.ceil(Math.random()*5)+'.jpeg)';
-  </script>
-
-<!-- 添加网易云音乐插件脚本 -->
-  
-</header>
-
-
-<article>
-
-  <div class="container typo">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-info text-muted">
-          
-            <!-- Author -->
-            <span class="author info">By Daguo</span>
-          
-          <!-- Date -->
-          <span class="date-time info">On
-            <span class="date">2016-08-20</span>
-            <!-- <span class="time">21:07:32</span> -->
-          </span>
-          
-          <!--  Categories  -->
-            <span class="categories info">Under 
-
-<a href="/categories/学习感悟/">学习感悟</a>
-</span>
-          
-        </div>
-
-        <!-- Tags 
-        
-          <div class="post-tags text-muted">
-            Tags: 
-
-<a class="tag" href="/tags/JavaScript编程/">#JavaScript编程</a> <a class="tag" href="/tags/翻译/">#翻译</a>
-
-
-          </div>
-        
-        -->
-        
-        <!-- Post Main Content -->
-        <div class="post-content">
-          <p><strong>本文由我翻译在<a href="http://www.zcfy.cc/claim">众成</a>翻译平台，<a href="http://www.zcfy.cc/article/javascript-how-prototypal-inheritance-really-works-1337.html">文章地址</a></strong></p>
+    
+    <div class="post-entry">
+        <p><strong>本文由我翻译在<a href="http://www.zcfy.cc/claim">众成</a>翻译平台，<a href="http://www.zcfy.cc/article/javascript-how-prototypal-inheritance-really-works-1337.html">文章地址</a></strong></p>
 <p>在网上的很多地方我们可以得知javascript是基于原型链继承的，其实Javascript只提供一种特殊的方法来实现原型链继承，就是通过new操作。但是很多解读都令人难以理解，这篇文章旨在说明到底什么是原型链继承以及如何在Javascript中真正地运用它。<br><a id="more"></a></p>
 <h3 id="原型链继承的定义"><a href="#原型链继承的定义" class="headerlink" title="原型链继承的定义"></a>原型链继承的定义</h3><p>当你读到有关于Javascript原型链继承的内容时，经常看到这样的定义：</p>
 <blockquote>
@@ -203,64 +112,19 @@
 <li><a href="http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/">Yehuda Katz: Understanding JavaScript Function Invocation and “this”</a></li>
 </ul>
 
-        </div>
-          
-            <div class="ds-thread" data-thread-key="学习感悟/JavaScript如何真正实现原型链继承" data-title="JavaScript如何真正实现原型链继承" data-url="http://shudery.cn/2016/08/20/学习感悟/JavaScript如何真正实现原型链继承/"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"shudery"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    // ds.src = 'http://localhost:4000/js/duoshuo.js';
-    var st = document.createElement('style');
-  	// st.rel = "stylesheet";
-  	// st.href = "http://localhost:4000/css/duoshuo.css";	
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds).appendChild(st);
-  })();
-  	</script>
-        
-  
-      </div>
     </div>
-  </div>
-
-
-</article>
-
-
-
-    <!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <p class="copyright text-muted">
-            <a href="mailto:shudery@foxmail.com">shudery</a>&nbsp;@2015-2017&nbsp;&nbsp;|&nbsp;&nbsp; 
-           <a href="#"></a>
-          
-            Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
-        </p>
-
-      </div>
+</div></div>
     </div>
-  </div>
-</footer>
-
-
-    <!-- After Footer Scripts -->
-<script src="/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
-    codeBlocks.forEach(function(block, index) {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
+    <div id="footer">骑士恨煎蛋，骑士恨孜然</div>
+    
   </body>
 </html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
 
+<script type="text/javascript">
+  window.onload = function() {
+    scroll_fixed.init();
+    // siteSearch.init()
+  };
+</script>

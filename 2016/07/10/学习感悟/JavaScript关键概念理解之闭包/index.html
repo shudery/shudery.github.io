@@ -1,156 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <!-- Html Head Tag-->
   <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="none">
-  <meta name="author" content="Daguo">
-  <!-- Open Graph Data -->
-  <meta property="og:title" content="JavaScript关键概念理解之闭包"/>
-  <meta property="og:description" content="none" />
-  <meta property="og:site_name" content="Daguo&#39;s blog"/>
-  <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://shudery.cnundefined"/>
-  <!-- for baidu web-auto-transform -->
-  <meta http-equiv="Cache-Control" content="no-transform" />
-
-  
-    <link rel="alternate" href="/atom.xml" title="Daguo&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-
-  <!-- Site Title -->
-  <title>JavaScript关键概念理解之闭包 — Daguo&#39;s blog</title>
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  
-  <link rel="stylesheet" href="/css/style.light.css">
-
-  <!-- Google Analytics -->
-  
-
-  <div id='wx_pic' style='margin:0 auto;display:none;'>
-  <img src="/img/pic300.jpg" />
-  </div>
-  <!-- baidu analytics -->
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?043bb3ce93c8a91e76a6623da10e9778";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-</head>
-
+    <meta charset="utf-8" />
+    
+    <title>
+       JavaScript关键概念理解之闭包 -  Daguo&#39;s blog
+    </title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="icon" href="/images/logo.jpg" />
+    
+  </head>
   <body>
-    <!-- Page Header -->
-
-
-<header class="site-header header-background" style="">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="page-title with-background-image">
-          <p class="title">JavaScript关键概念理解之闭包</p>
-          <p class="subtitle"></p>
-        </div>
-        <div class="site-menu with-background-image">
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.jpg" alt=""/></a>
+          </div>
           <ul>
             
-              <li>
-                <a href="/">
-                  
-                  HOME
-                  
-                </a>
-              </li>
+            <li><a href="/"> Home </a></li>
             
-              <li>
-                <a href="/archives">
-                  
-                  ARCHIVES
-                  
-                </a>
-              </li>
+            <li><a href="/archives"> Archive </a></li>
             
-              <li>
-                <a href="https://github.com/shudery">
-                  
-                  GITHUB
-                  
-                </a>
-              </li>
+            <li><a href="/about"> About </a></li>
             
-              <li>
-                <a href="/2016/03/01/%E9%9A%8F%E7%AC%94/%E5%85%B3%E4%BA%8E%E6%88%91/">
-                  
-                  ABOUT
-                  
-                </a>
-              </li>
+            <li><a href="/atom.xml"> RSS </a></li>
             
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search" />
+            </li>
           </ul>
+           <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#执行环境和作用域链"><span class="post-toc-number">1.</span> <span class="post-toc-text">执行环境和作用域链</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#闭包和词法作用域"><span class="post-toc-number">2.</span> <span class="post-toc-text">闭包和词法作用域</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#闭包和this关键字"><span class="post-toc-number">3.</span> <span class="post-toc-text">闭包和this关键字</span></a></li></ol> 
         </div>
       </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            JavaScript关键概念理解之闭包
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2016-07-10T13:59:48.000Z" itemprop="datePublished">
+            2016-07-10
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/学习感悟/">学习感悟</a><span class="post-category-list-count">7</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/JavaScript编程/">JavaScript编程</a><span class="post-tag-list-count">6</span></li></ul>
+        
     </div>
-  </div>
-  
-      <script>
-    document.getElementsByClassName('header-background')[0].style = 'background-image: url(/img/'+Math.ceil(Math.random()*5)+'.jpeg)';
-  </script>
-
-<!-- 添加网易云音乐插件脚本 -->
-  
-</header>
-
-
-<article>
-
-  <div class="container typo">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-info text-muted">
-          
-            <!-- Author -->
-            <span class="author info">By Daguo</span>
-          
-          <!-- Date -->
-          <span class="date-time info">On
-            <span class="date">2016-07-10</span>
-            <!-- <span class="time">21:07:33</span> -->
-          </span>
-          
-          <!--  Categories  -->
-            <span class="categories info">Under 
-
-<a href="/categories/学习感悟/">学习感悟</a>
-</span>
-          
-        </div>
-
-        <!-- Tags 
-        
-          <div class="post-tags text-muted">
-            Tags: 
-
-<a class="tag" href="/tags/JavaScript编程/">#JavaScript编程</a>
-
-
-          </div>
-        
-        -->
-        
-        <!-- Post Main Content -->
-        <div class="post-content">
-          <p>JavaScript作为一种多范式编程语言，和许多函数式编程语言一样拥有闭包的概念。<br>闭包是一个老生常谈的问题，前端面试必问，要理解闭包的原理，必须知道什么是词法作用域，理解词法作用域，又需要对Javascript另外两个关键概念的掌握和理解~</p>
+    
+    <div class="post-entry">
+        <p>JavaScript作为一种多范式编程语言，和许多函数式编程语言一样拥有闭包的概念。<br>闭包是一个老生常谈的问题，前端面试必问，要理解闭包的原理，必须知道什么是词法作用域，理解词法作用域，又需要对Javascript另外两个关键概念的掌握和理解~</p>
 <a id="more"></a>
 <h4 id="执行环境和作用域链"><a href="#执行环境和作用域链" class="headerlink" title="执行环境和作用域链"></a>执行环境和作用域链</h4><p>执行环境：红宝书将执行环境称为Javascript这么编程语言最为重要的一个概念，一开始我是不服的，屌屌的闭包和原型链呢？后来一番整理，才发现原来闭包和原型链的实现都是依赖于执行环境。<br>执行环境定义了变量或者函数有权访问的数据，决定了它们各自的行为，每个执行环境拥有一个变量对象来保存环境中定义的所有变量和函数。<br>每个函数都有自己的执行环境，每次执行语句进入函数后，就会将相应函数的执行函数压入环境栈中，执行完函数之后就会弹出，将控制权交给原来的执行环境。</p>
 <p>作用域链：作用域链用来保证执行环境中，对所有环境有权访问的变量或者函数的有序访问。每一个执行环境会为自身的变量对象创建一个作用域链，作用域的前端始终是当前执行环境的变量对象，会一直向外延伸到全局作用环境，执行环境查询变量和函数的顺序遵循从局部到全局，一旦找到就会停止查找。</p>
@@ -163,64 +72,19 @@
 <p>闭包的作用：<br>特权方法：通过上面的闭包的概念理解，已经可以知道闭包的一个作用就是作为一个公有方法用来访问私有变量的，有权访问私有变量和函数的公有方法也叫做特权方法；Javascript中虽然没有传统面向对象中的类，也没有私有成员的概念，不过对于一个函数而言，其函数参数，内部声明的变量或者函数就是私有的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Person()&#123;</div><div class="line">    var name = &apos;daguo&apos;;</div><div class="line">    var getAge  = function()&#123;</div><div class="line">        return console.log(&apos;22&apos;);</div><div class="line">    &#125;</div><div class="line">    this.publicMethod = function()&#123;</div><div class="line">        console.log(name)</div><div class="line">        return getAge()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>保留变量：通常函数的作用域和其所有变量会在函数执行结束之后就销毁，但是当这个函数返回一个闭包时，只要闭包还存在，那么声明闭包的这个作用域内的变量就不会被销毁，原因就是闭包依然保有对这些变量的引用，使它们不会被JS垃圾回收标记清除。这是一个可以利用的地方，也可能是一个造成内存泄漏的原因。所以不能过多创建闭包</p>
 
-        </div>
-          
-            <div class="ds-thread" data-thread-key="学习感悟/JavaScript关键概念理解之闭包" data-title="JavaScript关键概念理解之闭包" data-url="http://shudery.cn/2016/07/10/学习感悟/JavaScript关键概念理解之闭包/"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"shudery"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    // ds.src = 'http://localhost:4000/js/duoshuo.js';
-    var st = document.createElement('style');
-  	// st.rel = "stylesheet";
-  	// st.href = "http://localhost:4000/css/duoshuo.css";	
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds).appendChild(st);
-  })();
-  	</script>
-        
-  
-      </div>
     </div>
-  </div>
-
-
-</article>
-
-
-
-    <!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <p class="copyright text-muted">
-            <a href="mailto:shudery@foxmail.com">shudery</a>&nbsp;@2015-2017&nbsp;&nbsp;|&nbsp;&nbsp; 
-           <a href="#"></a>
-          
-            Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
-        </p>
-
-      </div>
+</div></div>
     </div>
-  </div>
-</footer>
-
-
-    <!-- After Footer Scripts -->
-<script src="/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
-    codeBlocks.forEach(function(block, index) {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
+    <div id="footer">骑士恨煎蛋，骑士恨孜然</div>
+    
   </body>
 </html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
 
+<script type="text/javascript">
+  window.onload = function() {
+    scroll_fixed.init();
+    // siteSearch.init()
+  };
+</script>

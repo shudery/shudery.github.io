@@ -1,156 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <!-- Html Head Tag-->
   <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="develop cross-platform GUI app with electron">
-  <meta name="author" content="Daguo">
-  <!-- Open Graph Data -->
-  <meta property="og:title" content="Daguo的每周清单：第一期"/>
-  <meta property="og:description" content="develop cross-platform GUI app with electron" />
-  <meta property="og:site_name" content="Daguo&#39;s blog"/>
-  <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://shudery.cnundefined"/>
-  <!-- for baidu web-auto-transform -->
-  <meta http-equiv="Cache-Control" content="no-transform" />
-
-  
-    <link rel="alternate" href="/atom.xml" title="Daguo&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-
-  <!-- Site Title -->
-  <title>Daguo的每周清单：第一期 — Daguo&#39;s blog</title>
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  
-  <link rel="stylesheet" href="/css/style.light.css">
-
-  <!-- Google Analytics -->
-  
-
-  <div id='wx_pic' style='margin:0 auto;display:none;'>
-  <img src="/img/pic300.jpg" />
-  </div>
-  <!-- baidu analytics -->
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?043bb3ce93c8a91e76a6623da10e9778";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-</head>
-
+    <meta charset="utf-8" />
+    
+    <title>
+       Daguo的每周清单：第一期 -  Daguo&#39;s blog
+    </title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="icon" href="/images/logo.jpg" />
+    
+  </head>
   <body>
-    <!-- Page Header -->
-
-
-<header class="site-header header-background" style="">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="page-title with-background-image">
-          <p class="title">Daguo的每周清单：第一期</p>
-          <p class="subtitle"></p>
-        </div>
-        <div class="site-menu with-background-image">
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.jpg" alt=""/></a>
+          </div>
           <ul>
             
-              <li>
-                <a href="/">
-                  
-                  HOME
-                  
-                </a>
-              </li>
+            <li><a href="/"> Home </a></li>
             
-              <li>
-                <a href="/archives">
-                  
-                  ARCHIVES
-                  
-                </a>
-              </li>
+            <li><a href="/archives"> Archive </a></li>
             
-              <li>
-                <a href="https://github.com/shudery">
-                  
-                  GITHUB
-                  
-                </a>
-              </li>
+            <li><a href="/about"> About </a></li>
             
-              <li>
-                <a href="/2016/03/01/%E9%9A%8F%E7%AC%94/%E5%85%B3%E4%BA%8E%E6%88%91/">
-                  
-                  ABOUT
-                  
-                </a>
-              </li>
+            <li><a href="/atom.xml"> RSS </a></li>
             
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search" />
+            </li>
           </ul>
+           <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#每周梳理清单的原因？"><span class="post-toc-number">1.</span> <span class="post-toc-text">每周梳理清单的原因？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#和其他技术期刊的区别？"><span class="post-toc-number">2.</span> <span class="post-toc-text">和其他技术期刊的区别？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#会整理哪些技术内容？"><span class="post-toc-number">3.</span> <span class="post-toc-text">会整理哪些技术内容？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Daguo的每周清单"><span class="post-toc-number">4.</span> <span class="post-toc-text">Daguo的每周清单</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前端基础"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">前端基础</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JavaScript生态"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">JavaScript生态</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#技术视野"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">技术视野</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#流行风口"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">流行风口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工程实践"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">工程实践</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#良心推荐"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">良心推荐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#心得-amp-吐槽"><span class="post-toc-number">4.7.</span> <span class="post-toc-text">心得&amp;吐槽</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最后"><span class="post-toc-number">4.8.</span> <span class="post-toc-text">最后</span></a></li></ol></li></ol> 
         </div>
       </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            Daguo的每周清单：第一期
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2018-01-17T15:32:17.000Z" itemprop="datePublished">
+            2018-01-17
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/周报/">周报</a><span class="post-category-list-count">7</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/技术/">技术</a><span class="post-tag-list-count">7</span></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/记录/">记录</a><span class="post-tag-list-count">16</span></li></ul>
+        
     </div>
-  </div>
-  
-      <script>
-    document.getElementsByClassName('header-background')[0].style = 'background-image: url(/img/'+Math.ceil(Math.random()*5)+'.jpeg)';
-  </script>
-
-<!-- 添加网易云音乐插件脚本 -->
-  
-</header>
-
-
-<article>
-
-  <div class="container typo">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-info text-muted">
-          
-            <!-- Author -->
-            <span class="author info">By Daguo</span>
-          
-          <!-- Date -->
-          <span class="date-time info">On
-            <span class="date">2018-01-17</span>
-            <!-- <span class="time">21:07:33</span> -->
-          </span>
-          
-          <!--  Categories  -->
-            <span class="categories info">Under 
-
-<a href="/categories/周报/">周报</a>
-</span>
-          
-        </div>
-
-        <!-- Tags 
-        
-          <div class="post-tags text-muted">
-            Tags: 
-
-<a class="tag" href="/tags/记录/">#记录</a> <a class="tag" href="/tags/技术/">#技术</a>
-
-
-          </div>
-        
-        -->
-        
-        <!-- Post Main Content -->
-        <div class="post-content">
-          <p>新年新气象，还没来得及总结17年，我决定先给18年立个flag：每周输出一份技术学习清单。<br><a id="more"></a></p>
+    
+    <div class="post-entry">
+        <p>新年新气象，还没来得及总结17年，我决定先给18年立个flag：每周输出一份技术学习清单。<br><a id="more"></a></p>
 <h1 id="每周梳理清单的原因？"><a href="#每周梳理清单的原因？" class="headerlink" title="每周梳理清单的原因？"></a>每周梳理清单的原因？</h1><p>其实从2年前自学编程开始，我每周基本都会读到许多技术文章和文档，也看过很多的书籍以及视频教程（确实很低效，但不得不说帮我熬过了一段枯燥的时间），然而很多知识一旦没有实践很容易学过就忘了，对于工作量饱和的我来说，似乎又很难有时间去实践每个技术点。</p>
 <p>为了能在项目和工作中，遇到技术难题，快速和过往的知识建立起联系，提高解决难题的思维和能力。我决定记录下学过的一些内容，通过回顾，总结学到的知识，以加深对技术的理解。沉淀一些东西，同时推荐一些我个人觉得比较好的技术文章和工具。<br>还有一个原因就是，想写点东西。有人说写作，英语和编程（可视化的，AI发展起来之后）可能会是以后人类最需要掌握的能力，我很认同，所以也算练习一下吧，突然想起来我好像好久没学过英语了。</p>
 <h1 id="和其他技术期刊的区别？"><a href="#和其他技术期刊的区别？" class="headerlink" title="和其他技术期刊的区别？"></a>和其他技术期刊的区别？</h1><p>近年来国内前端技术领域生态十分繁荣，有很多高质量的期刊，像前端之巅，码农周刊，前端早读课我都一直有关注和阅读，我每周的总结推荐里，很多文章可能都是源于这些期刊。区别于其他技术期刊，这个每周清单纯粹是我自己学习过程的一个记录和总结，我会回顾每周我学习的技术内容，做一些梳理和推荐。因为工作任务过于饱和，来不及验证和校对，可能有片面的描述或不严谨的内容，欢迎随时指出。</p>
@@ -234,64 +143,19 @@
 <p>深圳生活。坂田的生活其实还是挺不错的，虽然我经常自嘲郊区，但是郊区物价是真的实惠，已经去过很多家好吃又便宜的餐馆了，周边基本的设施，商城，电影院，羽毛球馆，篮球场都齐全。周末和朋友去市内虽然得转乘才能到地铁站，但是已经比在成都科大上学的时候要入市方便多了。住在佳兆业虽然没有小区篮球场，一开始还挺无法接受的，后来在这里度过了许多个静谧的周末下午，竟然也觉得很喜欢了。</p>
 <p>第一期废话比较多，以后每周清单就只有技术总结和推荐，希望能坚持~</p>
 
-        </div>
-          
-            <div class="ds-thread" data-thread-key="周报/Daguo的每周清单1" data-title="Daguo的每周清单：第一期" data-url="http://shudery.cn/2018/01/17/周报/Daguo的每周清单1/"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"shudery"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    // ds.src = 'http://localhost:4000/js/duoshuo.js';
-    var st = document.createElement('style');
-  	// st.rel = "stylesheet";
-  	// st.href = "http://localhost:4000/css/duoshuo.css";	
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds).appendChild(st);
-  })();
-  	</script>
-        
-  
-      </div>
     </div>
-  </div>
-
-
-</article>
-
-
-
-    <!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <p class="copyright text-muted">
-            <a href="mailto:shudery@foxmail.com">shudery</a>&nbsp;@2015-2017&nbsp;&nbsp;|&nbsp;&nbsp; 
-           <a href="#"></a>
-          
-            Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
-        </p>
-
-      </div>
+</div></div>
     </div>
-  </div>
-</footer>
-
-
-    <!-- After Footer Scripts -->
-<script src="/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
-    codeBlocks.forEach(function(block, index) {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
+    <div id="footer">骑士恨煎蛋，骑士恨孜然</div>
+    
   </body>
 </html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
 
+<script type="text/javascript">
+  window.onload = function() {
+    scroll_fixed.init();
+    // siteSearch.init()
+  };
+</script>

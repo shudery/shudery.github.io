@@ -1,156 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <!-- Html Head Tag-->
   <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="develop cross-platform GUI app with electron">
-  <meta name="author" content="Daguo">
-  <!-- Open Graph Data -->
-  <meta property="og:title" content="ES5和ES6中对于继承的实现方法"/>
-  <meta property="og:description" content="develop cross-platform GUI app with electron" />
-  <meta property="og:site_name" content="Daguo&#39;s blog"/>
-  <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://shudery.cnundefined"/>
-  <!-- for baidu web-auto-transform -->
-  <meta http-equiv="Cache-Control" content="no-transform" />
-
-  
-    <link rel="alternate" href="/atom.xml" title="Daguo&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-
-  <!-- Site Title -->
-  <title>ES5和ES6中对于继承的实现方法 — Daguo&#39;s blog</title>
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  
-  <link rel="stylesheet" href="/css/style.light.css">
-
-  <!-- Google Analytics -->
-  
-
-  <div id='wx_pic' style='margin:0 auto;display:none;'>
-  <img src="/img/pic300.jpg" />
-  </div>
-  <!-- baidu analytics -->
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?043bb3ce93c8a91e76a6623da10e9778";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-</head>
-
+    <meta charset="utf-8" />
+    
+    <title>
+       ES5和ES6中对于继承的实现方法 -  Daguo&#39;s blog
+    </title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="icon" href="/images/logo.jpg" />
+    
+  </head>
   <body>
-    <!-- Page Header -->
-
-
-<header class="site-header header-background" style="">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="page-title with-background-image">
-          <p class="title">ES5和ES6中对于继承的实现方法</p>
-          <p class="subtitle"></p>
-        </div>
-        <div class="site-menu with-background-image">
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.jpg" alt=""/></a>
+          </div>
           <ul>
             
-              <li>
-                <a href="/">
-                  
-                  HOME
-                  
-                </a>
-              </li>
+            <li><a href="/"> Home </a></li>
             
-              <li>
-                <a href="/archives">
-                  
-                  ARCHIVES
-                  
-                </a>
-              </li>
+            <li><a href="/archives"> Archive </a></li>
             
-              <li>
-                <a href="https://github.com/shudery">
-                  
-                  GITHUB
-                  
-                </a>
-              </li>
+            <li><a href="/about"> About </a></li>
             
-              <li>
-                <a href="/2016/03/01/%E9%9A%8F%E7%AC%94/%E5%85%B3%E4%BA%8E%E6%88%91/">
-                  
-                  ABOUT
-                  
-                </a>
-              </li>
+            <li><a href="/atom.xml"> RSS </a></li>
             
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search" />
+            </li>
           </ul>
+            
         </div>
       </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            ES5和ES6中对于继承的实现方法
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2016-07-23T15:32:17.000Z" itemprop="datePublished">
+            2016-07-23
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/学习感悟/">学习感悟</a><span class="post-category-list-count">7</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/JavaScript编程/">JavaScript编程</a><span class="post-tag-list-count">6</span></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/记录/">记录</a><span class="post-tag-list-count">16</span></li></ul>
+        
     </div>
-  </div>
-  
-      <script>
-    document.getElementsByClassName('header-background')[0].style = 'background-image: url(/img/'+Math.ceil(Math.random()*5)+'.jpeg)';
-  </script>
-
-<!-- 添加网易云音乐插件脚本 -->
-  
-</header>
-
-
-<article>
-
-  <div class="container typo">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-info text-muted">
-          
-            <!-- Author -->
-            <span class="author info">By Daguo</span>
-          
-          <!-- Date -->
-          <span class="date-time info">On
-            <span class="date">2016-07-23</span>
-            <!-- <span class="time">21:07:33</span> -->
-          </span>
-          
-          <!--  Categories  -->
-            <span class="categories info">Under 
-
-<a href="/categories/学习感悟/">学习感悟</a>
-</span>
-          
-        </div>
-
-        <!-- Tags 
-        
-          <div class="post-tags text-muted">
-            Tags: 
-
-<a class="tag" href="/tags/记录/">#记录</a> <a class="tag" href="/tags/JavaScript编程/">#JavaScript编程</a>
-
-
-          </div>
-        
-        -->
-        
-        <!-- Post Main Content -->
-        <div class="post-content">
-          <p>在ES5继承的实现非常有趣的，由于没有传统面向对象类的概念，Javascript利用原型链的特性来实现继承，这其中有很多的属性指向和需要注意的地方。<br>原型链的特点和实现已经在之前的一篇整理说过了，就是通过将子类构造函数的原型作为父类构造函数的实例，这样就连通了子类-子类原型-父类，原型链的特点就是逐层查找，从子类开始一直往上直到所有对象的原型Object.prototype，找到属性方法之后就会停止查找，所以下层的属性方法会覆盖上层。<br><a id="more"></a><br>一个基本的基于原型链的继承过程大概是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//先来个父类，带些属性</div><div class="line">function Super()&#123;</div><div class="line">    this.flag = true;</div><div class="line">&#125;</div><div class="line">//为了提高复用性，方法绑定在父类原型属性上</div><div class="line">Super.prototype.getFlag = function()&#123;</div><div class="line">    return this.flag;</div><div class="line">&#125;</div><div class="line">//来个子类</div><div class="line">function Sub()&#123;</div><div class="line">    this.subFlag = false;</div><div class="line">&#125;</div><div class="line">//实现继承</div><div class="line">Sub.prototype = new Super;</div><div class="line">//给子类添加子类特有的方法，注意顺序要在继承之后</div><div class="line">Sub.prototype.getSubFlag = function()&#123;</div><div class="line">    return this.subFlag;</div><div class="line">&#125;</div><div class="line">//构造实例</div><div class="line">var es5 = new Sub;</div></pre></td></tr></table></figure></p>
+    
+    <div class="post-entry">
+        <p>在ES5继承的实现非常有趣的，由于没有传统面向对象类的概念，Javascript利用原型链的特性来实现继承，这其中有很多的属性指向和需要注意的地方。<br>原型链的特点和实现已经在之前的一篇整理说过了，就是通过将子类构造函数的原型作为父类构造函数的实例，这样就连通了子类-子类原型-父类，原型链的特点就是逐层查找，从子类开始一直往上直到所有对象的原型Object.prototype，找到属性方法之后就会停止查找，所以下层的属性方法会覆盖上层。<br><a id="more"></a><br>一个基本的基于原型链的继承过程大概是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//先来个父类，带些属性</div><div class="line">function Super()&#123;</div><div class="line">    this.flag = true;</div><div class="line">&#125;</div><div class="line">//为了提高复用性，方法绑定在父类原型属性上</div><div class="line">Super.prototype.getFlag = function()&#123;</div><div class="line">    return this.flag;</div><div class="line">&#125;</div><div class="line">//来个子类</div><div class="line">function Sub()&#123;</div><div class="line">    this.subFlag = false;</div><div class="line">&#125;</div><div class="line">//实现继承</div><div class="line">Sub.prototype = new Super;</div><div class="line">//给子类添加子类特有的方法，注意顺序要在继承之后</div><div class="line">Sub.prototype.getSubFlag = function()&#123;</div><div class="line">    return this.subFlag;</div><div class="line">&#125;</div><div class="line">//构造实例</div><div class="line">var es5 = new Sub;</div></pre></td></tr></table></figure></p>
 <p>原型链实现的继承主要有几个问题：<br>1、本来我们为了构造函数属性的封装私有性，方法的复用性，提倡将属性声明在构造函数内，而将方法绑定在原型对象上，但是现在子类的原型是父类的一个实例，自然父类的属性就变成子类原型的属性了；<br>这就会带来一个问题，我们知道构造函数的原型属性在所有构造的实例中是共享的，所以原型中属性的改变会反应到所有的实例上，这就违背了我们想要属性私有化的初衷；<br>2、创建子类的实例时，不能向父类的构造函数传递参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function Super()&#123;</div><div class="line">    this.flag = true;</div><div class="line">&#125;</div><div class="line">function Sub()&#123;</div><div class="line">   this.subFlag = false;</div><div class="line">&#125;</div><div class="line">Sub.prototype = new Super;</div><div class="line">var obj = new Sub();</div><div class="line">obj.flag = flase;  /* 修改之后，由于是原型上的属性，之后创建的所有实例都会受到影响 */</div><div class="line">var obj_2 = new Sub();</div><div class="line">console.log(obj.flag)  //false；</div></pre></td></tr></table></figure></p>
 <p>为了解决以上两个问题，有一个叫借用构造函数的方法<br>只需要在子类构造函数内部使用apply或者call来调用父类的函数即可在实现属性继承的同时，又能传递参数，又能让实例不互相影响<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Super()&#123;</div><div class="line">    this.flag = true;</div><div class="line">&#125;</div><div class="line">function Sub()&#123;</div><div class="line">    Super.call(this);  /* 如果父类可以需要接收参数，这里也可以直接传递 */</div><div class="line">&#125;;</div><div class="line">var obj = new Sub();</div><div class="line">obj.flag = flase;</div><div class="line">var obj_2 = new Sub();</div><div class="line">console.log(obj_2.flag)  //依然是true，不会相互影响</div></pre></td></tr></table></figure></p>
 <p>结合借用构造函数和原型链的方法，可以实现比较完美的继承方法，可以称为组合继承：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function Super()&#123;</div><div class="line">    this.flag = true;</div><div class="line">&#125;</div><div class="line">Super.prototype.getFlag = function()&#123;</div><div class="line">    return this.flag;     /* 继承方法 */</div><div class="line">&#125;</div><div class="line">function Sub()&#123;</div><div class="line">    this.subFlag = flase</div><div class="line">    Super.call(this)    /* 继承属性 */</div><div class="line">&#125;</div><div class="line">Sub.prototype = new Super;</div><div class="line">var obj = new Sub();</div><div class="line">Super.prototype.getSubFlag = function()&#123;</div><div class="line">    return this.flag;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -163,64 +72,19 @@
 <p>有个有趣的地方：ES6继承是在父类创建this对象，在子类constructor中来修饰父类的this，ES5是在子类创建this，将父类的属性方法绑定到子类，由于原生的构造函数（Function，Array等）没有this，子类无法通过call/apply(this)获得其内部属性，所以在ES5无法继承，ES6实现后可以为原生构造函数封装一些有趣的接口，比方说阮一峰老师的这个给Array实例封装一个版本记录和回滚的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">class VersionedArray extends Array &#123;</div><div class="line">  constructor() &#123;</div><div class="line">    super();</div><div class="line">    this.history = [[]];</div><div class="line">  &#125;</div><div class="line">  commit() &#123;</div><div class="line">    this.history.push(this.slice());</div><div class="line">  &#125;</div><div class="line">  revert() &#123;</div><div class="line">    this.splice(0, this.length, ...this.history[this.history.length - 1]);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">var x = new VersionedArray();</div><div class="line">x.push(1);</div><div class="line">x.push(2);</div><div class="line">x // [1, 2]</div><div class="line">x.history // [[]]</div><div class="line">x.commit();</div><div class="line">x.history // [[], [1, 2]]</div><div class="line">x.push(3);</div><div class="line">x // [1, 2, 3]</div><div class="line">x.revert();</div><div class="line">x // [1, 2]</div></pre></td></tr></table></figure></p>
 <p>JS继承小结：<br>ES5最经典的继承方法是用组合继承的方式，原型链继承方法，借用函数继承属性，ES6也是基于这样的方式，但是封装了更优雅简洁的api，让Javascript越来越强大，修改了一些属性指向，规范了继承的操作，区分开了继承实现和实例构造，此外ES6继承还能实现更多的继承需求和场景。</p>
 
-        </div>
-          
-            <div class="ds-thread" data-thread-key="学习感悟/ES5和ES6中对于继承的实现方法" data-title="ES5和ES6中对于继承的实现方法" data-url="http://shudery.cn/2016/07/23/学习感悟/ES5和ES6中对于继承的实现方法/"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"shudery"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    // ds.src = 'http://localhost:4000/js/duoshuo.js';
-    var st = document.createElement('style');
-  	// st.rel = "stylesheet";
-  	// st.href = "http://localhost:4000/css/duoshuo.css";	
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds).appendChild(st);
-  })();
-  	</script>
-        
-  
-      </div>
     </div>
-  </div>
-
-
-</article>
-
-
-
-    <!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <p class="copyright text-muted">
-            <a href="mailto:shudery@foxmail.com">shudery</a>&nbsp;@2015-2017&nbsp;&nbsp;|&nbsp;&nbsp; 
-           <a href="#"></a>
-          
-            Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
-        </p>
-
-      </div>
+</div></div>
     </div>
-  </div>
-</footer>
-
-
-    <!-- After Footer Scripts -->
-<script src="/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
-    codeBlocks.forEach(function(block, index) {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
+    <div id="footer">骑士恨煎蛋，骑士恨孜然</div>
+    
   </body>
 </html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
 
+<script type="text/javascript">
+  window.onload = function() {
+    scroll_fixed.init();
+    // siteSearch.init()
+  };
+</script>

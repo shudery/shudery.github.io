@@ -1,156 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <!-- Html Head Tag-->
   <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="how to build vpn or vps by youself">
-  <meta name="author" content="Daguo">
-  <!-- Open Graph Data -->
-  <meta property="og:title" content="搭建属于自己的vpn服务器"/>
-  <meta property="og:description" content="how to build vpn or vps by youself" />
-  <meta property="og:site_name" content="Daguo&#39;s blog"/>
-  <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://shudery.cnundefined"/>
-  <!-- for baidu web-auto-transform -->
-  <meta http-equiv="Cache-Control" content="no-transform" />
-
-  
-    <link rel="alternate" href="/atom.xml" title="Daguo&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-
-  <!-- Site Title -->
-  <title>搭建属于自己的vpn服务器 — Daguo&#39;s blog</title>
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  
-  <link rel="stylesheet" href="/css/style.light.css">
-
-  <!-- Google Analytics -->
-  
-
-  <div id='wx_pic' style='margin:0 auto;display:none;'>
-  <img src="/img/pic300.jpg" />
-  </div>
-  <!-- baidu analytics -->
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?043bb3ce93c8a91e76a6623da10e9778";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-</head>
-
+    <meta charset="utf-8" />
+    
+    <title>
+       搭建属于自己的vpn服务器 -  Daguo&#39;s blog
+    </title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="icon" href="/images/logo.jpg" />
+    
+  </head>
   <body>
-    <!-- Page Header -->
-
-
-<header class="site-header header-background" style="">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="page-title with-background-image">
-          <p class="title">搭建属于自己的vpn服务器</p>
-          <p class="subtitle"></p>
-        </div>
-        <div class="site-menu with-background-image">
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.jpg" alt=""/></a>
+          </div>
           <ul>
             
-              <li>
-                <a href="/">
-                  
-                  HOME
-                  
-                </a>
-              </li>
+            <li><a href="/"> Home </a></li>
             
-              <li>
-                <a href="/archives">
-                  
-                  ARCHIVES
-                  
-                </a>
-              </li>
+            <li><a href="/archives"> Archive </a></li>
             
-              <li>
-                <a href="https://github.com/shudery">
-                  
-                  GITHUB
-                  
-                </a>
-              </li>
+            <li><a href="/about"> About </a></li>
             
-              <li>
-                <a href="/2016/03/01/%E9%9A%8F%E7%AC%94/%E5%85%B3%E4%BA%8E%E6%88%91/">
-                  
-                  ABOUT
-                  
-                </a>
-              </li>
+            <li><a href="/atom.xml"> RSS </a></li>
             
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search" />
+            </li>
           </ul>
+           <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、安装vpn服务"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、安装vpn服务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、配置文件修改"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、配置文件修改</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、添加vpn账号"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、添加vpn账号</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、设置公共DNS服务，输入"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、设置公共DNS服务，输入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、重启pptp服务，"><span class="post-toc-number">5.</span> <span class="post-toc-text">5、重启pptp服务，</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、ip转发配置"><span class="post-toc-number">6.</span> <span class="post-toc-text">6、ip转发配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7、设置iptables"><span class="post-toc-number">7.</span> <span class="post-toc-text">7、设置iptables</span></a></li></ol> 
         </div>
       </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            搭建属于自己的vpn服务器
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2016-06-10T13:59:48.000Z" itemprop="datePublished">
+            2016-06-10
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/方法总结/">方法总结</a><span class="post-category-list-count">8</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/工具/">工具</a><span class="post-tag-list-count">4</span></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/记录/">记录</a><span class="post-tag-list-count">16</span></li></ul>
+        
     </div>
-  </div>
-  
-      <script>
-    document.getElementsByClassName('header-background')[0].style = 'background-image: url(/img/'+Math.ceil(Math.random()*5)+'.jpeg)';
-  </script>
-
-<!-- 添加网易云音乐插件脚本 -->
-  
-</header>
-
-
-<article>
-
-  <div class="container typo">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-info text-muted">
-          
-            <!-- Author -->
-            <span class="author info">By Daguo</span>
-          
-          <!-- Date -->
-          <span class="date-time info">On
-            <span class="date">2016-06-10</span>
-            <!-- <span class="time">21:07:33</span> -->
-          </span>
-          
-          <!--  Categories  -->
-            <span class="categories info">Under 
-
-<a href="/categories/方法总结/">方法总结</a>
-</span>
-          
-        </div>
-
-        <!-- Tags 
-        
-          <div class="post-tags text-muted">
-            Tags: 
-
-<a class="tag" href="/tags/记录/">#记录</a> <a class="tag" href="/tags/工具/">#工具</a>
-
-
-          </div>
-        
-        -->
-        
-        <!-- Post Main Content -->
-        <div class="post-content">
-          <p>之前实习的时候想着有需要翻墙的时候用着公司的vpn就足够了<br>但是随着马上要去工作，还有对一些国外资源的需求（资源你懂的）<br>然后也前后被一些网上的vpn服务商坑过（各种掉线，不稳定）<br>决定自己租用一台国外的服务器vps<br><a id="more"></a><br>了解一番后知道了国外<a href="http://bandwagonhost.com/">搬瓦工</a>和<a href="www.digitalocean.com/?refcode=3491087221da">digital ocean</a>都有不错的口碑，最终选择DO,<br>最便宜的512MB内存，20GB固态硬盘，1TB流量，</p>
+    
+    <div class="post-entry">
+        <p>之前实习的时候想着有需要翻墙的时候用着公司的vpn就足够了<br>但是随着马上要去工作，还有对一些国外资源的需求（资源你懂的）<br>然后也前后被一些网上的vpn服务商坑过（各种掉线，不稳定）<br>决定自己租用一台国外的服务器vps<br><a id="more"></a><br>了解一番后知道了国外<a href="http://bandwagonhost.com/">搬瓦工</a>和<a href="www.digitalocean.com/?refcode=3491087221da">digital ocean</a>都有不错的口碑，最终选择DO,<br>最便宜的512MB内存，20GB固态硬盘，1TB流量，</p>
 <p>这个好像只是防止恶意使用的，实际上流量是用不完的，<br>在服务器控制版面也没有流量使用情况提示<br>首先注册账号，输入邮箱密码，在邮箱收到确认邮件，<br>来到Payment Methods </p>
 <p><img src="https://raw.githubusercontent.com/shudery/public/master/Pictures/article/vpn_1.png" alt=""></p>
 <p>这一项我选择的是方便快捷的PayPal，Credit不好设置<br>需要预充5刀PayPal，5刀也是最便宜的服务器的月租价格，<br>如果没有PayPal的话就先注册一次，比这个Credit方便多了<br>注意一些老旧的银联卡号可能提示设置错误，我换了一张卡就好了</p>
@@ -184,64 +93,19 @@ ms-dns 8.8.4.4</code></p>
 <p>至此搭建好属于你自己的vpn，拿着账号在手机和电脑的vpn设置登录即可<br>注意如果出现vpn隧道协议构建失败，检查一下网络适配器里vpn的安全属性<br>勾选为以下选项</p>
 <p><img src="https://raw.githubusercontent.com/shudery/public/master/Pictures/article/vpn_3.jpg" alt=""></p>
 
-        </div>
-          
-            <div class="ds-thread" data-thread-key="方法总结/如何搭建属于自己的vps vpn服务器" data-title="搭建属于自己的vpn服务器" data-url="http://shudery.cn/2016/06/10/方法总结/如何搭建属于自己的vps vpn服务器/"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"shudery"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    // ds.src = 'http://localhost:4000/js/duoshuo.js';
-    var st = document.createElement('style');
-  	// st.rel = "stylesheet";
-  	// st.href = "http://localhost:4000/css/duoshuo.css";	
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds).appendChild(st);
-  })();
-  	</script>
-        
-  
-      </div>
     </div>
-  </div>
-
-
-</article>
-
-
-
-    <!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <p class="copyright text-muted">
-            <a href="mailto:shudery@foxmail.com">shudery</a>&nbsp;@2015-2017&nbsp;&nbsp;|&nbsp;&nbsp; 
-           <a href="#"></a>
-          
-            Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
-        </p>
-
-      </div>
+</div></div>
     </div>
-  </div>
-</footer>
-
-
-    <!-- After Footer Scripts -->
-<script src="/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
-    codeBlocks.forEach(function(block, index) {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
+    <div id="footer">骑士恨煎蛋，骑士恨孜然</div>
+    
   </body>
 </html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
 
+<script type="text/javascript">
+  window.onload = function() {
+    scroll_fixed.init();
+    // siteSearch.init()
+  };
+</script>

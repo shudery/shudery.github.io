@@ -1,156 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <!-- Html Head Tag-->
   <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="MacOS使用半年感受(码农向">
-  <meta name="author" content="Daguo">
-  <!-- Open Graph Data -->
-  <meta property="og:title" content="MacOS使用半年感受(码农向"/>
-  <meta property="og:description" content="MacOS使用半年感受(码农向" />
-  <meta property="og:site_name" content="Daguo&#39;s blog"/>
-  <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://shudery.cnundefined"/>
-  <!-- for baidu web-auto-transform -->
-  <meta http-equiv="Cache-Control" content="no-transform" />
-
-  
-    <link rel="alternate" href="/atom.xml" title="Daguo&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-
-  <!-- Site Title -->
-  <title>MacOS使用半年感受(码农向 — Daguo&#39;s blog</title>
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  
-  <link rel="stylesheet" href="/css/style.light.css">
-
-  <!-- Google Analytics -->
-  
-
-  <div id='wx_pic' style='margin:0 auto;display:none;'>
-  <img src="/img/pic300.jpg" />
-  </div>
-  <!-- baidu analytics -->
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?043bb3ce93c8a91e76a6623da10e9778";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-</head>
-
+    <meta charset="utf-8" />
+    
+    <title>
+       MacOS使用半年感受(码农向 -  Daguo&#39;s blog
+    </title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="icon" href="/images/logo.jpg" />
+    
+  </head>
   <body>
-    <!-- Page Header -->
-
-
-<header class="site-header header-background" style="">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="page-title with-background-image">
-          <p class="title">MacOS使用半年感受(码农向</p>
-          <p class="subtitle"></p>
-        </div>
-        <div class="site-menu with-background-image">
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.jpg" alt=""/></a>
+          </div>
           <ul>
             
-              <li>
-                <a href="/">
-                  
-                  HOME
-                  
-                </a>
-              </li>
+            <li><a href="/"> Home </a></li>
             
-              <li>
-                <a href="/archives">
-                  
-                  ARCHIVES
-                  
-                </a>
-              </li>
+            <li><a href="/archives"> Archive </a></li>
             
-              <li>
-                <a href="https://github.com/shudery">
-                  
-                  GITHUB
-                  
-                </a>
-              </li>
+            <li><a href="/about"> About </a></li>
             
-              <li>
-                <a href="/2016/03/01/%E9%9A%8F%E7%AC%94/%E5%85%B3%E4%BA%8E%E6%88%91/">
-                  
-                  ABOUT
-                  
-                </a>
-              </li>
+            <li><a href="/atom.xml"> RSS </a></li>
             
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search" />
+            </li>
           </ul>
+           <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#oh-my-zsh"><span class="post-toc-number">1.</span> <span class="post-toc-text">oh-my-zsh</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Moom"><span class="post-toc-number">2.</span> <span class="post-toc-text">Moom</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Dash"><span class="post-toc-number">3.</span> <span class="post-toc-text">Dash</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Reeder"><span class="post-toc-number">4.</span> <span class="post-toc-text">Reeder</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Spark"><span class="post-toc-number">5.</span> <span class="post-toc-text">Spark</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Paste"><span class="post-toc-number">6.</span> <span class="post-toc-text">Paste</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Timing-gt-Rescue-Time"><span class="post-toc-number">7.</span> <span class="post-toc-text">Timing =&gt; Rescue Time</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#SmoothScroll"><span class="post-toc-number">8.</span> <span class="post-toc-text">SmoothScroll</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#MplayerX"><span class="post-toc-number">9.</span> <span class="post-toc-text">MplayerX</span></a></li></ol> 
         </div>
       </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            MacOS使用半年感受(码农向
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2017-04-04T09:53:38.000Z" itemprop="datePublished">
+            2017-04-04
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/随笔/">随笔</a><span class="post-category-list-count">5</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/随笔/">随笔</a><span class="post-tag-list-count">5</span></li></ul>
+        
     </div>
-  </div>
-  
-      <script>
-    document.getElementsByClassName('header-background')[0].style = 'background-image: url(/img/'+Math.ceil(Math.random()*5)+'.jpeg)';
-  </script>
-
-<!-- 添加网易云音乐插件脚本 -->
-  
-</header>
-
-
-<article>
-
-  <div class="container typo">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-info text-muted">
-          
-            <!-- Author -->
-            <span class="author info">By Daguo</span>
-          
-          <!-- Date -->
-          <span class="date-time info">On
-            <span class="date">2017-04-04</span>
-            <!-- <span class="time">21:07:32</span> -->
-          </span>
-          
-          <!--  Categories  -->
-            <span class="categories info">Under 
-
-<a href="/categories/随笔/">随笔</a>
-</span>
-          
-        </div>
-
-        <!-- Tags 
-        
-          <div class="post-tags text-muted">
-            Tags: 
-
-<a class="tag" href="/tags/随笔/">#随笔</a>
-
-
-          </div>
-        
-        -->
-        
-        <!-- Post Main Content -->
-        <div class="post-content">
-          <p>2016年8月底的时候入手了macbook pro2015版，其实早在3月入阿里实习的时候就被安利了mac于办公和编码的各种优势，正好当时被老旧的ThinkPad卡得生活不能自理，不过由于可以使用公司配的电脑以及想等2016新版的pro，所以一直忍住没买，直到8月我要回校时，新版一直拖延发布，而且听说用了蝶式键盘，我用过macbook12寸的蝶式键盘，简直忍不了，所以就直接买了，到现在使用了大概快半年了，每天都是重度使用，觉得可以写点感受和安利一些好用的软件。</p>
+    
+    <div class="post-entry">
+        <p>2016年8月底的时候入手了macbook pro2015版，其实早在3月入阿里实习的时候就被安利了mac于办公和编码的各种优势，正好当时被老旧的ThinkPad卡得生活不能自理，不过由于可以使用公司配的电脑以及想等2016新版的pro，所以一直忍住没买，直到8月我要回校时，新版一直拖延发布，而且听说用了蝶式键盘，我用过macbook12寸的蝶式键盘，简直忍不了，所以就直接买了，到现在使用了大概快半年了，每天都是重度使用，觉得可以写点感受和安利一些好用的软件。</p>
 <a id="more"></a>
 <p>总体来说OSX系统上手并不难，难点主要是我们很多人都已经习惯了windows系统的操作方式了，所以使用一个新系统需要一定的时间适应，而且需要建立一个操作映射，原先在windows可以实现的功能在mac上要如何实现？比如说windows的ctrl键的很多使用场景在mac下都是用command代替。</p>
 <p>安利一波mac的优秀软件，可以提升mac的使用体验和工作效率。</p>
@@ -169,64 +78,19 @@
 <li>电脑发热问题，基本开着chrome，多开几个Tag，视频播放，就开始发热，玩大游戏更别想了。</li>
 </ul>
 
-        </div>
-          
-            <div class="ds-thread" data-thread-key="随笔/MacOS使用半年感受(码农向)" data-title="MacOS使用半年感受(码农向" data-url="http://shudery.cn/2017/04/04/随笔/MacOS使用半年感受(码农向)/"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"shudery"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    // ds.src = 'http://localhost:4000/js/duoshuo.js';
-    var st = document.createElement('style');
-  	// st.rel = "stylesheet";
-  	// st.href = "http://localhost:4000/css/duoshuo.css";	
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds).appendChild(st);
-  })();
-  	</script>
-        
-  
-      </div>
     </div>
-  </div>
-
-
-</article>
-
-
-
-    <!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <p class="copyright text-muted">
-            <a href="mailto:shudery@foxmail.com">shudery</a>&nbsp;@2015-2017&nbsp;&nbsp;|&nbsp;&nbsp; 
-           <a href="#"></a>
-          
-            Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
-        </p>
-
-      </div>
+</div></div>
     </div>
-  </div>
-</footer>
-
-
-    <!-- After Footer Scripts -->
-<script src="/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
-    codeBlocks.forEach(function(block, index) {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
+    <div id="footer">骑士恨煎蛋，骑士恨孜然</div>
+    
   </body>
 </html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
 
+<script type="text/javascript">
+  window.onload = function() {
+    scroll_fixed.init();
+    // siteSearch.init()
+  };
+</script>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shudery.cn/"/>
-  <updated>2018-03-11T13:02:03.000Z</updated>
+  <updated>2019-02-11T09:59:46.259Z</updated>
   <id>http://shudery.cn/</id>
   
   <author>
@@ -14,6 +14,189 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Webpack打包的基础原理</title>
+    <link href="http://shudery.cn/2019/01/10/yuque/Webpack%E6%89%93%E5%8C%85%E7%9A%84%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/"/>
+    <id>http://shudery.cn/2019/01/10/yuque/Webpack打包的基础原理/</id>
+    <published>2019-01-10T02:37:32.000Z</published>
+    <updated>2019-02-11T09:59:46.259Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近想学习一下webpack打包的基本原理，从官方文档找到了一个推荐链接：<a href="https://github.com/ronami/minipack">简单模块打包工具的细节说明</a></p>
+<p>是一个精简的打包工具示例：minipack，里面的源码解释非常详细，介绍了一个打包工具库主要做的工作。我快速地阅读了一下源码，并做了一下翻译和总结。</p>
+<p>简单来说打包就是从一个入口文件开始，根据模块引入的语法（例如ES6的import，commonJS的require）找到所有的依赖模块，然后通过函数作用域隔离开并打包成一个单一文件。</p>
+<p>当然webpack也支持多入口打包，已经输出多个chunks打包文件，这里只是实现最简单的打包器功能，只需分三步。</p>
+<h3 id="1-找出单个模块的依赖文件"><a href="#1-找出单个模块的依赖文件" class="headerlink" title="1. 找出单个模块的依赖文件"></a>1. 找出单个模块的依赖文件</h3><p>在minipack中，没有选择直接对文件内容进行字符串解析，而是使用了babylon这个包来做语法解析。得到的抽象语法树AST，处理文件中的ImportDeclaration语句，即可得到文件的依赖信息，</p>
+<p>处理后同时给该文件打上标记id，每个文件模块经过处理之后会返回一个如下结构的对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Return all information about this module.</span></div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    id, <span class="comment">// 模块标识</span></div><div class="line">    filename, <span class="comment">// 模块文件的地址</span></div><div class="line">    dependencies, <span class="comment">// 模块的依赖文件列表</span></div><div class="line">    code <span class="comment">// 模块的代码内容</span></div><div class="line">  &#125;;</div></pre></td></tr></table></figure>
+<h3 id="2-获取全部模块的依赖关系"><a href="#2-获取全部模块的依赖关系" class="headerlink" title="2. 获取全部模块的依赖关系"></a>2. 获取全部模块的依赖关系</h3><p>接下来需要将所有文件的依赖关系联系起来，输入一个入口模块的地址，已该模块作为起点，循环搜索各个文件的依赖，直到依赖链的底层，直接贴上我对源码的注解：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取全部模块的依赖关系</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createGraph</span>(<span class="params">entry</span>) </span>&#123;</div><div class="line">  <span class="comment">// 结构化模块信息</span></div><div class="line">  <span class="keyword">const</span> mainAsset = createAsset(entry);</div><div class="line"></div><div class="line">  <span class="comment">// 存储模块信息到队列</span></div><div class="line">  <span class="keyword">const</span> queue = [mainAsset];</div><div class="line"></div><div class="line">  <span class="comment">// 使用迭代器来处理模块队列，当队列为空循环终止</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> asset <span class="keyword">of</span> queue) &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 保存依赖关系</span></div><div class="line">    asset.mapping = &#123;&#125;;</div><div class="line">    <span class="keyword">const</span> dirname = path.dirname(asset.filename);</div><div class="line">    <span class="comment">// 处理依赖子模块</span></div><div class="line">    asset.dependencies.forEach(relativePath =&gt; &#123;</div><div class="line">      <span class="comment">// 相对路径转为绝对路径</span></div><div class="line">      <span class="keyword">const</span> absolutePath = path.join(dirname, relativePath);</div><div class="line"></div><div class="line">      <span class="comment">// 获取依赖子模块的信息</span></div><div class="line">      <span class="keyword">const</span> child = createAsset(absolutePath);</div><div class="line"></div><div class="line">      <span class="comment">// 将依赖关系通过path:id的形式保存</span></div><div class="line">      asset.mapping[relativePath] = child.id;</div><div class="line"></div><div class="line">      <span class="comment">// 存在依赖的子模块，即asset.dependencies不为空时，子模块入队列继续迭代</span></div><div class="line">      queue.push(child);</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> queue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-整合为单个文件"><a href="#3-整合为单个文件" class="headerlink" title="3. 整合为单个文件"></a>3. 整合为单个文件</h3><p>有了所有模块的依赖关系后，我们就可以将它们整合在一份文件中，通过js的function作用域去将各个模块隔离开来，仅暴露module.exports出来。</p>
+<p>将依赖信息构造成一个以id的索引的数组，数组包括两个元素：一个是以require函数，module和exports对象为入参的函数，一个是子依赖项的信息。重点在于实现require方法。</p>
+<p>在require方法中，传入模块id，根据模块id获取隔离作用域的执行函数fn以及依赖信息mapping，预处理一下require函数，目的是将模块中require函数入参的相对地址转为id，然后传入执行fn，最后返回module.exports对象给上级调用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bundle</span>(<span class="params">graph</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> modules = <span class="string">''</span>;</div><div class="line">  <span class="comment">// 将依赖图信息列表转为一个字符串</span></div><div class="line">  graph.forEach(mod =&gt; &#123;</div><div class="line">    modules += <span class="string">`<span class="subst">$&#123;mod.id&#125;</span>: [</div><div class="line">      function (require, module, exports) &#123;</div><div class="line">        <span class="subst">$&#123;mod.code&#125;</span></div><div class="line">      &#125;,</div><div class="line">      <span class="subst">$&#123;JSON.stringify(mod.mapping)&#125;</span>,</div><div class="line">    ],`</span>;</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  <span class="comment">// 实现一个自执行函数，注入modules信息</span></div><div class="line">  <span class="keyword">const</span> result = <span class="string">`</div><div class="line">    (function(modules) &#123;</div><div class="line">      function require(id) &#123;</div><div class="line">        const [fn, mapping] = modules[id];</div><div class="line"></div><div class="line">        function localRequire(name) &#123;</div><div class="line">          return require(mapping[name]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        const module = &#123; exports : &#123;&#125; &#125;;</div><div class="line"></div><div class="line">        fn(localRequire, module, module.exports);</div><div class="line"></div><div class="line">        return module.exports;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      require(0);</div><div class="line">    &#125;)(&#123;<span class="subst">$&#123;modules&#125;</span>&#125;)</div><div class="line">  `</span>;</div><div class="line">  <span class="comment">// 返回单个文件输出</span></div><div class="line">  <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个方法显然是有一些瑕疵的，比如所有的模块执行require时都会执行一遍require模块的代码，可能会导致重复引入。不过通过对require方法的简单实现，已经足够让我们理解webpack这类打包工具的本质：就是通过函数来划分作用域，通过module以及module.exports来共享数据。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近想学习一下webpack打包的基本原理，从官方文档找到了一个推荐链接：&lt;a href=&quot;https://github.com/ronami/minipack&quot;&gt;简单模块打包工具的细节说明&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;是一个精简的打包工具示例：minipack，里面的源码解释非
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>基于qrcode的二维码开发</title>
+    <link href="http://shudery.cn/2018/08/14/%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/%E5%9F%BA%E4%BA%8Eqrcode%E7%9A%84%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%BC%80%E5%8F%91/"/>
+    <id>http://shudery.cn/2018/08/14/方法总结/基于qrcode的二维码开发/</id>
+    <published>2018-08-14T15:08:15.000Z</published>
+    <updated>2018-10-12T00:35:00.511Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录实现一个二维码编码渲染的功能，支持将文本（包括 url 字符串在内的所有字节信息）转换为二维码图片并渲染，支持二维码嵌入 Logo 图片。</p>
+<a id="more"></a>
+<h2 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h2><p>二维码本质是一种密码算法，实现需求前，需要简单了解一下二维码的几个基本概念。</p>
+<h3 id="编码模式："><a href="#编码模式：" class="headerlink" title="编码模式："></a>编码模式：</h3><ul>
+<li>数字编码(Numeric mode)，支持数字 0-9 的编码；</li>
+<li>字符编码(Alphanumeric mode)，支持包括数字 0-9，大写的 A 到 Z，注意没有小写，以及符号$ % * + – . / : 包括空格的编码；</li>
+<li>字节编码(Byte mode)，支持 0-255 的 ISO-8859-1 字符；<br>此外还有日文编码，混合编码等等。</li>
+</ul>
+<p>通常来说用字节编码可以满足大部分的业务场景，数字编码和字符编码的编码内容比较局限，但是可以支持更大的编码量。</p>
+<h3 id="纠错码："><a href="#纠错码：" class="headerlink" title="纠错码："></a>纠错码：</h3><p>顾名思义，纠错码就是允许二维码存在一定数量错误的编码信息。编码后的如果有信息残缺，缺少部分点阵的像素，得益于纠错码，也能够正确的读取信息。利用二维码的这个特性，我们在不更改点阵像素分布的情况下，也可以实现在二维码上嵌入一张 logo 图片，而不影响二维码原本的信息读取。</p>
+<p>二维码中有四种级别(L,M,Q,H)的纠错，也称容错系数，最低的级别是 L，它可以校准 7%的字码。之后是可以校准 15％的 M，然后是可以校准 25％的 Q，最后是可以校准 30％的 H。级别越高，纠错能力越强，当然也会牺牲更多的编码容量。</p>
+<p>选择什么纠错等级，取决于我们要嵌入的 logo 图片相对二维码的占比大小。</p>
+<p><img src="/images/qrcode/3.jpeg" alt=""></p>
+<p>需要特别注意的是，二维码有三个带方块的角用于标记二维码的矩形大小，是不能遮挡的，挡住了二维码是无法被准确识别到的，有纠错码也无能为力。至于为什么是三个角而不是四个，是因为三个角就足够标识一个矩形了。通常来说，将嵌入 logo 放到图片正中央，长度最大为二维码边长的 2/7 左右，具体的计算方法是计算 logo 遮挡的像素个数/二维码信息区的像素个数不大于 30%。</p>
+<p>二维码不同的 version 下的划区不同，真正存放编码信息的区域也不同。具体的区域信息可以查阅：<a href="https://coolshell.cn/articles/10590.html">二维码生成细节和原理</a></p>
+<h3 id="Version-："><a href="#Version-：" class="headerlink" title="Version ："></a>Version ：</h3><p>我们平时看到的二维码有各种像素密度的，根据像素点二维码定义了 40 个尺寸，即 40 个 version</p>
+<p><img src="/images/qrcode/2.png" alt=""></p>
+<p>点阵越密麻，像素点越多，则 version 越大。最小的二维码是 21x21 像素，为 Version 1，25x25 像素大小为 Version 2，依此类推。 177x177 大小像素为 Version 40。<br>用 n 表示版本号，版本和像素的关系为 version n : <code>(21 + (n - 1) \* 4)^2 px</code></p>
+<p>version 越大，可容纳的编码信息越多，根据纠错指数，编码模式和待转换的字符长度，可以确定渲染二维码的最小 version。version 应该在保证信息编码准确的情况下尽可能小，以提高渲染和识别的性能，二维码各版本的容量可以查阅：<a href="http://muyuchengfeng.xyz/%E4%BA%8C%E7%BB%B4%E7%A0%81-%E5%AD%97%E7%AC%A6%E5%AE%B9%E9%87%8F%E8%A1%A8/">字符容量表</a></p>
+<p><img src="/images/qrcode/1.png" alt=""></p>
+<h2 id="实现方案"><a href="#实现方案" class="headerlink" title="实现方案"></a>实现方案</h2><p>要快速实现二维码的编码转换，并根据容错系数，信息长度自动调整 version，并绘制成 canvas 图片，社区很早就有许多成熟方案了，并且都大同小异。项目采用了 github 上同类方案 star 就多的 jquery 插件 qrcode.js 来完成这些功能。</p>
+<p>网页绘制二维码类似绘制一个黑白棋盘，通常来说有两种方案，一种是使用 canvas，一种是使用 table，table 性能恶心，尤其是在 IE9 以下的此类浏览器中，一般会选择 canvas 来进行绘制。qrcode.js 默认采用 canvas 进行绘制。</p>
+<p>除了主要的编码转换和绘制功能，qrcode.js 插件还支持：</p>
+<ul>
+<li>utf-8 编码自动转换，解决部分 qrcode 扫描器不支持识别非 utf-8 字符的问题</li>
+<li>可以自定义二维码的底色和前景色</li>
+</ul>
+<p>不过结合实际应用场景，还需要修改一下几个地方：</p>
+<ul>
+<li>logo 嵌入：功能需求</li>
+<li>初始编码 version 调为 3：解决低 version 纠错码不够的问题</li>
+</ul>
+<p>logo 嵌入由于需要侵入改动的地方比较多，最终选择直接 qrcode 组件外部覆盖一层绝对定位的图层展示，qrcode 的源码只需要简单的添加一个 logoSrc 的传入参数，方便插件内部判断，插件源码_getTypeNumber 函数在判断 logoSrc 存在时，将初始 version 调整为 3，这是因为需求设计上 logo 图片 占比较大，在输入较少内容编码为 version1 或者 version2 时，即使纠错等级最大也无法准确识别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function _getTypeNumber(sText, nCorrectLevel, logoSrc) &#123;</div><div class="line">  // 嵌入logo时，nType初始值改为3，解决编码内容较少时，纠错码不够的问题</div><div class="line">  var nType = logoSrc ? 3 : 1;</div></pre></td></tr></table></figure>
+<p>做完这些工作后，我们就只需要简单的调用 qrcode.js 来渲染二维码了。</p>
+<h2 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h2><p>上线后续的测试发现，移动端多个二维码同屏时识别出的信息不准确：</p>
+<p>通过渲染器生成二维码在移动端长按，弹出层选择识别二维码，如果手机屏幕同一屏内存在其他二维码图片，那么可能会错误解析为同屏内其他二维码的信息。</p>
+<p>查谷歌发现是微信浏览器本身的一个策略导致的：长按图片后弹出识别二维码，识别的对象不是长按的图片，而是整个手机屏幕那一时刻的截屏。</p>
+<p>主要有两个方案可以解决，交互层面：二维码加一层交互，点击二维码先触发一个全屏的浮层，再长按，这样整个屏幕就只有单个二维码。技术层面：识别同屏内的二维码，长按时隐藏其他所有二维码图片。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      share my record after learning how to build a plugin for chrome.
+    
+    </summary>
+    
+      <category term="方法总结" scheme="http://shudery.cn/categories/%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="记录" scheme="http://shudery.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="web前端" scheme="http://shudery.cn/tags/web%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Daguo的每周清单：第七期</title>
+    <link href="http://shudery.cn/2018/04/01/%E5%91%A8%E6%8A%A5/Daguo%E7%9A%84%E6%AF%8F%E5%91%A8%E6%B8%85%E5%8D%957/"/>
+    <id>http://shudery.cn/2018/04/01/周报/Daguo的每周清单7/</id>
+    <published>2018-04-01T05:32:17.000Z</published>
+    <updated>2018-04-01T15:20:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这周朋友圈刷起了下雪的照片和视频，想起在成都四年还是没能一睹雪花纷飞的场景，很是遗憾啊。还以为广东会保持18度的秋天风格到过年，下午就收到了明天骤降10度的寒潮预警，怕冷的人瑟瑟发抖！<br><a id="more"></a></p>
+<h2 id="前端基础"><a href="#前端基础" class="headerlink" title="前端基础"></a>前端基础</h2><ul>
+<li><p><a href="https://mp.weixin.qq.com/s/nKvjsU2frT5NDU4DLWqvYg?scene=25#wechat_redirect">前后端分离实践</a></p>
+<blockquote>
+<p>一直以为前后端分离是业界常态，接触的项目比较多了之后，发现很多项目还是保持着和后端的强耦合，接口上依赖后端实现，不事先设计和mock，部署上和后端JAVA代码打成包才能发布，不能独立发布等等情况还很多，很影响开发效率。除非项目就是一帮全栈工程师写的，否则我认为前后端分离应该积极的践行。</p>
+</blockquote>
+</li>
+<li><p><a href="https://www.tuicool.com/wx/Z3uaMzA"><code>(a==1&amp;&amp;a==2&amp;&amp;a==3)</code>有可能是 true 吗？</a></p>
+<blockquote>
+<p>Javascript确实神奇，很久以前看到过类似的toString的这种用法，但是再次接触到考这个知识点的一个变种题目还是觉得非常有趣。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="JavaScript生态"><a href="#JavaScript生态" class="headerlink" title="JavaScript生态"></a>JavaScript生态</h2><ul>
+<li>[微信小程序和PWA对比分析](<a href="https://zhuanlan.zhihu.com/p/35151153?utm_source=wechat_session&amp;utm_medium=social&amp;from=timeline&amp;isappinstalled=0）">https://zhuanlan.zhihu.com/p/35151153?utm_source=wechat_session&amp;utm_medium=social&amp;from=timeline&amp;isappinstalled=0）</a><blockquote>
+<p>小程序和PWA有着很多相似的地方，技术上都是通过Web技术实现可实时更新和跨平台，通过底层android/微信的支持接口提供平台能力，可以离线使用o，相比于传统的APP产品有比较低的实现成本和高的可移植性，如果能处理好性能体验的问题，PWA和微信小程序的生态都会得到迅速地发展。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="技术视野"><a href="#技术视野" class="headerlink" title="技术视野"></a>技术视野</h2><ul>
+<li><p><a href="https://juejin.im/pin/5a695e3b51882563db3cb72d?utm_medium=pwapyq&amp;utm_source=weixinqun&amp;from=timeline">TensorFlow发布面向JavaScript开发者的机器学习框架TensorFlow.js</a></p>
+<blockquote>
+<p>随着谷歌的机器学习框架TensorFlow发布TensorFlow.js，感觉js也把生态魔抓伸向了一直由python占领的机器学习领域，非常兴奋，先mark后学</p>
+</blockquote>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzIwNjQwMzUwMQ==&amp;mid=2247485752&amp;idx=1&amp;sn=c59b754ad87382c9bb0f67466036a830&amp;chksm=97236bfaa054e2ecf4f2c9b904c99f914b4124cd96bbef00638b2ebf083b0dacf85b9abcee4f&amp;mpshare=1&amp;scene=1&amp;srcid=0128yJYuM72IEU8mokTjIfoo#rd">Bootstrap 4 发布了，可是已经过气了呀</a></p>
+<blockquote>
+<p>Bootstrap的第四号版本三年磨一剑，从15年开始Bootstrap4的第一个alpha到现在，说起来那会我还没入行呢，前端技术圈已经发生了翻天覆地的变化。想起自己当年也是从Bootstrap开始撸起页面的，如今由于更新迭代缓慢，同质化和紧耦合，缺少语义而被人诟病，曾经的王者陨落，时代的眼泪啊。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="工程实践"><a href="#工程实践" class="headerlink" title="工程实践"></a>工程实践</h2><ul>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MjM5MTA1MjAxMQ==&amp;mid=2651228053&amp;idx=1&amp;sn=38e580fcf3d059120c4498cdaa4a20a0&amp;chksm=bd495e118a3ed707a0ef2320e748c81a673ec402bdd74969b653e45c3f8ee7d0ae5b6b13dd56&amp;mpshare=1&amp;scene=1&amp;srcid=0316Sj7aMWiooaoXiEEmbmuv#rd">用JavaScript写一个区块链</a></p>
+<blockquote>
+<p>通过用前端er熟悉的javascript写出来的区块链应用，实现了区块链的一些基础功能，学习理论后配上实践来理解总是更加容易。</p>
+</blockquote>
+</li>
+<li><p><a href="#工程实践">本周开发手记</a></p>
+<blockquote>
+<p>大公司的技术产品，尤其是内部应用产品往往采用非常陈旧的技术栈实现，稳定可靠但是同时积累着一大堆技术债务，可维护性和代码结构越来越差，同时各个模块使用不同的前端技术，难以复用各种业务功能组件。考虑到不同的前端MVVM框架有自己的一套组件系统，如何才能建立一个统一的通用的组件库，其他存量的系统可以直接引用呢？比如我们统一建立一个Vue的组件库，封装了一些Vue的业务功能组件，那么其他的产品如果使用的是react或者angular要如何接入？一种方案是参考业界的将Vue组件库重构一个react版本和angular版本，但是由于需要采用这种策略需要重构的工作量和人力完全无法匹配，我们目前暂时采用了第二种，就是直接引入vue组件依赖的包括vue.js在内的所有文件，好在vue所有的依赖加起来也就100K，这毫无疑问会影响原先页面的性能，所以我们也在积极地推部门使用同一的前端技术栈，这样就可以无缝使用组件库的组件了。除了性能问题，兼容性问题也是需要考虑的点，虽然现在通过在index.html绑定不同的dom可以实现各自框架的逻辑没有问题，但多个框架总是让我觉得不太放心。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="良心推荐"><a href="#良心推荐" class="headerlink" title="良心推荐"></a>良心推荐</h2><ul>
+<li><p><a href="https://segmentfault.com/a/1190000004646121">KeystoneJS</a></p>
+<blockquote>
+<p>上周推荐了小程序的后端服务接口商城，除了小程序后端，我们经常在开发完页面之后需要做一个管理后台来可视化地操作我们的持久化数据，同时后端需要配置路由和数据库，所有的这一切Keystone都能帮助前端工程师解决，它基于express，让前端又一次“全栈”。</p>
+</blockquote>
+</li>
+<li><p><a href="https://item.jd.com/12176536.html">Vue2实战教程</a></p>
+<blockquote>
+<p>来自梁睿坤大佬的实战经验书籍，Vue2实战教程可以说是干货满满，通过实际项目讲解Vue开发一个项目需要注意的方法面面，有很多概念解析很有想法，踩过的一些坑也是无私分享，本周看了三分之二，就忍不住强力推荐啦。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="效率工具"><a href="#效率工具" class="headerlink" title="效率工具"></a>效率工具</h2><ul>
+<li><a href="http://cssreference.io/">CSS用法快速搜索</a><blockquote>
+<p>在知乎上看到的，可以快速搜索CSS的一些属性，一般我通过模糊搜索找到自己有点忘了怎么用的一些属性，点进去后，神清气爽，所有的demo和注意事项都给你列出来了，瞬间就加深了对属性的了解，而且界面非常好看。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="总结-amp-吐槽"><a href="#总结-amp-吐槽" class="headerlink" title="总结&amp;吐槽"></a>总结&amp;吐槽</h2><p>本周虽然每晚都是十点后回家，8106，好像是来部门后过得最忙的一周了吧，但是感觉也是最充实的一周，技术上做了很多技术方面的预研，学习了一些项目启动，工程化的方法论，通过试验写demo实践了许多存有疑惑的知识点。下周又有新的任务，要适应多核工作的局面，另外个位数的温度重回广东，还得适应下寒冷。下周想把我的大F带到公司去。</p>
+<p>说起来好像接下来每周都要上6天班，知道年后回来的第二个星期，看来周末又出不了坂田这块地了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      develop cross-platform GUI app with electron
+    
+    </summary>
+    
+      <category term="周报" scheme="http://shudery.cn/categories/%E5%91%A8%E6%8A%A5/"/>
+    
+    
+      <category term="记录" scheme="http://shudery.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="技术" scheme="http://shudery.cn/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>Daguo的每周清单：第六期</title>
@@ -103,7 +286,7 @@
     <link href="http://shudery.cn/2018/02/25/%E5%91%A8%E6%8A%A5/Daguo%E7%9A%84%E6%AF%8F%E5%91%A8%E6%B8%85%E5%8D%955/"/>
     <id>http://shudery.cn/2018/02/25/周报/Daguo的每周清单5/</id>
     <published>2018-02-25T05:32:17.000Z</published>
-    <updated>2018-02-25T16:25:53.000Z</updated>
+    <updated>2018-03-11T11:00:07.000Z</updated>
     
     <content type="html"><![CDATA[<p>新年开工第一周，没有收到开工红包，不过收到了之前去北京出差的补贴也是蛮开心的。这周很多同事都请假了，好多个工位都还是空荡荡的，任务比较少，不过下周开始应该又会变得忙碌了。</p>
 <a id="more"></a>
@@ -846,9 +1029,9 @@
       <category term="方法总结" scheme="http://shudery.cn/categories/%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="web前端" scheme="http://shudery.cn/tags/web%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="JavaScript编程" scheme="http://shudery.cn/tags/JavaScript%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="web前端" scheme="http://shudery.cn/tags/web%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
@@ -1041,165 +1224,6 @@
     
     
       <category term="随笔" scheme="http://shudery.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript如何真正实现原型链继承</title>
-    <link href="http://shudery.cn/2016/08/20/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/JavaScript%E5%A6%82%E4%BD%95%E7%9C%9F%E6%AD%A3%E5%AE%9E%E7%8E%B0%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF/"/>
-    <id>http://shudery.cn/2016/08/20/学习感悟/JavaScript如何真正实现原型链继承/</id>
-    <published>2016-08-19T16:00:00.000Z</published>
-    <updated>2017-09-24T09:42:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>本文由我翻译在<a href="http://www.zcfy.cc/claim">众成</a>翻译平台，<a href="http://www.zcfy.cc/article/javascript-how-prototypal-inheritance-really-works-1337.html">文章地址</a></strong></p>
-<p>在网上的很多地方我们可以得知javascript是基于原型链继承的，其实Javascript只提供一种特殊的方法来实现原型链继承，就是通过new操作。但是很多解读都令人难以理解，这篇文章旨在说明到底什么是原型链继承以及如何在Javascript中真正地运用它。<br><a id="more"></a></p>
-<h3 id="原型链继承的定义"><a href="#原型链继承的定义" class="headerlink" title="原型链继承的定义"></a>原型链继承的定义</h3><p>当你读到有关于Javascript原型链继承的内容时，经常看到这样的定义：</p>
-<blockquote>
-<p>当对象存取一个属性时，Javascript会沿着原型链向上查询直到找到要存取的属性名（或原型链顶端）<a href="http://bonsaiden.github.com/JavaScript-Garden/#object.prototype">Javascript Garden</a></p>
-</blockquote>
-<p>许多Javascript实践运用 <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/proto"><strong>proto</strong></a> 属性来表示原型链上的下一个对象，我们会在下文看看__proto__和prototype之间有什么区别。</p>
-<p><strong>提示</strong>: __proto__不是一种标准，不应该将它运用在你的实际代码里，它在文章只是用来解释Javascript如何实现继承。</p>
-<p>下面的代码展示了javascript引擎是如何获取属性的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function getProperty(obj, prop) &#123;</div><div class="line">  if (obj.hasOwnProperty(prop))</div><div class="line">    return obj[prop]</div><div class="line">  else if (obj.__proto__ !== null)</div><div class="line">    return getProperty(obj.__proto__, prop)</div><div class="line">  else</div><div class="line">    return undefined</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>我们举个通常的栗子：一个2D的点，一个点有两个坐标值x和y，以及一个print方法。</p>
-<p>根据前面原型链继承的定义，我们将构造一个对象表示点，拥有三个属性x，y，print，为了创建一个新的点，我们只需要让新的对象的__proto__设为Point：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var Point = &#123;</div><div class="line">  x: 0,</div><div class="line">  y: 0,</div><div class="line">  print: function () &#123; console.log(this.x, this.y); &#125;</div><div class="line">&#125;;</div><div class="line">var p = &#123;x: 10, y: 20, __proto__: Point&#125;;</div><div class="line">p.print(); // 10 20</div></pre></td></tr></table></figure>
-<h3 id="Javascript原型链继承的奇特之处"><a href="#Javascript原型链继承的奇特之处" class="headerlink" title="Javascript原型链继承的奇特之处"></a>Javascript原型链继承的奇特之处</h3><p>令人疑惑的是，每一个教别人Javascript原型链继承的人都不用上面的代码，他们会使用如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Point(x, y) &#123;</div><div class="line">  this.x = x;</div><div class="line">  this.y = y;</div><div class="line">&#125;</div><div class="line">Point.prototype = &#123;</div><div class="line">  print: function () &#123; console.log(this.x, this.y); &#125;</div><div class="line">&#125;;</div><div class="line">var p = new Point(10, 20);</div><div class="line">p.print(); // 10 20</div></pre></td></tr></table></figure>
-<p>这和之前的代码完全不同，Point是一个函数，用到prototype属性，new操作符，这是什么意思？</p>
-<h4 id="new是如何运作的"><a href="#new是如何运作的" class="headerlink" title="new是如何运作的"></a>new是如何运作的</h4><p><a href="http://brendaneich.com/">Brendan Eich</a> 希望Javascript看起来更像传统的面向对象语言，比如Java 和C++，因此用new操作符来创建一个类的实例，于是他给Javascript添加了new操作符。</p>
-<ul>
-<li>C++中有关于构造的概念，是用来初始化实例属性，因此new操作符必须指向一个函数。</li>
-<li>我们需要在一些地方用到对象的方法，由于我们使用的是一门原型语言，可将方法放在函数的原型属性上。</li>
-</ul>
-<p>new操作符创建函数F和参数arguments : new F(arguments…)，进行简单的三步操作：</p>
-<ol>
-<li><strong>创建一个实例</strong>，它是一个空对象，其__proto__属性被设为F.prototype。</li>
-<li><strong>实例初始化</strong>，将函数F的参数传递到实例上，F的this(上下文)被设为指向实例。</li>
-<li><strong>返回实例</strong>。</li>
-</ol>
-<p>现在我们明白new操作符做了什么，我们可以在Javascript中实践它。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function New (f) &#123;</div><div class="line"> var n = &#123; &apos;__proto__&apos;: f.prototype &#125;;</div><div class="line"> return function () &#123;</div><div class="line">   f.apply(n, arguments);</div><div class="line">   return n;</div><div class="line"> &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>一个小测试看看它如何运行。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Point(x, y) &#123;</div><div class="line">  this.x = x;</div><div class="line">  this.y = y;</div><div class="line">&#125;</div><div class="line">Point.prototype = &#123;</div><div class="line">  print: function () &#123; console.log(this.x, this.y); &#125;</div><div class="line">&#125;;</div><div class="line">var p1 = new Point(10, 20);</div><div class="line">p1.print(); // 10 20  </div><div class="line">console.log(p1 instanceof Point); // true    </div><div class="line">var p2 = New (Point)(10, 20);</div><div class="line">p2.print(); // 10 20</div><div class="line">console.log(p2 instanceof Point); // true</div></pre></td></tr></table></figure>
-<h3 id="Javascript真正的原型链继承"><a href="#Javascript真正的原型链继承" class="headerlink" title="Javascript真正的原型链继承"></a>Javascript真正的原型链继承</h3><p>在<a href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-262.pdf">Javascript specifications</a> 只给了我们一种基于new操作符的实现方法 ,但是Douglas Crockford 还是找到一种利用new操作符实现原型继承的方法，他写了一个<a href="http://javascript.crockford.com/prototypal.html">Object.create</a>函数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Object.create = function (parent) &#123;</div><div class="line">  function F() &#123;&#125;</div><div class="line">  F.prototype = parent;</div><div class="line">  return new F();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>这看起来非常奇怪，但它的原理其实非常简单。将创建的一个新对象的prototype属性设置为你想要继承的对象，如果允许使用__proto__，那么可以改写为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Object.create = function (parent) &#123;</div><div class="line">  return &#123; &apos;__proto__&apos;: parent &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>下面就是用真正的原型链继承来实现的Point例子的继承过程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var Point = &#123;</div><div class="line">  x: 0,</div><div class="line">  y: 0,</div><div class="line">  print: function () &#123; console.log(this.x, this.y); &#125;</div><div class="line">&#125;;</div><div class="line">var p = Object.create(Point);</div><div class="line">p.x = 10;</div><div class="line">p.y = 20;</div><div class="line">p.print(); // 10 20</div></pre></td></tr></table></figure>
-<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>我们已经知道了什么是原型链继承以及Javascript怎样通过一种特殊的方式实现它。</p>
-<p>但是，这种原型链继承方法(Object.create and __proto__) 有一些缺点：</p>
-<ul>
-<li><strong>没有标准</strong>: __proto__不是标准甚至是被反对的. 包括通用的Object.create和Douglas Crockford实践都没有确定的标准形式。</li>
-<li><strong>没有优化</strong>: Object.create比起new操作方式显得更加笨重，这一点被证明于<a href="http://jsperf.com/object-create-vs-crockford-vs-jorge-vs-constructor/16">10 times slower</a>.</li>
-</ul>
-<h4 id="参考阅读："><a href="#参考阅读：" class="headerlink" title="参考阅读："></a>参考阅读：</h4><ul>
-<li><a href="http://javascript.crockford.com/prototypal.html">Douglas Crockford: Prototypal Inheritance</a></li>
-<li><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/proto">MDC Documentation: <strong>proto</strong></a></li>
-<li><a href="http://ejohn.org/blog/objectgetprototypeof/">John Resig: getPrototypeOf</a></li>
-<li><a href="http://bonsaiden.github.com/JavaScript-Garden/#object.prototype">Javascript Garden: Object.prototype</a></li>
-<li><a href="http://dmitrysoshnikov.com/ecmascript/chapter-7-2-oop-ecmascript-implementation/">Dmitry Shoshnikov: OOP: ECMAScript Implementation</a></li>
-<li><a href="http://javascriptweblog.wordpress.com/2010/06/07/understanding-javascript-prototypes/">Angus Croll: Understanding Javascript prototypes</a></li>
-<li><a href="http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/">Yehuda Katz: Understanding JavaScript Function Invocation and “this”</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      work
-    
-    </summary>
-    
-      <category term="学习感悟" scheme="http://shudery.cn/categories/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/"/>
-    
-    
-      <category term="JavaScript编程" scheme="http://shudery.cn/tags/JavaScript%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="翻译" scheme="http://shudery.cn/tags/%E7%BF%BB%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP缓存与web储存概念整理</title>
-    <link href="http://shudery.cn/2016/08/12/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/HTTP%E7%BC%93%E5%AD%98%E4%B8%8Eweb%E5%82%A8%E5%AD%98%E6%A6%82%E5%BF%B5%E6%95%B4%E7%90%86/"/>
-    <id>http://shudery.cn/2016/08/12/学习感悟/HTTP缓存与web储存概念整理/</id>
-    <published>2016-08-11T17:46:57.000Z</published>
-    <updated>2017-10-22T05:53:17.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>缓存对于一个网站来说非常重要，可以提高网站性能，减少冗余的数据传输，增加服务器负担，web存储则给浏览器提供了更加强大的保存文件的接口。<br>有相当一段时间一直混淆了HTTP缓存相关的属性，HTML5离线存储和本地储存的一些关系，最近好好地整理了一下这些Web存储相关的东西</p>
-<p>先列出一些相关属性和概念，看看能否理清它们之间的区别和联系？<br><a id="more"></a></p>
-<ul>
-<li>manifest</li>
-<li>cache-control</li>
-<li>expires</li>
-<li>304(no modified)</li>
-<li>ETag</li>
-<li>If-None-Match</li>
-<li>Last-Modified</li>
-<li>If-Modified-Since</li>
-<li>http-equiv</li>
-<li>webstorage</li>
-<li>cookie/session</li>
-</ul>
-<p>是不是感觉有点凌乱，那就跟着我整理的笔记走一遍吧：）<br>首先说一说HTTP缓存相关的东西:<br>　　<br>　　<br><code>Cache-Control</code><br>每一个用HTTP请求的资源都可以在响应头用Cache-Control来给浏览器定义缓存策略，通过设置一些属性值它可以控制谁可以，在什么条件下可以缓存响应，还有缓存的有效期，这个属性的一些常用值如下</p>
-<p><code>no-cache：</code>表示不使用缓存，先和服务器确认要返回的资源是否有修改<br><code>no-store：</code>表示禁止浏览器和所有中继缓存响应的资源<br><code>max-age=100：</code>表示缓存的有效期，单位是秒，这一段时间内，除非缓存文件发生一些变动，否则会直接使用之前的缓存，注意这段时间内是不会发Etag等方法去验证的资源有没有修改的。缓存的文件发生变动，主要有这些情况：资源名更改，资源地址更改，缓存被删除，网页强制刷新等；资源名更改，给文件名添加版本hash值，比如给image.png修改为image-hash.png，可以保证每次更新文件时用户可以重新发出请求，获取最新的资源。资源路径更改，修改文件的请求路径，比如给image.png添加查询参数修改为image.png?hash，max-age的时间设置根据每个网站的实际情况不同去设置，一种极端的做法是把这个值设置很大，然后通过修改资源名或者给资源请求地址添加查询参数，来告诉浏览器该更新资源了，一般用在很久才更新网站的情况<br><code>public：</code>用max-age即是默认public了，不用设置<br><code>private：</code>私人缓存，中继缓存不被允许，但是可以在浏览器缓存</p>
-<p><code>PS：expires：</code>表示存在的时间，使客户端在这个设置的时间之前不用去请求资源，类似于max-age，但是expires表示的是一个固定时间，而且可能有服务器和客户端时间不一致的问题，主要用于HTTP1.0版本，在HTTP1.1版本完全可以用功能更强的Cache-Control来替代，和max-age同时存在时expiers会被覆盖掉<br><code>PS：http-equiv：</code>缓存有两种控制机制，一种是请求头信息控制，另外一种就是利用meta标签；可以在HTML文档中为meta标签设置http-equiv为相应属性名，content为值来设置缓存，例如<br><code>&lt;meta http-equiv=&quot;Expires&quot; content=&quot;Mon, 20 Jul 2009 23:00:00 GMT&quot; /&gt;</code>，不过只对改网页的HTML文件有缓存作用，对该页面的其他资源以及其他页面的HTML文件都没有作用<br>　　<br>　　<br>那么max-age（expires）到期之后，在no-cache下的资源会先和服务器确认返回的资源是否有修改，如何实现这一过程？<br><code>ETag/If-None-Match，Last-Modified/If-Modified-Since</code><br>ETag (Entity Tag)其实就是一个验证令牌，用来标识一个资源，可能是一个hash值，也可能是一个版本号，每当资源有修改的时候ETag的值就会改变<br>浏览器第一次请求之后会保存响应头的ETag值，以便下一次发送请求的时候校验Etag是否有更改。<br>　　<br>　　<br>那么下一次浏览器如何告诉服务器本地已经存有Etag和相应的资源了呢？If-None-Match<br>通过在请求头添加If-None-Match(如果存在ETag，浏览器会自动添加)，赋值为上一次请求后在本地存储的Etag值，服务器会和服务端最新资源的Etag比对，如果没有更改会直接返回304 no modified给浏览器，浏览器就直接使用本地缓存的文件</p>
-<p><code>PS：Last-Modified/If-Modified-Since</code>的作用等同于<code>ETag/If-None-Match，</code>不过前者是通过规定一个时间来比对，最小的单位是秒，后者通过一个唯一标识符，所以可以看出来如果原站在一秒内有多次更新，那么前者就不顶用啦。<br>ETag的验证要优先于Last-Modified，此外ETag也是有缺点的，在分布式的环境中，Etag在不同服务器上的同步问题可能会给服务器带来一些压力。<br>　　<br>　　<br><code>HTTP缓存</code>是和每一个HTTP请求直接相关的，每一个请求资源的响应都有相应的缓存策略，它们往往是相似的，是否可以通过其他的机制，直接告诉浏览器去缓存哪一些文件呢？<br><code>HTML5离线存储</code>闪亮出场</p>
-<p>H5离线存储：服务器通过一份.manifest文件给浏览器提供一份完备的缓存名单，名单包括需要缓存的文件，不需要缓存的文件的列表之外，还有一些其他的功能，比如给资源设置备选的请求地址，设置404页面等</p>
-<p>实现：利用H5的标签新属性manifest，只需要在HTML文件添加<code>&lt;html manifest=&quot;test.manifest&quot;&gt;，</code>服务器则将manifest文件的mime-type设置为text/cache-manifest类型即可，浏览器每次请求会检查<code>manifest</code>是否有更新，服务端通过修改manifest文件，即可在浏览器下一次请求资源的时候通知其更新相应的资源。<br>作用：通过本地离线存储可以在没有网络的情况下访问网站事先保存的文件资源，在有网络的情况下直接使用本地资源也可以减少请求连接的压力，提高网页的加载速度，注意这里和HTTP缓存的区别，它是直接使用本地资源，请求返回的是200（from cache）,由于有manifest来统一管理，所以不需要发请求查看是否有更新，也没有过期时间。<br>　<br><code>PS：</code>这里关于manifest文件自身的更新问题，还是要走HTTP缓存，或者直接不缓存这个文件。<br>　　<br>　　<br>前面提到的概念主要都是缓存请求文件这一块的东西，它们的目的都是为了提高网页的性能，可以说是一种优化型的存储，可以给用户带来更流畅的体验<br>但是我们印象中还有一种存储，它可以给我们提供更多的可能和效果的实现，是功能型的存储，如H5本地储存<code>Webstorage，cookie，session</code><br>　　<br>　　<br><code>cookie，session</code><br>众所周知，HTTP是无状态的协议，每一次请求都是独立没有联系的，浏览器和服务器都没有办法维持用户的状态，判断用户是不是依然是之前的那个用户。<br>很容易可以想到，在同一个用户的每个请求头添加一个唯一标识符，通过判断这个标识符就可以维持用户的一些信息和状态<br>会话信息被用来作为标识符解决这个问题，cookie机制采用的是在客户端保持状态的方案，而session机制采用的是在服务器端保持状态的方案（服务端保持状态也需要客户端保持状态，所以一般session都要基础cookie或者sessionstorage）</p>
-<p>总的来说：cookie数据放在客户端，session数据放在服务端，cookie可以设置期限，session则是关闭浏览器时销毁（cookie默认也是），cookie不安全，session可能会影响服务器性能</p>
-<p><code>Cookie：</code>通常用Javascript封装一个setCookie的函数来创建，有大小限制，可能会导致请求头过于臃肿，浏览器发送请求时，检查本地cookie，如果该cookie声明的范围大于发送请求的url地址时，就会自动在请求上添加cookie字段</p>
-<p><code>session：</code>服务器每次会检查浏览器请求头的session标识，如果有则将这个session id在服务器的数据库（散列表）查找，找到后才进行相应权限的操作<br>如果没有这个请求标识，则为客户端新建一个，返回给客户端后，客户端可以通过cookie或者sessionstorage来保存这个session id，通过请求头的cookie字段来给服务器提供sessionId，当cookie被禁止时就需要一些其他方法，通常是采用添加到url路径中，添加表单隐藏域等方法</p>
-<p>cookie作为HTTP协议规范的一部分，主要还是用来储存用户信息的，用来和服务端交互，大小也有限制，仅仅只是一种会话级别的存储<br>　　<br>　　<br><code>localstorage，sessionstorage</code><br><code>webstorage</code>为了更大的存储文件设计，与Cookie负责记录用户信息相比，webStorage专注于本地存储，通过封装好的setItem，getItem等方法即可使用<br>localstorage是一种持久化的存储，除非主动删除，否则永远存在，sessionstorage主要用来存储会话（session），关闭浏览器就会销毁，是一种非持久化的存储<br>　　<br>　　<br>除了上面这些的概念之外，还有诸如像IndexDB，FileSystem等存储方法，关于Web存储的知识真的非常多，看上去坑也是不少，还需要实践慢慢来掌握。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      this is a article for my way of studying front-end
-    
-    </summary>
-    
-      <category term="学习感悟" scheme="http://shudery.cn/categories/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/"/>
-    
-    
-      <category term="web前端" scheme="http://shudery.cn/tags/web%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ES5和ES6中对于继承的实现方法</title>
-    <link href="http://shudery.cn/2016/07/23/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/ES5%E5%92%8CES6%E4%B8%AD%E5%AF%B9%E4%BA%8E%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/"/>
-    <id>http://shudery.cn/2016/07/23/学习感悟/ES5和ES6中对于继承的实现方法/</id>
-    <published>2016-07-23T15:32:17.000Z</published>
-    <updated>2017-03-14T09:08:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在ES5继承的实现非常有趣的，由于没有传统面向对象类的概念，Javascript利用原型链的特性来实现继承，这其中有很多的属性指向和需要注意的地方。<br>原型链的特点和实现已经在之前的一篇整理说过了，就是通过将子类构造函数的原型作为父类构造函数的实例，这样就连通了子类-子类原型-父类，原型链的特点就是逐层查找，从子类开始一直往上直到所有对象的原型Object.prototype，找到属性方法之后就会停止查找，所以下层的属性方法会覆盖上层。<br><a id="more"></a><br>一个基本的基于原型链的继承过程大概是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//先来个父类，带些属性</div><div class="line">function Super()&#123;</div><div class="line">    this.flag = true;</div><div class="line">&#125;</div><div class="line">//为了提高复用性，方法绑定在父类原型属性上</div><div class="line">Super.prototype.getFlag = function()&#123;</div><div class="line">    return this.flag;</div><div class="line">&#125;</div><div class="line">//来个子类</div><div class="line">function Sub()&#123;</div><div class="line">    this.subFlag = false;</div><div class="line">&#125;</div><div class="line">//实现继承</div><div class="line">Sub.prototype = new Super;</div><div class="line">//给子类添加子类特有的方法，注意顺序要在继承之后</div><div class="line">Sub.prototype.getSubFlag = function()&#123;</div><div class="line">    return this.subFlag;</div><div class="line">&#125;</div><div class="line">//构造实例</div><div class="line">var es5 = new Sub;</div></pre></td></tr></table></figure></p>
-<p>原型链实现的继承主要有几个问题：<br>1、本来我们为了构造函数属性的封装私有性，方法的复用性，提倡将属性声明在构造函数内，而将方法绑定在原型对象上，但是现在子类的原型是父类的一个实例，自然父类的属性就变成子类原型的属性了；<br>这就会带来一个问题，我们知道构造函数的原型属性在所有构造的实例中是共享的，所以原型中属性的改变会反应到所有的实例上，这就违背了我们想要属性私有化的初衷；<br>2、创建子类的实例时，不能向父类的构造函数传递参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function Super()&#123;</div><div class="line">    this.flag = true;</div><div class="line">&#125;</div><div class="line">function Sub()&#123;</div><div class="line">   this.subFlag = false;</div><div class="line">&#125;</div><div class="line">Sub.prototype = new Super;</div><div class="line">var obj = new Sub();</div><div class="line">obj.flag = flase;  /* 修改之后，由于是原型上的属性，之后创建的所有实例都会受到影响 */</div><div class="line">var obj_2 = new Sub();</div><div class="line">console.log(obj.flag)  //false；</div></pre></td></tr></table></figure></p>
-<p>为了解决以上两个问题，有一个叫借用构造函数的方法<br>只需要在子类构造函数内部使用apply或者call来调用父类的函数即可在实现属性继承的同时，又能传递参数，又能让实例不互相影响<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Super()&#123;</div><div class="line">    this.flag = true;</div><div class="line">&#125;</div><div class="line">function Sub()&#123;</div><div class="line">    Super.call(this);  /* 如果父类可以需要接收参数，这里也可以直接传递 */</div><div class="line">&#125;;</div><div class="line">var obj = new Sub();</div><div class="line">obj.flag = flase;</div><div class="line">var obj_2 = new Sub();</div><div class="line">console.log(obj_2.flag)  //依然是true，不会相互影响</div></pre></td></tr></table></figure></p>
-<p>结合借用构造函数和原型链的方法，可以实现比较完美的继承方法，可以称为组合继承：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function Super()&#123;</div><div class="line">    this.flag = true;</div><div class="line">&#125;</div><div class="line">Super.prototype.getFlag = function()&#123;</div><div class="line">    return this.flag;     /* 继承方法 */</div><div class="line">&#125;</div><div class="line">function Sub()&#123;</div><div class="line">    this.subFlag = flase</div><div class="line">    Super.call(this)    /* 继承属性 */</div><div class="line">&#125;</div><div class="line">Sub.prototype = new Super;</div><div class="line">var obj = new Sub();</div><div class="line">Super.prototype.getSubFlag = function()&#123;</div><div class="line">    return this.flag;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这里还有个小问题，Sub.prototype = new Super;  会导致Sub.prototype的constructor指向Super;<br>然而constructor的定义是要指向原型属性对应的构造函数的，Sub.prototype是Sub构造函数的原型，所以应该添加一句纠正：<br>Sub.prototype.constructor = Sub;</p>
-<p>看完ES5的实现，再来看看ES6的继承实现方法，其内部其实也是ES5组合继承的方式，通过call借用构造函数，在A类构造函数中调用相关属性，再用原型链的连接实现方法的继承<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">class B extends A &#123;</div><div class="line">  constructor() &#123;</div><div class="line">    return A.call(this);  //继承属性</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">A.prototype = new B;  //继承方法</div></pre></td></tr></table></figure></p>
-<p>ES6封装了class，extends关键字来实现继承，内部的实现原理其实依然是基于上面所讲的原型链，不过进过一层封装后，Javascript的继承得以更加简洁优雅地实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class ColorPoint extends Point &#123;</div><div class="line">  constructor(x, y, color) &#123;</div><div class="line">    super(x, y); /* 等同于parent.constructor(x, y) */</div><div class="line">    this.color = color;</div><div class="line">  &#125;</div><div class="line">  toString() &#123;</div><div class="line">    return this.color + &apos; &apos; + super.toString(); // 等同于parent.toString()</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>通过constructor来定义构造函数，用super调用父类的属性方法</p>
-<p>ES6中Class充当了ES5中，构造函数在继承实现过程中的作用<br>同样有原型属性prototype，以及在ES5中用来指向构造函数原型的<code>__proto__</code>属性，这个属性在ES6中的指向有一些主动的修改。<br>一个继承语句同时存在两条继承链：一条实现属性继承，一条实现方法继承。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">class A extends B &#123;&#125;</div><div class="line">A.__proto__ === B;  /* 继承属性 */</div><div class="line">A.prototype.__proto__ === B.prototype;  //继承方法</div></pre></td></tr></table></figure></p>
-<p>ES6的子类的<code>__proto__</code>是父类，子类的原型的<code>__proto__</code>是父类的原型<br>第二条继承链理解起来没有什么问题，对应到ES5中的A.prototype = new B;A.prototype作为B构造的实例，指向构造函数B的原型B.prototype，<br>但是在ES5中A.<code>__proto__</code>是指向Function.prototype的，因为每一个构造函数其实都是Function这个对象构造的，ES6中子类的<code>__proto__</code>指向父类可以实现属性的继承，在ES5中在没有用借用继承的时候由于父类属性被子类原型继承，所有的子类实例实际上都是同一个属性引用。<br>在ES6中实现了子类继承父类属性，在构造实例的时候会直接拿到子类的属性，不需要查找到原型属性上面去，ES6新的静态方法和静态属性（只能在构造函数上访问）也是通过这样类的直接继承来实现，至于普通复用方法还是放到原型链上，道理和实现和ES5是一样的。<br>此外我认为这里修改A.<code>__proto__</code>的指向是有意区分ES6中继承和实例化，同时建立子类和父类直接的关系，ES5的子类的构造函数通过子类的原型与父类的构造函数连接，不存在直接的关系；<br>可以这么说，在ES5继承和构造实例，ES6构造实例的时候可以理解<code>__proto__</code>原型指针是用来指向构造函数的原型的，但是在ES6继承中，<code>__proto__</code>指继承自哪个类或原型，在A继承B之后，构造一个实例 var obj = new A; 会发现它所有的属性指向都是和ES5一致的。</p>
-<p>有个有趣的地方：ES6继承是在父类创建this对象，在子类constructor中来修饰父类的this，ES5是在子类创建this，将父类的属性方法绑定到子类，由于原生的构造函数（Function，Array等）没有this，子类无法通过call/apply(this)获得其内部属性，所以在ES5无法继承，ES6实现后可以为原生构造函数封装一些有趣的接口，比方说阮一峰老师的这个给Array实例封装一个版本记录和回滚的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">class VersionedArray extends Array &#123;</div><div class="line">  constructor() &#123;</div><div class="line">    super();</div><div class="line">    this.history = [[]];</div><div class="line">  &#125;</div><div class="line">  commit() &#123;</div><div class="line">    this.history.push(this.slice());</div><div class="line">  &#125;</div><div class="line">  revert() &#123;</div><div class="line">    this.splice(0, this.length, ...this.history[this.history.length - 1]);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">var x = new VersionedArray();</div><div class="line">x.push(1);</div><div class="line">x.push(2);</div><div class="line">x // [1, 2]</div><div class="line">x.history // [[]]</div><div class="line">x.commit();</div><div class="line">x.history // [[], [1, 2]]</div><div class="line">x.push(3);</div><div class="line">x // [1, 2, 3]</div><div class="line">x.revert();</div><div class="line">x // [1, 2]</div></pre></td></tr></table></figure></p>
-<p>JS继承小结：<br>ES5最经典的继承方法是用组合继承的方式，原型链继承方法，借用函数继承属性，ES6也是基于这样的方式，但是封装了更优雅简洁的api，让Javascript越来越强大，修改了一些属性指向，规范了继承的操作，区分开了继承实现和实例构造，此外ES6继承还能实现更多的继承需求和场景。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      develop cross-platform GUI app with electron
-    
-    </summary>
-    
-      <category term="学习感悟" scheme="http://shudery.cn/categories/%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%82%9F/"/>
-    
-    
-      <category term="记录" scheme="http://shudery.cn/tags/%E8%AE%B0%E5%BD%95/"/>
-    
-      <category term="JavaScript编程" scheme="http://shudery.cn/tags/JavaScript%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   

@@ -1,156 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <!-- Html Head Tag-->
   <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="develop cross-platform GUI app with electron">
-  <meta name="author" content="Daguo">
-  <!-- Open Graph Data -->
-  <meta property="og:title" content="Javascript开发跨平台桌面app"/>
-  <meta property="og:description" content="develop cross-platform GUI app with electron" />
-  <meta property="og:site_name" content="Daguo&#39;s blog"/>
-  <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://shudery.cnundefined"/>
-  <!-- for baidu web-auto-transform -->
-  <meta http-equiv="Cache-Control" content="no-transform" />
-
-  
-    <link rel="alternate" href="/atom.xml" title="Daguo&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-
-  <!-- Site Title -->
-  <title>Javascript开发跨平台桌面app — Daguo&#39;s blog</title>
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  
-  <link rel="stylesheet" href="/css/style.light.css">
-
-  <!-- Google Analytics -->
-  
-
-  <div id='wx_pic' style='margin:0 auto;display:none;'>
-  <img src="/img/pic300.jpg" />
-  </div>
-  <!-- baidu analytics -->
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?043bb3ce93c8a91e76a6623da10e9778";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-</head>
-
+    <meta charset="utf-8" />
+    
+    <title>
+       Javascript开发跨平台桌面app -  Daguo&#39;s blog
+    </title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="icon" href="/images/logo.jpg" />
+    
+  </head>
   <body>
-    <!-- Page Header -->
-
-
-<header class="site-header header-background" style="">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="page-title with-background-image">
-          <p class="title">Javascript开发跨平台桌面app</p>
-          <p class="subtitle"></p>
-        </div>
-        <div class="site-menu with-background-image">
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.jpg" alt=""/></a>
+          </div>
           <ul>
             
-              <li>
-                <a href="/">
-                  
-                  HOME
-                  
-                </a>
-              </li>
+            <li><a href="/"> Home </a></li>
             
-              <li>
-                <a href="/archives">
-                  
-                  ARCHIVES
-                  
-                </a>
-              </li>
+            <li><a href="/archives"> Archive </a></li>
             
-              <li>
-                <a href="https://github.com/shudery">
-                  
-                  GITHUB
-                  
-                </a>
-              </li>
+            <li><a href="/about"> About </a></li>
             
-              <li>
-                <a href="/2016/03/01/%E9%9A%8F%E7%AC%94/%E5%85%B3%E4%BA%8E%E6%88%91/">
-                  
-                  ABOUT
-                  
-                </a>
-              </li>
+            <li><a href="/atom.xml"> RSS </a></li>
             
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search" />
+            </li>
           </ul>
+           <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、首先安装electron"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、首先安装electron</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、生成package-json配置文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、生成package.json配置文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、新建main-js"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、新建main.js</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、index-html"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、index.html</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、运行桌面app"><span class="post-toc-number">5.</span> <span class="post-toc-text">5、运行桌面app</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、进行打包"><span class="post-toc-number">6.</span> <span class="post-toc-text">6、进行打包</span></a></li></ol> 
         </div>
       </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            Javascript开发跨平台桌面app
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2016-06-23T15:32:17.000Z" itemprop="datePublished">
+            2016-06-23
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/程序员/">程序员</a><span class="post-category-list-count">3</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/JavaScript编程/">JavaScript编程</a><span class="post-tag-list-count">6</span></li></ul>
+        
     </div>
-  </div>
-  
-      <script>
-    document.getElementsByClassName('header-background')[0].style = 'background-image: url(/img/'+Math.ceil(Math.random()*5)+'.jpeg)';
-  </script>
-
-<!-- 添加网易云音乐插件脚本 -->
-  
-</header>
-
-
-<article>
-
-  <div class="container typo">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-info text-muted">
-          
-            <!-- Author -->
-            <span class="author info">By Daguo</span>
-          
-          <!-- Date -->
-          <span class="date-time info">On
-            <span class="date">2016-06-23</span>
-            <!-- <span class="time">21:07:33</span> -->
-          </span>
-          
-          <!--  Categories  -->
-            <span class="categories info">Under 
-
-<a href="/categories/程序员/">程序员</a>
-</span>
-          
-        </div>
-
-        <!-- Tags 
-        
-          <div class="post-tags text-muted">
-            Tags: 
-
-<a class="tag" href="/tags/JavaScript编程/">#JavaScript编程</a>
-
-
-          </div>
-        
-        -->
-        
-        <!-- Post Main Content -->
-        <div class="post-content">
-          <p>electron原本是atom shell的项目，由于集成node丰富的本地系统级API，<br>提供了与操作系统交互的功能，所以归结起来，现在javascrpit的技术栈之所以如此宽广，<br>要得益于NodeJS将其中浏览器的环境中分离出来</p>
+    
+    <div class="post-entry">
+        <p>electron原本是atom shell的项目，由于集成node丰富的本地系统级API，<br>提供了与操作系统交互的功能，所以归结起来，现在javascrpit的技术栈之所以如此宽广，<br>要得益于NodeJS将其中浏览器的环境中分离出来</p>
 <p>不过需要特别说明的是，这里生成的桌面应用，<br>实际上是Electron生成的一个由Javascrpit控制管理的迷你浏览器Chromeinum，<br>它其实是一个Chrome浏览器的试验版本，当然用的也是V8的内核<br><a id="more"></a><br>不管怎么说，这对于喜欢前端，熟悉javascript的同学来说，<br>能够用前端和一点后台的知识去接触，尝试各种不同的领域，实在是不要太爽</p>
 <p>Electron的入门也符合前端知识领域的特点，几乎没有门槛，<br>只要你有一点JS和Node的基础就行了，开发目录的文件层次结构也很简单，<br>后面会有打包工具帮助我们一键打包生成层次比较复杂的项目文件，<br>作为桌面GUI应用，当然也包括.exe的启动文件，</p>
 <p>让我们看看如何开发一个桌面应用，或者说一个能和操作本地系统的web页面的基本方法~<br>你可以跟着步骤完成一些基本的文件，也可以直接下载<a href="https://github.com/shudery/electron/archive/master.zip">快速开始的demo</a><br>基本的文件层次很简单，用app存放一个具体的桌面应用，具体结构是这样的</p>
@@ -173,64 +82,19 @@
 <p>一个简单的基于前端技术栈的桌面app算是完成了，后续的asar文件加密，<br>用nsis制作一个安装引导等等~有兴趣的可以继续完善~</p>
 <p>一个桌面级app当然不是用来显示<code>hello world</code>的，那样和web页面有什么区别，<br>这里只是我入门的一个学习记录，一个基于electron的桌面应用<br>还有着非常丰富的与系统交互功能可以设计和开发~<br>更加详细的用法和配置有兴趣的同学不妨看看官方的<a href="http://electron.atom.io/">api演示文档</a>，<br>它也是一个基于electron做的桌面app</p>
 
-        </div>
-          
-            <div class="ds-thread" data-thread-key="程序员/Javascript开发跨平台桌面app" data-title="Javascript开发跨平台桌面app" data-url="http://shudery.cn/2016/06/23/程序员/Javascript开发跨平台桌面app/"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"shudery"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    // ds.src = 'http://localhost:4000/js/duoshuo.js';
-    var st = document.createElement('style');
-  	// st.rel = "stylesheet";
-  	// st.href = "http://localhost:4000/css/duoshuo.css";	
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds).appendChild(st);
-  })();
-  	</script>
-        
-  
-      </div>
     </div>
-  </div>
-
-
-</article>
-
-
-
-    <!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <p class="copyright text-muted">
-            <a href="mailto:shudery@foxmail.com">shudery</a>&nbsp;@2015-2017&nbsp;&nbsp;|&nbsp;&nbsp; 
-           <a href="#"></a>
-          
-            Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
-        </p>
-
-      </div>
+</div></div>
     </div>
-  </div>
-</footer>
-
-
-    <!-- After Footer Scripts -->
-<script src="/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
-    codeBlocks.forEach(function(block, index) {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
+    <div id="footer">骑士恨煎蛋，骑士恨孜然</div>
+    
   </body>
 </html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
 
+<script type="text/javascript">
+  window.onload = function() {
+    scroll_fixed.init();
+    // siteSearch.init()
+  };
+</script>

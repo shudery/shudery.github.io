@@ -1,156 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <!-- Html Head Tag-->
   <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="javascript的对象构造和原型链继承">
-  <meta name="author" content="Daguo">
-  <!-- Open Graph Data -->
-  <meta property="og:title" content="javaScript的对象构造和原型链继承"/>
-  <meta property="og:description" content="javascript的对象构造和原型链继承" />
-  <meta property="og:site_name" content="Daguo&#39;s blog"/>
-  <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://shudery.cnundefined"/>
-  <!-- for baidu web-auto-transform -->
-  <meta http-equiv="Cache-Control" content="no-transform" />
-
-  
-    <link rel="alternate" href="/atom.xml" title="Daguo&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-
-  <!-- Site Title -->
-  <title>javaScript的对象构造和原型链继承 — Daguo&#39;s blog</title>
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  
-  <link rel="stylesheet" href="/css/style.light.css">
-
-  <!-- Google Analytics -->
-  
-
-  <div id='wx_pic' style='margin:0 auto;display:none;'>
-  <img src="/img/pic300.jpg" />
-  </div>
-  <!-- baidu analytics -->
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?043bb3ce93c8a91e76a6623da10e9778";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-</head>
-
+    <meta charset="utf-8" />
+    
+    <title>
+       javaScript的对象构造和原型链继承 -  Daguo&#39;s blog
+    </title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="icon" href="/images/logo.jpg" />
+    
+  </head>
   <body>
-    <!-- Page Header -->
-
-
-<header class="site-header header-background" style="">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="page-title with-background-image">
-          <p class="title">javaScript的对象构造和原型链继承</p>
-          <p class="subtitle"></p>
-        </div>
-        <div class="site-menu with-background-image">
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.jpg" alt=""/></a>
+          </div>
           <ul>
             
-              <li>
-                <a href="/">
-                  
-                  HOME
-                  
-                </a>
-              </li>
+            <li><a href="/"> Home </a></li>
             
-              <li>
-                <a href="/archives">
-                  
-                  ARCHIVES
-                  
-                </a>
-              </li>
+            <li><a href="/archives"> Archive </a></li>
             
-              <li>
-                <a href="https://github.com/shudery">
-                  
-                  GITHUB
-                  
-                </a>
-              </li>
+            <li><a href="/about"> About </a></li>
             
-              <li>
-                <a href="/2016/03/01/%E9%9A%8F%E7%AC%94/%E5%85%B3%E4%BA%8E%E6%88%91/">
-                  
-                  ABOUT
-                  
-                </a>
-              </li>
+            <li><a href="/atom.xml"> RSS </a></li>
             
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search" />
+            </li>
           </ul>
+           <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-原始绑定和字面量表示："><span class="post-toc-number">1.</span> <span class="post-toc-text">1.原始绑定和字面量表示：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-工厂模式："><span class="post-toc-number">2.</span> <span class="post-toc-text">2.工厂模式：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-构造函数模式："><span class="post-toc-number">3.</span> <span class="post-toc-text">3.构造函数模式：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-原型模式："><span class="post-toc-number">4.</span> <span class="post-toc-text">4.原型模式：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-终极模式：构造函数-原型模式"><span class="post-toc-number">5.</span> <span class="post-toc-text">5.终极模式：构造函数+原型模式</span></a></li></ol> 
         </div>
       </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            javaScript的对象构造和原型链继承
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2016-04-15T09:55:58.000Z" itemprop="datePublished">
+            2016-04-15
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/学习感悟/">学习感悟</a><span class="post-category-list-count">7</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/JavaScript编程/">JavaScript编程</a><span class="post-tag-list-count">6</span></li></ul>
+        
     </div>
-  </div>
-  
-      <script>
-    document.getElementsByClassName('header-background')[0].style = 'background-image: url(/img/'+Math.ceil(Math.random()*5)+'.jpeg)';
-  </script>
-
-<!-- 添加网易云音乐插件脚本 -->
-  
-</header>
-
-
-<article>
-
-  <div class="container typo">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-info text-muted">
-          
-            <!-- Author -->
-            <span class="author info">By Daguo</span>
-          
-          <!-- Date -->
-          <span class="date-time info">On
-            <span class="date">2016-04-15</span>
-            <!-- <span class="time">21:07:33</span> -->
-          </span>
-          
-          <!--  Categories  -->
-            <span class="categories info">Under 
-
-<a href="/categories/学习感悟/">学习感悟</a>
-</span>
-          
-        </div>
-
-        <!-- Tags 
-        
-          <div class="post-tags text-muted">
-            Tags: 
-
-<a class="tag" href="/tags/JavaScript编程/">#JavaScript编程</a>
-
-
-          </div>
-        
-        -->
-        
-        <!-- Post Main Content -->
-        <div class="post-content">
-          <p>这两天仔细地学习了JS的创建对象以及继承的方法，结合红宝石书整理了下笔记。<br>（红宝石这里讲了非常多的模式，看第一遍觉得还蛮乱的）<br>Javascript作为一种动态的面向对象语言，本身却没有类的概念和方法，<br>在创建对象和继承方面有很多有趣的实现和方法<br><a id="more"></a></p>
+    
+    <div class="post-entry">
+        <p>这两天仔细地学习了JS的创建对象以及继承的方法，结合红宝石书整理了下笔记。<br>（红宝石这里讲了非常多的模式，看第一遍觉得还蛮乱的）<br>Javascript作为一种动态的面向对象语言，本身却没有类的概念和方法，<br>在创建对象和继承方面有很多有趣的实现和方法<br><a id="more"></a></p>
 <h2 id="1-原始绑定和字面量表示："><a href="#1-原始绑定和字面量表示：" class="headerlink" title="1.原始绑定和字面量表示："></a>1.原始绑定和字面量表示：</h2><p><strong>优点</strong>：简洁方便<br><strong>问题</strong>：使用对象字面量的方法创建的对象，若重复创建会产生大量的重复代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var o = new Object();</div><div class="line">o.name = &apos;shudery&apos;;</div><div class="line">o.skill = function()&#123;console.log(&apos;sayHello&apos;)&#125;;</div><div class="line">//这是比较老的方法，一般用下面这种简单粗暴的，直接字面量创建</div><div class="line">var obj = &#123;</div><div class="line">    sex = &apos;man&apos;,</div><div class="line">    skill = function()&#123;console.log(&apos;tucao&apos;)&#125; </div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="2-工厂模式："><a href="#2-工厂模式：" class="headerlink" title="2.工厂模式："></a>2.工厂模式：</h2><p>抽象创建具体对象的过程<br><strong>具体</strong>：用函数来封装对象，然后调用特定接口创建对象<br><strong>优点和问题</strong>：解决代码重复性的问题，但是没有解决对象识别问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function createObj(name)&#123;</div><div class="line">    var obj= &#123;</div><div class="line">        name : name ,</div><div class="line">        skill : function()&#123;console.log(&apos;tucao&apos;)&#125;</div><div class="line">    &#125;;</div><div class="line">    return obj;</div><div class="line">&#125;</div><div class="line">var obj_1 = createObj(&apos;shudery&apos;);</div><div class="line">var obj_2 = createObj(&apos;Lin&apos;); </div><div class="line">//Object类型的对象</div></pre></td></tr></table></figure></p>
 <h2 id="3-构造函数模式："><a href="#3-构造函数模式：" class="headerlink" title="3.构造函数模式："></a>3.构造函数模式：</h2><p>使用<code>new</code>操作符，没有显式创建对象<br><strong>优点</strong>：解决了代码识别问题，可以将它构造的实例标示为特定类型<br><strong>问题</strong>：多次复用的方法需要在每个实例上重新创建一遍，浪费内存<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Myobj(name)&#123;</div><div class="line">        this.name = name,</div><div class="line">        this.skill= function()&#123;console.log(&apos;tucao&apos;)&#125;   </div><div class="line">&#125;</div><div class="line">var obj_1 =  new Myobj(&apos;shudery&apos;);</div><div class="line">var obj_2 =  new Myobj(&apos;Lin&apos;);</div><div class="line">//对象类型名称为myObj，解决了识别的问题，用下面方法可以验证</div><div class="line">console.log(obj_1.constructor === Myobj &amp;&amp; obj_2 instanceof Myobj);//true</div></pre></td></tr></table></figure></p>
@@ -166,64 +75,19 @@
 <p>每个构造函数都有一个原型对象，构造的实例有一个指向原型对象的指针，<br>如果我们把父类的实例赋值给原型对象，那么子类的原型对象就是父类的实例，<br>那么这个实例还是有一个指向父类原型的指针，<br>这些指针连起了子类和父类的实例（子类构造函数的原型），就是原型链。</p>
 <p>对象的方法和属性会循着原型链进行访问，直到查找到相应的属性和方法名，<br>或者到达原型链的终点<code>Object.prototype</code>,这也就实现了继承</p>
 
-        </div>
-          
-            <div class="ds-thread" data-thread-key="学习感悟/javaScript的原型链及其继承" data-title="javaScript的对象构造和原型链继承" data-url="http://shudery.cn/2016/04/15/学习感悟/javaScript的原型链及其继承/"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"shudery"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    // ds.src = 'http://localhost:4000/js/duoshuo.js';
-    var st = document.createElement('style');
-  	// st.rel = "stylesheet";
-  	// st.href = "http://localhost:4000/css/duoshuo.css";	
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds).appendChild(st);
-  })();
-  	</script>
-        
-  
-      </div>
     </div>
-  </div>
-
-
-</article>
-
-
-
-    <!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <p class="copyright text-muted">
-            <a href="mailto:shudery@foxmail.com">shudery</a>&nbsp;@2015-2017&nbsp;&nbsp;|&nbsp;&nbsp; 
-           <a href="#"></a>
-          
-            Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
-        </p>
-
-      </div>
+</div></div>
     </div>
-  </div>
-</footer>
-
-
-    <!-- After Footer Scripts -->
-<script src="/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
-    codeBlocks.forEach(function(block, index) {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
+    <div id="footer">骑士恨煎蛋，骑士恨孜然</div>
+    
   </body>
 </html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
 
+<script type="text/javascript">
+  window.onload = function() {
+    scroll_fixed.init();
+    // siteSearch.init()
+  };
+</script>

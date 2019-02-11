@@ -1,156 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <!-- Html Head Tag-->
   <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="IoT application">
-  <meta name="author" content="Daguo">
-  <!-- Open Graph Data -->
-  <meta property="og:title" content="物联网的敲门砖：实现一个简单的IoT应用"/>
-  <meta property="og:description" content="IoT application" />
-  <meta property="og:site_name" content="Daguo&#39;s blog"/>
-  <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://shudery.cnundefined"/>
-  <!-- for baidu web-auto-transform -->
-  <meta http-equiv="Cache-Control" content="no-transform" />
-
-  
-    <link rel="alternate" href="/atom.xml" title="Daguo&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-
-  <!-- Site Title -->
-  <title>物联网的敲门砖：实现一个简单的IoT应用 — Daguo&#39;s blog</title>
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  
-  <link rel="stylesheet" href="/css/style.light.css">
-
-  <!-- Google Analytics -->
-  
-
-  <div id='wx_pic' style='margin:0 auto;display:none;'>
-  <img src="/img/pic300.jpg" />
-  </div>
-  <!-- baidu analytics -->
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?043bb3ce93c8a91e76a6623da10e9778";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-</head>
-
+    <meta charset="utf-8" />
+    
+    <title>
+       物联网的敲门砖：实现一个简单的IoT应用 -  Daguo&#39;s blog
+    </title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="icon" href="/images/logo.jpg" />
+    
+  </head>
   <body>
-    <!-- Page Header -->
-
-
-<header class="site-header header-background" style="">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="page-title with-background-image">
-          <p class="title">物联网的敲门砖：实现一个简单的IoT应用</p>
-          <p class="subtitle"></p>
-        </div>
-        <div class="site-menu with-background-image">
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.jpg" alt=""/></a>
+          </div>
           <ul>
             
-              <li>
-                <a href="/">
-                  
-                  HOME
-                  
-                </a>
-              </li>
+            <li><a href="/"> Home </a></li>
             
-              <li>
-                <a href="/archives">
-                  
-                  ARCHIVES
-                  
-                </a>
-              </li>
+            <li><a href="/archives"> Archive </a></li>
             
-              <li>
-                <a href="https://github.com/shudery">
-                  
-                  GITHUB
-                  
-                </a>
-              </li>
+            <li><a href="/about"> About </a></li>
             
-              <li>
-                <a href="/2016/03/01/%E9%9A%8F%E7%AC%94/%E5%85%B3%E4%BA%8E%E6%88%91/">
-                  
-                  ABOUT
-                  
-                </a>
-              </li>
+            <li><a href="/atom.xml"> RSS </a></li>
             
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search" />
+            </li>
           </ul>
+            
         </div>
       </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            物联网的敲门砖：实现一个简单的IoT应用
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2017-10-08T15:32:17.000Z" itemprop="datePublished">
+            2017-10-08
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/学习感悟/">学习感悟</a><span class="post-category-list-count">7</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/记录/">记录</a><span class="post-tag-list-count">16</span></li></ul>
+        
     </div>
-  </div>
-  
-      <script>
-    document.getElementsByClassName('header-background')[0].style = 'background-image: url(/img/'+Math.ceil(Math.random()*5)+'.jpeg)';
-  </script>
-
-<!-- 添加网易云音乐插件脚本 -->
-  
-</header>
-
-
-<article>
-
-  <div class="container typo">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-info text-muted">
-          
-            <!-- Author -->
-            <span class="author info">By Daguo</span>
-          
-          <!-- Date -->
-          <span class="date-time info">On
-            <span class="date">2017-10-08</span>
-            <!-- <span class="time">21:07:32</span> -->
-          </span>
-          
-          <!--  Categories  -->
-            <span class="categories info">Under 
-
-<a href="/categories/学习感悟/">学习感悟</a>
-</span>
-          
-        </div>
-
-        <!-- Tags 
-        
-          <div class="post-tags text-muted">
-            Tags: 
-
-<a class="tag" href="/tags/记录/">#记录</a>
-
-
-          </div>
-        
-        -->
-        
-        <!-- Post Main Content -->
-        <div class="post-content">
-          <p>物联网概念的提出已久，业界早就有相应的实践和应用，受限于网络带宽和传感器技术，尚未普及，此外这种偏智能化的场景，注定需要一定的时间才能走进大众家庭。在物联网中，技术应用架构是怎样的，与传统互联网有何区别？为了弄清其中的关系和技术栈，我通过查阅资料，实现了一个典型的物联网智能场景，在这个过程随手整理了一些资料以及技术实现过程中踩的一些坑。</p>
+    
+    <div class="post-entry">
+        <p>物联网概念的提出已久，业界早就有相应的实践和应用，受限于网络带宽和传感器技术，尚未普及，此外这种偏智能化的场景，注定需要一定的时间才能走进大众家庭。在物联网中，技术应用架构是怎样的，与传统互联网有何区别？为了弄清其中的关系和技术栈，我通过查阅资料，实现了一个典型的物联网智能场景，在这个过程随手整理了一些资料以及技术实现过程中踩的一些坑。</p>
 <a id="more"></a>
 <p>物联网和传统互联网的CS架构其实是相似的，都是前后端的交互通信，区别在于物联网往往有一个局域网链接客户端，局网中的设备 通过一些轻量的通讯协议交互，比如流行的MQTT，也有直接使用蓝牙或者WLAN的，还有一台网关/路由作为中台，收集来自区域设备的数据，最终传递给云端服务器。如果硬要说还有什么区别，那就是在服务器端，往往还涉及到分布式，数据分析这些架构模块。以此来支持处理和分析来自设备的大量上传数据。</p>
 <p>物联网的三个过程是：收集数据，传递数据和分析数据。对于收集数据而言，主要依赖传感器和相关的硬件模组，这也是软件工程师接触物联网比较感兴趣和有挑战的地方，因为涉及到一些硬件的技术内容；另外传递数据方面虽然依然采用IP/TCP的协议，但是相比传统的互联网，在应用层通讯协议方面已经不局限于采用HTTP/HTTPS了，在局域网中，依赖轻量级，低功耗的传输协议可以更大的发挥物联网设备的特点；至于数据分析层面则是现在飞速发展的互联网技术分支，也是目前物联网中相对成熟的模块，通过大数据实现数字世界和现实世界的Digital Twin，通过数字世界的操控影响现实设备的表现。未来可以支持接入海量设备信息的大数据处理平台必定极具竞争力。在数据处理这一块由于我实现的只是一个简单的活动告警器，只是做一些简单的活动频率统计，所以不会实际都分布式和数据分析的内容。</p>
@@ -167,64 +76,19 @@
 <p>在服务端后台跑起server<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@Daguo:) ~/code/iot/demo 13:38:57 &gt;&gt;&gt;master!</div><div class="line">$ node console.js</div><div class="line">[Oct-22-2017-13:38:58]start server at 8066.</div><div class="line">[Oct-22-2017-13:39:54][rpio-&gt;server]somebody have a action now.</div><div class="line">[Oct-22-2017-14:09:44][rpio-&gt;server]somebody have a action now.</div><div class="line">[Oct-22-2017-15:02:12][rpio-&gt;server]somebody have a action now.</div><div class="line">[Oct-22-2017-15:08:54][app-&gt;server]changeWarnLED</div><div class="line">[Oct-22-2017-15:08:55][app-&gt;server]changeWarnLED</div></pre></td></tr></table></figure></p>
 <p>当监控到环境中有物体活动后，bearyChat应用会收到弹出消息，通过app也可以控制设备LED灯，至此完成了物联网应用的基础功能，更加详细的代码放在我的<a href="https://github.com/shudery/iot">github</a>上。后续还需要改进的地方包括接入多设备的支持，同时要采用新的轻量级协议连接局域网设备，路由对多设备数据的收集和发送，服务端的数据分析和计算，应用端的可视化数据界面展示。</p>
 
-        </div>
-          
-            <div class="ds-thread" data-thread-key="学习感悟/物联网的敲门砖：实现一个简单的IoT应用" data-title="物联网的敲门砖：实现一个简单的IoT应用" data-url="http://shudery.cn/2017/10/08/学习感悟/物联网的敲门砖：实现一个简单的IoT应用/"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"shudery"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    // ds.src = 'http://localhost:4000/js/duoshuo.js';
-    var st = document.createElement('style');
-  	// st.rel = "stylesheet";
-  	// st.href = "http://localhost:4000/css/duoshuo.css";	
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds).appendChild(st);
-  })();
-  	</script>
-        
-  
-      </div>
     </div>
-  </div>
-
-
-</article>
-
-
-
-    <!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <p class="copyright text-muted">
-            <a href="mailto:shudery@foxmail.com">shudery</a>&nbsp;@2015-2017&nbsp;&nbsp;|&nbsp;&nbsp; 
-           <a href="#"></a>
-          
-            Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
-        </p>
-
-      </div>
+</div></div>
     </div>
-  </div>
-</footer>
-
-
-    <!-- After Footer Scripts -->
-<script src="/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
-    codeBlocks.forEach(function(block, index) {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
+    <div id="footer">骑士恨煎蛋，骑士恨孜然</div>
+    
   </body>
 </html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
 
+<script type="text/javascript">
+  window.onload = function() {
+    scroll_fixed.init();
+    // siteSearch.init()
+  };
+</script>

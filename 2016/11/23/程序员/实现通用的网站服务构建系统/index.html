@@ -1,156 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <!-- Html Head Tag-->
   <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="how to build vpn or vps by youself">
-  <meta name="author" content="Daguo">
-  <!-- Open Graph Data -->
-  <meta property="og:title" content="实现通用的网站服务构建系统"/>
-  <meta property="og:description" content="how to build vpn or vps by youself" />
-  <meta property="og:site_name" content="Daguo&#39;s blog"/>
-  <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://shudery.cnundefined"/>
-  <!-- for baidu web-auto-transform -->
-  <meta http-equiv="Cache-Control" content="no-transform" />
-
-  
-    <link rel="alternate" href="/atom.xml" title="Daguo&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-
-  <!-- Site Title -->
-  <title>实现通用的网站服务构建系统 — Daguo&#39;s blog</title>
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  
-  <link rel="stylesheet" href="/css/style.light.css">
-
-  <!-- Google Analytics -->
-  
-
-  <div id='wx_pic' style='margin:0 auto;display:none;'>
-  <img src="/img/pic300.jpg" />
-  </div>
-  <!-- baidu analytics -->
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?043bb3ce93c8a91e76a6623da10e9778";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-</head>
-
+    <meta charset="utf-8" />
+    
+    <title>
+       实现通用的网站服务构建系统 -  Daguo&#39;s blog
+    </title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="icon" href="/images/logo.jpg" />
+    
+  </head>
   <body>
-    <!-- Page Header -->
-
-
-<header class="site-header header-background" style="">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="page-title with-background-image">
-          <p class="title">实现通用的网站服务构建系统</p>
-          <p class="subtitle"></p>
-        </div>
-        <div class="site-menu with-background-image">
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.jpg" alt=""/></a>
+          </div>
           <ul>
             
-              <li>
-                <a href="/">
-                  
-                  HOME
-                  
-                </a>
-              </li>
+            <li><a href="/"> Home </a></li>
             
-              <li>
-                <a href="/archives">
-                  
-                  ARCHIVES
-                  
-                </a>
-              </li>
+            <li><a href="/archives"> Archive </a></li>
             
-              <li>
-                <a href="https://github.com/shudery">
-                  
-                  GITHUB
-                  
-                </a>
-              </li>
+            <li><a href="/about"> About </a></li>
             
-              <li>
-                <a href="/2016/03/01/%E9%9A%8F%E7%AC%94/%E5%85%B3%E4%BA%8E%E6%88%91/">
-                  
-                  ABOUT
-                  
-                </a>
-              </li>
+            <li><a href="/atom.xml"> RSS </a></li>
             
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search" />
+            </li>
           </ul>
+           <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建服务和基础路由"><span class="post-toc-number">1.</span> <span class="post-toc-text">创建服务和基础路由</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置模板引擎"><span class="post-toc-number">2.</span> <span class="post-toc-text">配置模板引擎</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设置静态文件路径"><span class="post-toc-number">3.</span> <span class="post-toc-text">设置静态文件路径</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加测试框架"><span class="post-toc-number">4.</span> <span class="post-toc-text">添加测试框架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加cookie"><span class="post-toc-number">5.</span> <span class="post-toc-text">添加cookie</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开发前端界面"><span class="post-toc-number">6.</span> <span class="post-toc-text">开发前端界面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#邮件系统"><span class="post-toc-number">7.</span> <span class="post-toc-text">邮件系统</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#未完待续……"><span class="post-toc-number"></span> <span class="post-toc-text">未完待续……</span></a> 
         </div>
       </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            实现通用的网站服务构建系统
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2016-11-23T13:59:48.000Z" itemprop="datePublished">
+            2016-11-23
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/程序员/">程序员</a><span class="post-category-list-count">3</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/web前端/">web前端</a><span class="post-tag-list-count">5</span></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/记录/">记录</a><span class="post-tag-list-count">16</span></li></ul>
+        
     </div>
-  </div>
-  
-      <script>
-    document.getElementsByClassName('header-background')[0].style = 'background-image: url(/img/'+Math.ceil(Math.random()*5)+'.jpeg)';
-  </script>
-
-<!-- 添加网易云音乐插件脚本 -->
-  
-</header>
-
-
-<article>
-
-  <div class="container typo">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-info text-muted">
-          
-            <!-- Author -->
-            <span class="author info">By Daguo</span>
-          
-          <!-- Date -->
-          <span class="date-time info">On
-            <span class="date">2016-11-23</span>
-            <!-- <span class="time">21:07:32</span> -->
-          </span>
-          
-          <!--  Categories  -->
-            <span class="categories info">Under 
-
-<a href="/categories/程序员/">程序员</a>
-</span>
-          
-        </div>
-
-        <!-- Tags 
-        
-          <div class="post-tags text-muted">
-            Tags: 
-
-<a class="tag" href="/tags/记录/">#记录</a> <a class="tag" href="/tags/web前端/">#web前端</a>
-
-
-          </div>
-        
-        -->
-        
-        <!-- Post Main Content -->
-        <div class="post-content">
-          <p>这篇文章主要记录如何快速创建一个简洁，健壮的web server，目标是实现网站服务的常用模块，尝试全栈思维开发，提供一套快速构建网站服务的全能脚手架，力求突破快速，低廉，优质只能兼得其二的工程瓶颈。<br>运用的技术栈：node + express + handlebars + mongDB + mocha<br><a id="more"></a></p>
+    
+    <div class="post-entry">
+        <p>这篇文章主要记录如何快速创建一个简洁，健壮的web server，目标是实现网站服务的常用模块，尝试全栈思维开发，提供一套快速构建网站服务的全能脚手架，力求突破快速，低廉，优质只能兼得其二的工程瓶颈。<br>运用的技术栈：node + express + handlebars + mongDB + mocha<br><a id="more"></a></p>
 <h3 id="创建服务和基础路由"><a href="#创建服务和基础路由" class="headerlink" title="创建服务和基础路由"></a>创建服务和基础路由</h3><p>如同客户端的事件响应，当客户端输入一个url之后，server要如何响应这个事件，在express中可以通过中间件搭建各种路由，在客户端请求地址触发相应路由，返回对应的文件，入口文件app.js如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">const app = require(&apos;express&apos;)();</div><div class="line">const port = process.env.port || 3000;</div><div class="line">app.listen(port, (err) =&gt; &#123;</div><div class="line">    err &amp;&amp; log(&apos;error form app.listen()&apos;)</div><div class="line">    log(`application start listen at $&#123;port&#125;`)</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/&apos;, (req, res) =&gt; &#123;</div><div class="line">    res.type(&apos;text/plain&apos;)</div><div class="line">    res.send(&apos;welcome home!&apos;);</div><div class="line">&#125;);</div><div class="line">&lt;!-- //404路由 --&gt;</div><div class="line">app.use((req, res) =&gt; &#123;</div><div class="line">    res.status(404);</div><div class="line">    res.send(&apos;404 not found&apos;);</div><div class="line">&#125;);</div><div class="line">&lt;!-- //500路由,根据传入参数来区分404路由 --&gt;</div><div class="line">app.use((err, req, res, next) =&gt; &#123;</div><div class="line">    res.status(500);</div><div class="line">    res.send(&apos;500 server error&apos;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>最基本的三个路由对应了三种网页请求状态，’/‘匹配响应了主页的正常请求。</p>
@@ -185,64 +94,19 @@
 <p>由于页面设计能力有限，所以暂时先临摹一下medium网站的展示效果:<br><img src="/pic/1.jpg" alt=""><br>模仿效果，具体可以看github的代码:<br><img src="/pic/2.jpg" alt=""></p>
 <h3 id="邮件系统"><a href="#邮件系统" class="headerlink" title="邮件系统"></a>邮件系统</h3><p>使用nodemailer模块构建web应用的邮件server非常方便，在lib下新建mailer.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">const nodemailer = require(&apos;nodemailer&apos;);</div><div class="line">module.exports = function(credentials) &#123;</div><div class="line">    let mailTransport = nodemailer.createTransport(&apos;smtps://&apos; + credentials.gmail.user + &apos;%40gmail.com:&apos; + credentials.gmail.password + &apos;@smtp.gmail.com&apos;);</div><div class="line">    let from = &apos;node-web-server-mailer&lt;shudery@gamil.com&gt;&apos;;</div><div class="line">    let masterEmail = &apos;125153450@qq.com&apos;</div><div class="line">    return &#123;</div><div class="line">        send(subject, html, to) &#123;</div><div class="line">            mailTransport.sendMail(&#123;</div><div class="line">                to: to ? to : masterEmail,</div><div class="line">                from,</div><div class="line">                subject,</div><div class="line">                html,</div><div class="line">            &#125;, (err, info) =&gt; &#123;</div><div class="line">                if (err) &#123;</div><div class="line">                    return console.log(&apos;send email error:&apos; + err);</div><div class="line">                &#125;;</div><div class="line">                console.log(&apos;send email info:&apos; + info.response);</div><div class="line">            &#125;);</div><div class="line">        &#125;,</div><div class="line">        errorSend(message, filename, exception) &#123;</div><div class="line">            let html = `&lt;h1&gt;site error:&lt;/h1&gt;message:$&#123;message&#125;&lt;br&gt;`;</div><div class="line">            if (filename) &#123;</div><div class="line">                html += `filename:$&#123;filename&#125;&lt;br&gt;`;</div><div class="line">            &#125;</div><div class="line">            if (exception) &#123;</div><div class="line">                html += `exception;$&#123;exception&#125;`;</div><div class="line">            &#125;</div><div class="line">            mailTransport.sendMail(&#123;</div><div class="line">                from,</div><div class="line">                to: masterEmail,</div><div class="line">                subject: &apos;site error&apos;,</div><div class="line">                html,</div><div class="line">            &#125;)</div><div class="line">        &#125;,</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="未完待续……"><a href="#未完待续……" class="headerlink" title="未完待续……"></a>未完待续……</h2>
-        </div>
-          
-            <div class="ds-thread" data-thread-key="程序员/实现通用的网站服务构建系统" data-title="实现通用的网站服务构建系统" data-url="http://shudery.cn/2016/11/23/程序员/实现通用的网站服务构建系统/"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"shudery"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    // ds.src = 'http://localhost:4000/js/duoshuo.js';
-    var st = document.createElement('style');
-  	// st.rel = "stylesheet";
-  	// st.href = "http://localhost:4000/css/duoshuo.css";	
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds).appendChild(st);
-  })();
-  	</script>
-        
-  
-      </div>
     </div>
-  </div>
-
-
-</article>
-
-
-
-    <!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <p class="copyright text-muted">
-            <a href="mailto:shudery@foxmail.com">shudery</a>&nbsp;@2015-2017&nbsp;&nbsp;|&nbsp;&nbsp; 
-           <a href="#"></a>
-          
-            Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
-        </p>
-
-      </div>
+</div></div>
     </div>
-  </div>
-</footer>
-
-
-    <!-- After Footer Scripts -->
-<script src="/js/highlight.pack.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
-    codeBlocks.forEach(function(block, index) {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-
+    <div id="footer">骑士恨煎蛋，骑士恨孜然</div>
+    
   </body>
 </html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
 
+<script type="text/javascript">
+  window.onload = function() {
+    scroll_fixed.init();
+    // siteSearch.init()
+  };
+</script>
