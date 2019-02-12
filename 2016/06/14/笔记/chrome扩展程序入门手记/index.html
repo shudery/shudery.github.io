@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>
+       chrome扩展程序入门手记 -  Daguo&#39;s blog
+    </title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="icon" href="/images/logo.jpg" />
+    
+  </head>
+  <body>
+    <div id="container">
+      
+      <div id="main-right"><div id="post">
+  
+  <header class="article-header">
+    <h1>
+      chrome扩展程序入门手记
+    </h1>
+  </header>
+  
+  <div class="post-meta">
+    <time
+      class="post-data"
+      datetime="2016-06-14T15:08:15.000Z"
+      itemprop="datePublished"
+    >
+      2016-06-14
+    </time>
+    <!-- 
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/笔记/">笔记</a><span class="post-category-list-count">16</span></li></ul>
+         -->
+     <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/工具/">工具</a><span class="post-tag-list-count">4</span></li></ul> 
+  </div>
+  
+  <div class="post-entry">
+    <p>chrome 是我非常喜欢的浏览器，它除了速度飞快，对前端代码支持友好的优点外，<br>还有非常丰富的扩展程序资源，提供了大量方便强大的 web 页面应用插件<br>这两天由于朋友的业务需求，接触了一些 chrome 扩展程序(即俗称插件)的有关代码<br>基于对谷歌开发者文档的学习，随手记录了写 chrome 插件的基本方法~</p>
+<p>每一个基本的 Chrome 插件,首先都有一个 manifest.json<br>的配置文件用来存储插件的基本信息</p>
+<p><code>&quot;manifest_version&quot;: 2, &quot;name&quot;: &quot;Getting started example&quot;, &quot;description&quot;: &quot;This extension shows a Google Image search result for the current page&quot;, &quot;version&quot;: &quot;1.0&quot;</code></p>
+<p>包括 manifest 的版本，扩展插件的名字，描述，版本</p>
+<p>弹窗页面的信息 browser_action, 在里面配置一个插件弹窗 html 页面代码，一般名字是 popup.html，<br>浏览器界面显示的扩展图标位置，以及鼠标 hover 的 title</p>
+<p><code>&quot;browser_action&quot;: { &quot;default_icon&quot;: &quot;images/icon.png&quot;, &quot;default_popup&quot;: &quot;popup.html&quot;, &quot;default_title&quot;: &quot;Click here!&quot; }</code></p>
+<p>可选的页面注入代码，一般名字是 contentscript.js，<br>可选多个文件，匹配页面的 matches，只对匹配到的注入代码</p>
+<p><code>&quot;content_scripts&quot;: [{ &quot;js&quot;: [&quot;jquery.min.js&quot;, &quot;contentscript.js&quot;], &quot;matches&quot;: [&quot;http://*/*&quot;,&quot;https://*/*&quot;] }]</code></p>
+<p>还有插件要求的权限和要使用该插件的网页的匹配</p>
+<p><code>&quot;permissions&quot;: [ &quot;tabs&quot;, &quot;http://*/&quot; ]</code></p>
+<p>关于 manifest 的更多字段配置信息，可以查看 360 翻译谷歌的<a href="http://open.chrome.360.cn/extension_dev/manifest.html">开发者文档</a></p>
+<p>从上面的配置可以看到，一个简单插件除了有 manifest 之外<br>还有一个 browser_action, 即 popup.html 来渲染点击插件之后的弹窗页面，<br>这个页面可以分离出来 popup.js popup.css 等文件，<br>这些文件可以放在同一个根目录下，文件中的引用跟普通项目一致可以取相对路径</p>
+<p>如果要实现与浏览器打开页面的交互就必须还有一个注入脚本文件，<br>一般取名 contentscript.js，弹窗页面 popup page 通过相应 api 实现和注入脚本的交互<br>再由注入脚本实现对 web page 的交互<br>在 popup page（popup.js）中的输入代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">chrome.tabs.query(&#123;</div><div class="line">      active: true</div><div class="line">    &#125;, function(tab) &#123;</div><div class="line">       var data = &apos;&apos;;</div><div class="line">        //要传递给注入脚本文件的信息</div><div class="line">      chrome.tabs.sendMessage(tab[0].id, &apos;hello, content script, from background page. there are some data:&apos; + data);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>第二个参数为发送的信息，在注入脚本中通过 request 参数拿到<br>在 contentscript.js 中输入以下代码，开启对 popup.js 的信息发送监听，拿到信息 request</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">chrome.extension.onMessage.addListener(function(request) &#123;</div><div class="line">  //request是popup page传来的信息</div><div class="line">   console.log(&apos;get the message from popup.js&apos;+request)</div><div class="line">   //收到popup page的信息后要做的事情</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>注入脚本 contentscript.js 和浏览器打开的网页脚本 web page 运行在不同的环境之下，<br>所以他们的变量名和全局对象不会有冲突，<br>但是他们共享一个 DOM 树，也就是可以通过修改注入脚本的 DOM 结构来改变页面的 DOM，<br>这也就是注入脚本同 web page 交互的方式</p>
+<p>最后贴一个我练手写的一个<a href="https://github.com/shudery/daguoNote">chrome 插件</a>，<br>实现简单的便签功能，界面用 amazeUI 做的，<br>用 React 渲染，后台处理用 Express 搭建，数据结果直接保存一份 JSON 文件来管理</p>
+
+  </div>
+</div>
+</div>
+    </div>
+    <div id="footer">2016-2019 powered by Hexo. Contact shudery@foxmail.com</div>
+    
+  </body>
+</html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
+
+<script type="text/javascript">
+  window.onload = function() {
+    scroll_fixed.init();
+    // siteSearch.init()
+  };
+</script>
