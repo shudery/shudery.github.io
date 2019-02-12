@@ -888,7 +888,9 @@ var scroll_fixed = (function() {
     }
   }
   function init() {
-    _scrollFixed();
+    if (!document.querySelector('#post')) {
+      _scrollFixed();
+    }
   }
 
   return { init: init };

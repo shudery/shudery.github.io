@@ -203,6 +203,10 @@ a {
   width: 1.3rem;
   cursor: pointer;
 }
+#container #main-left #introduce .social-img {
+  width: 1.5rem;
+  cursor: pointer;
+}
 #container #main-left #introduce ul,
 #container #main-left #introduce .logo-worp {
   text-align: center;
@@ -230,7 +234,7 @@ a {
   font-size: 0.9rem;
   list-style-type: none;
 }
-#container #main-left #introduce ul li:hover {
+#container #main-left #introduce ul li:not(:first-child):hover {
   transform: translateX(0.1rem);
 }
 #container #main-left #introduce .post-toc {
@@ -266,7 +270,7 @@ a {
   margin: 2rem 0;
 }
 #container #main-right .list {
-  margin: 2rem 0;
+  margin: 1.2rem 0;
   transition: all 0.3s;
   display: flex;
   flex-direction: row;
@@ -317,6 +321,7 @@ a {
   transition: all 0.3s;
 }
 #container #main-right #post .post-data {
+  float: right;
   color: #999;
 }
 #container #main-right #post .post-meta .post-category-list {
@@ -505,6 +510,9 @@ a {
   border: 1px solid #eee;
   font-size: 0.9rem;
 }
+.post-entry pre {
+  overflow-y: hidden;
+}
 .post-entry pre code {
   background: none;
   text-shadow: none;
@@ -514,6 +522,7 @@ a {
   border: none;
   margin: 0;
   padding: 0;
+  overflow-y: hidden;
 }
 .post-entry .highlight table {
   margin: 0;
@@ -535,6 +544,7 @@ a {
 .post-entry .highlight .gutter pre {
   text-align: left;
   padding: 0 10px;
+  overflow: hidden;
 }
 .post-entry .highlight .line {
   height: 1rem;
