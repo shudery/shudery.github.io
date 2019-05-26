@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shudery.cn/"/>
-  <updated>2019-02-12T02:51:51.154Z</updated>
+  <updated>2019-05-26T11:54:18.417Z</updated>
   <id>http://shudery.cn/</id>
   
   <author>
@@ -16,11 +16,76 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>LeetCode 刷题的正确姿势</title>
+    <link href="http://shudery.cn/2019/04/15/%E7%AC%94%E8%AE%B0/LeetCode%E5%88%B7%E9%A2%98%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/"/>
+    <id>http://shudery.cn/2019/04/15/笔记/LeetCode刷题的正确姿势/</id>
+    <published>2019-04-14T16:00:00.000Z</published>
+    <updated>2019-05-26T11:54:18.417Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="关于-LeetCode"><a href="#关于-LeetCode" class="headerlink" title="关于 LeetCode"></a>关于 LeetCode</h3><p><a href="https://leetcode.com/problemset/all/">LeetCode</a>是美国一个在线编程网站，也是一个在线判题(Online Judge)平台。拥有很好的在线编程体验，大量的算法题库以及活跃的答案讨论区。</p>
+<p><a href="https://leetcode.com/problemset/all/">LeetCode</a>上的题目分为三个难度，除了 Hard 模式外大多比较基础，基本上不考察复杂的算法，大多是对基础知识应用，因此是程序员准备面试，入门和练习算法的不二之选，另外它在去年推出了<a href="https://leetcode-cn.com/problemset/all/">中文版</a>。</p>
+<p>关于程序员练习算法的好处我就不赘述了，可以看看这篇文章： <a href="https://coolshell.cn/articles/12052.html">LeetCode 编程训练</a></p>
+<h3 id="如何更好地刷题？"><a href="#如何更好地刷题？" class="headerlink" title="如何更好地刷题？"></a>如何更好地刷题？</h3><p>各大 OJ 平台都会提供相应的在线编辑器和测试用例。用户可以即时做题，运行代码，得到结果。不过我认为对于长期使用者来说，应该使做算法的过程<strong>本地化</strong>，这么做有如下这些好处：</p>
+<ul>
+<li>可以使用自己平时开发写代码的编辑器/IDE，更加习惯。</li>
+<li>有语法提示和自动格式化，写代码更高效更规范。</li>
+<li>本地断点调试很方便。</li>
+<li>使用本地测试用例，可以针对性测试某个用例，同时避免在 OJ 平台的多次错误提交，降低你的 AC 成功率。</li>
+<li>通过测试工具，对比不同解法的性能。</li>
+<li>支持离线做题，可以将记录同步到 Git 进行版本管理。</li>
+</ul>
+<p>因此我写了一个本地化 LeetCode 刷题的库：<a href="https://github.com/shudery/leetCode">https://github.com/shudery/leetCode</a>，来获得上面的这些优势，让我可以更高效更方便地刷题，同时也记录了我的解题过程，我使用的编程语言为 JavaScript。</p>
+<h3 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h3><p>将项目克隆到本地：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:shudery/leetCode.git</div></pre></td></tr></table></figure>
+<p>你需要安装最新的 Nodejs 稳定版本，然后下载 npm 包依赖：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
+<p>PS：克隆下来的项目 problems 目录下有我的做题记录，可以重命名作为参考，也可以直接删除，记录你自己的解题记录</p>
+<h3 id="新建算法题目"><a href="#新建算法题目" class="headerlink" title="新建算法题目"></a>新建算法题目</h3><p>通过一个简单的 shell 脚本，自动生成新题目的文件目录，根据模板生成相应文件，一个用来写算法的 <strong>index.js</strong> 和一个用来填写测试输入和输出的 <strong>test.js</strong>，并在 <strong>README.md</strong> 中插入一条相关的信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># ./crepro.sh &#123;题目序号&#125;-&#123;题目(-分隔单词)&#125; &#123;题目难度&#125;</div><div class="line">./crepro.sh 413-arithmetic-slices Medium</div></pre></td></tr></table></figure>
+<p>PS：目前仅在 <strong>index.js</strong> 插入一些基本信息，还需要手动 copy 一下题目内容和测试用例到本地，并导出函数，后续考虑通过自动化爬虫抓取。</p>
+<h3 id="测试算法题目"><a href="#测试算法题目" class="headerlink" title="测试算法题目"></a>测试算法题目</h3><p>使用测试框架 <strong>mocha</strong> 和断言库 <strong>chai</strong> 来验证算法是否通过所有测试用例，用 <strong>benchmark</strong> 来测试算法运行耗时。</p>
+<p>测试相应题目很简单，只需要带上题目号，在命令行中执行：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 测试题号001，传入n=001，返回测试结果</span></div><div class="line">n=<span class="number">001</span> npm test</div><div class="line"><span class="comment">// 返回测试结果，包括算法性能</span></div><div class="line">n=<span class="number">001</span> npm run perf</div></pre></td></tr></table></figure>
+<p><img src="/images/leetcode.png" alt="测试结果"></p>
+<p>思路很简单，将目录结构下的 <strong>index.js</strong> 中的函数取出，用 <strong>test.js</strong> 中的输入数组作为参数传入执行，与输出结果做对比，以此判断算法是否通过：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> path = <span class="string">'./problems'</span>;</div><div class="line"><span class="keyword">const</span> problems = fs.readdirSync(path);</div><div class="line"><span class="keyword">const</span> num = process.env.n;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (num) &#123;</div><div class="line">  <span class="comment">// 测试指定题目</span></div><div class="line">  <span class="keyword">const</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(num);</div><div class="line">  <span class="keyword">const</span> problem = problems.find(val =&gt; reg.test(val));</div><div class="line">  runTest(problem);</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  <span class="comment">// 测试所有题目</span></div><div class="line">  problems.forEach(problem =&gt; runTest(problem));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</div><div class="line">/**</div><div class="line"> * 启动测试用例</div><div class="line"> * @param &#123;string&#125; problem 题目目录</div><div class="line"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">runTest</span>(<span class="params">problem</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> fns = <span class="built_in">require</span>(<span class="string">'./problems/'</span> + problem + <span class="string">'/index.js'</span>);</div><div class="line">  <span class="keyword">const</span> testCases = <span class="built_in">require</span>(<span class="string">'./problems/'</span> + problem + <span class="string">'/test.js'</span>);</div><div class="line">  <span class="comment">//将单个函数转为数组格式</span></div><div class="line">  <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(fns) !== <span class="string">'[object Array]'</span>) &#123;</div><div class="line">    fns = [fns];</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// 开始测试</span></div><div class="line">  describe(<span class="string">`test-problem: <span class="subst">$&#123;problem&#125;</span>`</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 将每个题目中导出的函数逐个执行测试用例</span></div><div class="line">    fns.forEach(fn =&gt; &#123;</div><div class="line">      <span class="comment">// 将多个测试用例逐个执行</span></div><div class="line">      testCases.forEach((testCase, testIndex) =&gt; &#123;</div><div class="line">        <span class="comment">// 如果该题目不需要测试则在module.exports =null即可</span></div><div class="line">        fn &amp;&amp;</div><div class="line">          it(<span class="string">`function:<span class="subst">$&#123;fn.name&#125;</span>  testCase-<span class="subst">$&#123;testIndex&#125;</span>`</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="comment">// 不能直接传入原始数组，不然testCase中的input被污染，影响下一个执行函数</span></div><div class="line">            <span class="keyword">const</span> arr = _.clone(testCase);</div><div class="line">            expect(fn.apply(<span class="literal">null</span>, arr.input)).to.deep.equal(arr.output);</div><div class="line">          &#125;);</div><div class="line">      &#125;);</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>除了验证算法是否通过外，运行算法的耗时也很重要，在一些涉及到大量数据运算的题目中经常遇到算法正确性可以通过，但是由于超出运算时间而无法通过的情况，比如我在做<a href="https://leetcode-cn.com/problems/lru-cache/">LRU-Cache</a> 这道题目的时候，就因为使用了 <strong>forEach</strong> 这个方法而导致超时错误，后面经过测试对比算法的运算耗时，发现 <strong>forEach</strong> 在数据量很大时，性能远远不如 for 循环，改用 for 循环后该问题得到解决。</p>
+<p>性能测试使用 <strong>benchmark</strong> 库，由于其 API 为链式调用，直接通过 eval 拼接字符串的方式来执行，每个算法的导出为一个数组，数组中可以有多个解法函数，测试多个函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fns = <span class="built_in">require</span>(<span class="string">'./problems/'</span> + problem + <span class="string">'/index.js'</span>);</div><div class="line"><span class="keyword">const</span> testCases = <span class="built_in">require</span>(<span class="string">'./problems/'</span> + problem + <span class="string">'/test.js'</span>);</div><div class="line">perfTest(problem, _.clone(testCases), fns);</div><div class="line"><span class="comment">/**</div><div class="line"> * 性能测试函数</div><div class="line"> * @param &#123;*&#125; problem 测试的题目目录</div><div class="line"> * @param &#123;*&#125; testCases 测试用例</div><div class="line"> * @param &#123;*&#125; fns 测试的函数</div><div class="line"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">perfTest</span>(<span class="params">problem, testCases, fns</span>) </span>&#123;</div><div class="line">  logger((<span class="string">'&lt;--start fns speed test--&gt;'</span> + problem).underline + <span class="string">'\n'</span>);</div><div class="line">  <span class="comment">//非数组报错</span></div><div class="line">  isArray(problem, fns);</div><div class="line">  <span class="comment">// 运算耗时排名</span></div><div class="line">  <span class="keyword">const</span> timeRank = [];</div><div class="line">  <span class="comment">// 执行字符串</span></div><div class="line">  <span class="keyword">const</span> evalStr = fns.reduce(</div><div class="line">    (pre, cur, i) =&gt;</div><div class="line">      pre +</div><div class="line">      <span class="string">`.add("<span class="subst">$&#123;</div><div class="line">        cur.name</div><div class="line">      &#125;</span>", function() &#123;fns[<span class="subst">$&#123;i&#125;</span>].apply(null,testCases[0].input);&#125;)`</span>,</div><div class="line">    <span class="string">'suite'</span></div><div class="line">  );</div><div class="line">  <span class="built_in">eval</span>(evalStr)</div><div class="line">    .on(<span class="string">'cycle'</span>, event =&gt; handleCycle(event, timeRank))</div><div class="line">    .on(<span class="string">'complete'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">// 对运行时间排序</span></div><div class="line">      sort(timeRank);</div><div class="line">      <span class="keyword">const</span> label = [];</div><div class="line">      timeRank.forEach(result =&gt; &#123;</div><div class="line">        label.push(<span class="string">`<span class="subst">$&#123;result.name&#125;</span> &gt;&gt;&gt; <span class="subst">$&#123;result.time&#125;</span>`</span>);</div><div class="line">      &#125;);</div><div class="line">      logger(<span class="keyword">this</span>);</div><div class="line">      logger(<span class="string">`Allrank :\n<span class="subst">$&#123;label.join('\n')&#125;</span>`</span>.blue);</div><div class="line">      logger(<span class="string">`Fastest :\n<span class="subst">$&#123;this.filter('fastest').map('name')&#125;</span>`</span>.green);</div><div class="line">      logger(<span class="string">`Slowest :\n<span class="subst">$&#123;this.filter('slowest').map('name')&#125;</span>`</span>.red);</div><div class="line">    &#125;)</div><div class="line">    <span class="comment">// 这个选项与时间计算有关</span></div><div class="line">    .run(&#123; <span class="keyword">async</span>: <span class="literal">true</span> &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleCycle</span>(<span class="params">event, timeRank</span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> info = <span class="built_in">String</span>(event.target);</div><div class="line">  logger(info.yellow);</div><div class="line">  timeRank.push(&#123;</div><div class="line">    name: info.split(<span class="string">' x '</span>)[<span class="number">0</span>],</div><div class="line">    time: info.split(<span class="string">' x '</span>)[<span class="number">1</span>].split(<span class="string">' ops/sec'</span>)[<span class="number">0</span>]</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>不带题目号则测试所有题目：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm test</div><div class="line"><span class="comment">// 测试算法是否通过，并计算所有算法的性能，比较耗时</span></div><div class="line">npm run perf</div></pre></td></tr></table></figure>
+<h3 id="调试算法题目"><a href="#调试算法题目" class="headerlink" title="调试算法题目"></a>调试算法题目</h3><p>在本地做题还有一个巨大的优势就是可以做断点调试。在 <strong>VSCode</strong> 之类的编辑器中打上断点，或者在代码中写 <strong>debugger</strong>，注意会执行一遍所有的算法测试用例，所以不要跨题目打多余的断点。执行如下命令：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run debug</div></pre></td></tr></table></figure>
+<p>PS：注意通常 OJ 平台上的一些数据类型转化都是封装好，对用户不可见的，本地化时需要实现这些数据结构的转化算法。目前已经实现 <strong>数组 –&gt; 链表</strong> 的转换函数 <strong>mapLinks</strong>， <strong>数组 –&gt; 二叉树</strong> 的转换函数 <strong>mapTree</strong>，在需要做转换的测试用例中，将输入参数传入转换函数即可。</p>
+<h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><ul>
+<li>算法题目内容的自动获取</li>
+<li>算法空间性能的计算</li>
+<li>支持函数调用式的测试用例格式</li>
+<li>目前仅支持 JavaScript 的解法，可以兼容支持其他语言</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;关于-LeetCode&quot;&gt;&lt;a href=&quot;#关于-LeetCode&quot; class=&quot;headerlink&quot; title=&quot;关于 LeetCode&quot;&gt;&lt;/a&gt;关于 LeetCode&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode.com/prob
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://shudery.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="工具" scheme="http://shudery.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="算法" scheme="http://shudery.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Webpack打包的基础原理</title>
-    <link href="http://shudery.cn/2019/01/10/%E7%AC%94%E8%AE%B0/Webpack%E6%89%93%E5%8C%85%E7%9A%84%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/"/>
-    <id>http://shudery.cn/2019/01/10/笔记/Webpack打包的基础原理/</id>
-    <published>2019-01-10T02:37:32.000Z</published>
-    <updated>2019-02-12T02:51:51.154Z</updated>
+    <link href="http://shudery.cn/2019/02/11/%E7%AC%94%E8%AE%B0/Webpack%E6%89%93%E5%8C%85%E7%9A%84%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/"/>
+    <id>http://shudery.cn/2019/02/11/笔记/Webpack打包的基础原理/</id>
+    <published>2019-02-11T02:37:32.000Z</published>
+    <updated>2019-02-13T11:45:49.414Z</updated>
     
     <content type="html"><![CDATA[<p>最近想学习一下 webpack 打包的基本原理，从官方文档找到了一个推荐链接：<a href="https://github.com/ronami/minipack">简单模块打包工具的细节说明</a></p>
 <p>是一个精简的打包工具示例：minipack，里面的源码解释非常详细，介绍了一个打包工具库主要做的工作。我快速地阅读了一下源码，并做了一下翻译和总结。</p>
@@ -1186,41 +1251,6 @@
     
     
       <category term="编程" scheme="http://shudery.cn/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>offer已拿，我要浪起来</title>
-    <link href="http://shudery.cn/2016/09/30/%E9%9A%8F%E5%86%99/offer%E5%B7%B2%E6%8B%BF%EF%BC%8C%E6%88%91%E8%A6%81%E6%B5%AA%E8%B5%B7%E6%9D%A5/"/>
-    <id>http://shudery.cn/2016/09/30/随写/offer已拿，我要浪起来/</id>
-    <published>2016-09-29T16:00:00.000Z</published>
-    <updated>2019-02-12T01:27:25.312Z</updated>
-    
-    <content type="html"><![CDATA[<p>在找工作的第二个月月末终于收到了大厂的offer了，不枉这段时间的努力准备啊，终于可以松口气啦。</p>
-<p>稍微整理一下，把我找工作这段时间的一些感悟，吐槽还有一些有趣的事情记录一下，一些技术方面的问题我整理放在了<a href="https://shudery.gitbooks.io/front-end-offer/content/">gitbook</a>上面了，主要是一些前端热点知识和计算机数据结构基础。</p>
-<p>我找工作时，整体感觉大厂的招聘流程确实要成熟一些，即使投简历的人很多，仍然非常高效，这个不关乎成本，其实就是招聘规划是否合理的问题，很多小公司招聘投入没有大公司多，招聘规划也不做好准备。<br> 最基本的就是中间流程拖太久，终面之后拖很久可以理解，但是一面和二面为什么要隔20天呢，我去面试TP-link的时候就是跑很远到酒店面试，一面就问了几个简单的小问题，才十几分钟就结束了，问过了的话二面什么时候，居然要等2周。</p>
-<p>总结一下这段时间面试的感悟，我觉得做技术这一块，除了技术问题肯定是得了解之外，还是有不少的应聘技巧的，前期大量的刷职业相关的技术热点题目，配合几篇面试经验帖子。</p>
-<p>刷题目让你重温了一遍许多技术点，刷的时候讲究理解，不要死记，技术问题就按照是什么，有何有点，如何实现这样一条线去理清就行了，按这种方式了解了一定数目的技术题后，你会打从心里充满自信的。而且这和考试不太一样，考试中的知识点很多都是理论的东西，你没用过也不知道怎么用，技术问题不一样，你充分理解后，可以对以前做过的一些项目，遇到的技术问题做提炼，还可以诞生新的想法在以后的实践中，简单来说考试的知识点很多考完试就没用了，但是面试技术岗学习的东西，你很可能面完试后在以后做项目需要和遇到困难的时候想到。</p>
-<p>刷技术问题过程还可以更加进阶地准备，在对应的技术问题上结合自己曾经做过的项目，加上自己独特的理解和充分对比不同技术的应用场景都是可以加分的。<br>刷面试经验不用太多，这个我觉得主要是让你充分了解相应的招聘流程以及在面试过程中可能发生的情况，以便你更加自如的应对，一个简单的例子，你如果刷面经可能就知道某某公司是喜欢让应聘者直接打代码的，这样你在面试前就要做好这方面的准备，免得面试过程中一下懵逼。</p>
-<p>后期有一定的经验后要将这些经验总结起来，包括面试过程中遇到的技术问题，自己表现的一些不足，踩了哪些面试地雷等等，然后下一次面试格外注意这些地方，就会越战越勇。然后技术方面的问题以及职业规划，项目实践等这些说烂了的解释和介绍，自己可以琢磨这如何更有逼格地或者更加通俗地说明。</p>
-<p>再说说些有意思的事情，我之前投递了一家游戏公司，收到了图形测试题，硬性规定要过某一个分数才可以面试，我看那些图形都快看瞎了，但还是想尽力做吧，最后没过，HR又给我发一次，还跟我说他发题太晚了，估计我精神状态不好，还跟我道歉，总之就是让我重做，然后我又没过，HR又一次发了题给我，感觉被这个公司秀了智商。</p>
-<p>还有一次我大老远跑到一个酒店面试，进去之后我发现居然是视频面试，我在面试的过程中就直接问对方视频面试我在寝室面不行吗，为什么还要应聘者跑过来，对方解释说是需要用对方公司的内部账号和视频软件什么的，至今无法理解。</p>
-<p>我在内推腾讯TST的时候不知道是出了什么乌龙，一个月内大概一共电话面试了5次，不清楚到底发生了什么。可以肯定的是我被多次刷掉，然后放回资源池中，又被其他的面试官看中，然后联系我，一直在被面试官虐，心疼自己；听说腾讯面试完即时被刷也会给面试者的简历备注上很完备的信息，方便下一个面试官去面试，如果面试我的面试官都认真备注了，那我的简历备注应该记爆了吧（摊手。</p>
-<p>面试小公司的时候，如果你是985高校或者实习经验牛逼或者项目经历牛逼，对方总会给你一种很没有自信的感觉，他们会觉得你不太可能会去他们公司，所以会花很多时间了解你为什么要为什么想去小公司，为什么想去那个城市。无论是技术面还是HR，都要问你，为什么不去大厂之类的话，其实很多时候我都想直说我就是来练练手，顺便拿个offer保底啊大哥。后来我嫌麻烦发现一个回答，可以很好的答为什么想去那个城市，就说你女朋友是那里的人就行了（逃，对方基本就放心了不会再问了。</p>
-<p>好了，先这样，呼应标题，我要想想怎么去浪了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在找工作的第二个月月末终于收到了大厂的offer了，不枉这段时间的努力准备啊，终于可以松口气啦。&lt;/p&gt;
-&lt;p&gt;稍微整理一下，把我找工作这段时间的一些感悟，吐槽还有一些有趣的事情记录一下，一些技术方面的问题我整理放在了&lt;a href=&quot;https://shudery.git
-    
-    </summary>
-    
-      <category term="随写" scheme="http://shudery.cn/categories/%E9%9A%8F%E5%86%99/"/>
-    
-    
-      <category term="随写" scheme="http://shudery.cn/tags/%E9%9A%8F%E5%86%99/"/>
     
   </entry>
   
